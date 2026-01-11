@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Way Amazon Launch - Project Dashboard</title>
+
+    <!-- Marked.js for Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+
+        .header-meta div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .progress-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar-container {
+            background: var(--gray-200);
+            height: 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--success-color) 0%, #059669 100%);
+            height: 100%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .tabs {
+            background: white;
+            border-radius: 8px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: var(--gray-700);
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .tab:hover {
+            background: var(--gray-100);
+        }
+
+        .tab.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gray-900);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .file-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .file-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .file-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .file-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .file-icon.pdf {
+            background: var(--danger-color);
+        }
+
+        .file-info h3 {
+            font-size: 1rem;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .file-meta {
+            font-size: 0.875rem;
+            color: var(--gray-700);
+        }
+
+        .file-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .file-status.completed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .file-status.in-progress {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .file-status.pending {
+            background: var(--gray-200);
+            color: var(--gray-700);
+        }
+
+        .subsection {
+            margin-bottom: 2.5rem;
+        }
+
+        .subsection-title {
+            font-size: 1.25rem;
+            color: var(--gray-800);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .subsection-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Slide-out panel */
+        .viewer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 1000;
+        }
+
+        .viewer-overlay.active {
+            display: block;
+        }
+
+        .viewer-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 90%;
+            max-width: 1000px;
+            height: 100vh;
+            background: white;
+            box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .viewer-panel.active {
+            right: 0;
+        }
+
+        .viewer-header {
+            background: var(--gray-800);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .viewer-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .viewer-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary {
+            background: var(--gray-700);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-600);
+        }
+
+        .btn-close {
+            background: transparent;
+            color: white;
+            font-size: 1.5rem;
+            padding: 0.25rem 0.75rem;
+        }
+
+        .btn-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .viewer-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .viewer-content.markdown {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .viewer-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .markdown-content {
+            line-height: 1.7;
+        }
+
+        .markdown-content h1, .markdown-content h2, .markdown-content h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        .markdown-content h1 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--gray-200);
+            padding-bottom: 0.5rem;
+        }
+
+        .markdown-content h2 {
+            font-size: 1.5rem;
+        }
+
+        .markdown-content h3 {
+            font-size: 1.25rem;
+        }
+
+        .markdown-content p {
+            margin-bottom: 1rem;
+        }
+
+        .markdown-content ul, .markdown-content ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .markdown-content code {
+            background: var(--gray-100);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .markdown-content pre {
+            background: var(--gray-800);
+            color: white;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--gray-700);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .viewer-panel {
+                width: 100%;
+            }
+
+            .file-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Best Way Products - Amazon Canada Launch</h1>
+        <p>Phase 1: Product Analysis & Validation</p>
+        <div class="header-meta">
+            <div>
+                <span>📋</span>
+                <span>Client: Todd McDaniel / Douae Lahlou</span>
+            </div>
+            <div>
+                <span>🎯</span>
+                <span>Scope: Option C (Hybrid Approach)</span>
+            </div>
+            <div>
+                <span>📅</span>
+                <span>Start Date: January 6, 2026</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Progress Section -->
+        <div class="progress-section">
+            <div class="progress-header">
+                <h2>Project Progress</h2>
+                <span id="progress-percent">0% Complete</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar">0%</div>
+            </div>
+
+            <div class="stats-grid" style="margin-top: 1.5rem;">
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-completed">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, var(--warning-color) 0%, #d97706 100%);">
+                    <div class="stat-value" id="stat-inprogress">0</div>
+                    <div class="stat-label">In Progress</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, var(--gray-700) 0%, var(--gray-800) 100%);">
+                    <div class="stat-value" id="stat-pending">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);">
+                    <div class="stat-value" id="stat-total">0</div>
+                    <div class="stat-label">Total Deliverables</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs">
+            <button class="tab active" data-tab="overview">📊 Overview</button>
+            <button class="tab" data-tab="analysis">🔍 Product Analysis</button>
+            <button class="tab" data-tab="listing">📝 Listing Optimization</button>
+            <button class="tab" data-tab="training">🎓 Training Materials</button>
+            <button class="tab" data-tab="reference">📚 Reference Docs</button>
+            <button class="tab" data-tab="data-dive">💾 Data Dive</button>
+            <button class="tab" data-tab="meetings">📅 Meeting Records</button>
+            <button class="tab" data-tab="summary">📋 Project Summary</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content active" id="overview">
+            <h2 class="section-title">Project Overview</h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Project Scope</h3>
+                <p>This project focuses on analyzing and validating Best Way pool and outdoor products for launch on Amazon Canada. Using Option C (Hybrid Approach), we will:</p>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li>Conduct deep-dive analysis on 15 high-priority SKUs</li>
+                    <li>Train team to analyze remaining 18 SKUs</li>
+                    <li>Review and validate team's analysis</li>
+                    <li>Optimize 2 existing Amazon listings</li>
+                    <li>Provide comprehensive training and knowledge transfer</li>
+                    <li>Deliver consolidated final report for all 33 SKUs</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Key Objectives</h3>
+                <div class="file-grid">
+                    <div class="file-card" style="cursor: default;">
+                        <div class="file-card-header">
+                            <div class="file-icon">✓</div>
+                            <div class="file-info">
+                                <h3>Data-Driven Decisions</h3>
+                                <p class="file-meta">Validate products with competitive analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="file-card" style="cursor: default;">
+                        <div class="file-card-header">
+                            <div class="file-icon">🎯</div>
+                            <div class="file-info">
+                                <h3>Team Empowerment</h3>
+                                <p class="file-meta">Train team for ongoing analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="file-card" style="cursor: default;">
+                        <div class="file-card-header">
+                            <div class="file-icon">📈</div>
+                            <div class="file-info">
+                                <h3>Profitable Launch</h3>
+                                <p class="file-meta">Ensure sustainable Amazon presence</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Timeline</h3>
+                <p><strong>Phase 1:</strong> Discovery & Priority Analysis<br>
+                <strong>Phase 2:</strong> Team Training & Analysis<br>
+                <strong>Phase 3:</strong> Review & Final Report<br>
+                <strong>Phase 4:</strong> Project Close-Out</p>
+                <p style="margin-top: 1rem; color: var(--gray-700); font-style: italic;">
+                    Timeline to be confirmed during Wednesday meeting based on analysis complexity and scope validation.
+                </p>
+            </div>
+        </div>
+
+        <div class="tab-content" id="analysis">
+            <h2 class="section-title">Product Analysis & Validation</h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Priority SKU Analysis (15 High-Priority Items)</h3>
+                <div class="file-grid" id="priority-skus">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Team-Analyzed SKU Review (18 Items)</h3>
+                <div class="file-grid" id="team-skus">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Consolidated Final Report</h3>
+                <div class="file-grid" id="final-report">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="listing">
+            <h2 class="section-title">Listing Optimization & Creation</h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Existing Listing Optimization (2 ASINs)</h3>
+                <div class="file-grid" id="listing-optimization">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Listing Creation Training</h3>
+                <div class="file-grid" id="listing-training">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="training">
+            <h2 class="section-title">Training & Knowledge Transfer</h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Training Recordings</h3>
+                <div class="file-grid" id="training-recordings">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Training Materials</h3>
+                <div class="file-grid" id="training-materials">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="reference">
+            <h2 class="section-title">Reference Documents</h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Process Guidelines</h3>
+                <div class="file-grid" id="process-guidelines">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Templates & Examples</h3>
+                <div class="file-grid" id="templates-examples">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="data-dive">
+            <h2 class="section-title">Data Dive Materials</h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Setup & Operation</h3>
+                <div class="file-grid" id="datadive-setup">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Training Sessions</h3>
+                <div class="file-grid" id="datadive-training">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="meetings">
+            <h2 class="section-title">Meeting Records & Communications</h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Meeting Notes & Recordings</h3>
+                <div class="file-grid" id="meeting-notes">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Email Communications</h3>
+                <div class="file-grid" id="email-archive">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="summary">
+            <h2 class="section-title">Project Summary</h2>
+
+            <div class="subsection">
+                <h3 class="subsection-title">Final Reports</h3>
+                <div class="file-grid" id="summary-docs">
+                    <!-- Files will be added dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Viewer Overlay and Panel -->
+    <div class="viewer-overlay" id="viewer-overlay" onclick="closeViewer()"></div>
+    <div class="viewer-panel" id="viewer-panel">
+        <div class="viewer-header">
+            <div class="viewer-title" id="viewer-title">Document Title</div>
+            <div class="viewer-actions">
+                <button class="btn btn-secondary" id="download-btn" onclick="downloadFile()">⬇ Download</button>
+                <button class="btn btn-close" onclick="closeViewer()">✕</button>
+            </div>
+        </div>
+        <div class="viewer-content" id="viewer-content">
+            <!-- Content will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        // Configuration - Update this with your file structure
+        const projectFiles = {
+            'priority-skus': [
+                // Example: { name: 'SKU Analysis - Product 1', file: '../03-Analysis/Priority-15-SKUs/product-1.md', status: 'pending' }
+            ],
+            'team-skus': [
+                // { name: 'Team Analysis Review', file: '../03-Analysis/18-Team-SKUs-Review/review.md', status: 'pending' }
+            ],
+            'final-report': [
+                { name: 'Consolidated 33 SKU Final Report', file: '../03-Analysis/Consolidated-Final-Report.md', status: 'pending' },
+                { name: 'Consolidated 33 SKU Final Report (PDF)', file: '../03-Analysis/Consolidated-Final-Report.pdf', status: 'pending' }
+            ],
+            'listing-optimization': [
+                { name: 'ASIN 1 - Optimized Content', file: '../04-Deliverables/Listing-Optimization/ASIN-1.md', status: 'pending' },
+                { name: 'ASIN 2 - Optimized Content', file: '../04-Deliverables/Listing-Optimization/ASIN-2.md', status: 'pending' }
+            ],
+            'listing-training': [
+                { name: 'Listing Creation Training Recording', file: '../06-Training-Sessions/Listing-Creation-Training.mp4', status: 'pending' }
+            ],
+            'training-recordings': [
+                { name: 'Data Dive Training', file: '../06-Training-Sessions/Data-Dive-Training.mp4', status: 'pending' },
+                { name: 'Analysis Methodology Training', file: '../06-Training-Sessions/Analysis-Training.mp4', status: 'pending' },
+                { name: 'Listing Creation Training', file: '../06-Training-Sessions/Listing-Creation-Training.mp4', status: 'pending' }
+            ],
+            'training-materials': [
+                { name: 'Analysis Quick Reference', file: '../05-Client-Materials/Analysis-Quick-Reference.md', status: 'pending' }
+            ],
+            'process-guidelines': [
+                { name: 'Product Analysis Quick Reference', file: '../05-Client-Materials/Product-Analysis-Guide.md', status: 'pending' },
+                { name: 'Listing Creation Quick Guide', file: '../05-Client-Materials/Listing-Creation-Guide.md', status: 'pending' }
+            ],
+            'templates-examples': [
+                { name: 'Analysis Example Template', file: '../05-Client-Materials/Analysis-Example.md', status: 'pending' },
+                { name: 'Listing Content Examples', file: '../05-Client-Materials/Listing-Examples.md', status: 'pending' }
+            ],
+            'datadive-setup': [
+                { name: 'Data Dive Setup Guide', file: '../05-Client-Materials/DataDive-Setup.md', status: 'pending' }
+            ],
+            'datadive-training': [
+                { name: 'Data Dive Training Recording', file: '../06-Training-Sessions/Data-Dive-Training.mp4', status: 'pending' }
+            ],
+            'meeting-notes': [
+                { name: 'Kickoff Meeting Summary', file: '../08-Meeting-Notes/01-Kickoff-Meeting/Kickoff_Meeting_Summary_Jan5_2026.md', status: 'completed' },
+                { name: 'Kickoff Meeting Summary (PDF)', file: '../08-Meeting-Notes/01-Kickoff-Meeting/Kickoff_Meeting_Summary_Jan5_2026.pdf', status: 'pending' },
+                { name: 'Kickoff Meeting Agenda', file: '../08-Meeting-Notes/01-Kickoff-Meeting/KICKOFF_MEETING_AGENDA.md', status: 'completed' }
+            ],
+            'email-archive': [
+                { name: 'Kickoff Meeting Summary Email', file: '../08-Meeting-Notes/01-Kickoff-Meeting/EMAIL_Kickoff_Meeting_Summary.md', status: 'completed' }
+            ],
+            'summary-docs': [
+                { name: 'Project Deliverables List', file: '../04-Deliverables/PROJECT_DELIVERABLES_LIST.md', status: 'completed' },
+                { name: 'Project Close-Out Report', file: '../04-Deliverables/Final-Summary.md', status: 'pending' },
+                { name: 'Project Close-Out Report (PDF)', file: '../04-Deliverables/Final-Summary.pdf', status: 'pending' }
+            ]
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderAllFiles();
+            updateStats();
+            setupTabs();
+        });
+
+        // Tab switching
+        function setupTabs() {
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+
+                    // Update active tab
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Update active content
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        }
+
+        // Render all files
+        function renderAllFiles() {
+            for (const [sectionId, files] of Object.entries(projectFiles)) {
+                const container = document.getElementById(sectionId);
+                if (!container) continue;
+
+                if (files.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">📄</div>
+                            <p>No files yet</p>
+                        </div>
+                    `;
+                    continue;
+                }
+
+                container.innerHTML = files.map(file => createFileCard(file)).join('');
+            }
+        }
+
+        // Create file card HTML
+        function createFileCard(file) {
+            const fileExt = file.file.split('.').pop().toLowerCase();
+            const iconClass = fileExt === 'pdf' ? 'pdf' : '';
+            const iconText = fileExt === 'pdf' ? 'PDF' : 'MD';
+
+            const statusClass = file.status || 'pending';
+            const statusText = {
+                'completed': 'Completed',
+                'in-progress': 'In Progress',
+                'pending': 'Pending'
+            }[statusClass];
+
+            return `
+                <div class="file-card" onclick='openFile(${JSON.stringify(file)})'>
+                    <div class="file-card-header">
+                        <div class="file-icon ${iconClass}">${iconText}</div>
+                        <div class="file-info">
+                            <h3>${file.name}</h3>
+                            <p class="file-meta">${fileExt.toUpperCase()} Document</p>
+                        </div>
+                    </div>
+                    <span class="file-status ${statusClass}">${statusText}</span>
+                </div>
+            `;
+        }
+
+        // Open file in viewer
+        async function openFile(file) {
+            const viewer = document.getElementById('viewer-panel');
+            const overlay = document.getElementById('viewer-overlay');
+            const content = document.getElementById('viewer-content');
+            const title = document.getElementById('viewer-title');
+
+            title.textContent = file.name;
+
+            const fileExt = file.file.split('.').pop().toLowerCase();
+
+            if (fileExt === 'pdf') {
+                content.className = 'viewer-content';
+                content.innerHTML = `<iframe src="${file.file}" style="width:100%; height:100%;"></iframe>`;
+            } else if (fileExt === 'md') {
+                content.className = 'viewer-content markdown';
+                try {
+                    const response = await fetch(file.file);
+                    const markdown = await response.text();
+                    const html = marked.parse(markdown);
+                    content.innerHTML = `<div class="markdown-content">${html}</div>`;
+                } catch (error) {
+                    content.innerHTML = `<div class="empty-state"><p>Unable to load document: ${error.message}</p></div>`;
+                }
+            } else {
+                content.innerHTML = `<div class="empty-state"><p>Preview not available for this file type</p></div>`;
+            }
+
+            viewer.classList.add('active');
+            overlay.classList.add('active');
+
+            // Store current file for download
+            window.currentFile = file;
+        }
+
+        // Close viewer
+        function closeViewer() {
+            document.getElementById('viewer-panel').classList.remove('active');
+            document.getElementById('viewer-overlay').classList.remove('active');
+        }
+
+        // Download file
+        function downloadFile() {
+            if (window.currentFile) {
+                window.open(window.currentFile.file, '_blank');
+            }
+        }
+
+        // Update statistics
+        function updateStats() {
+            let completed = 0;
+            let inProgress = 0;
+            let pending = 0;
+            let total = 0;
+
+            for (const files of Object.values(projectFiles)) {
+                files.forEach(file => {
+                    total++;
+                    if (file.status === 'completed') completed++;
+                    else if (file.status === 'in-progress') inProgress++;
+                    else pending++;
+                });
+            }
+
+            document.getElementById('stat-completed').textContent = completed;
+            document.getElementById('stat-inprogress').textContent = inProgress;
+            document.getElementById('stat-pending').textContent = pending;
+            document.getElementById('stat-total').textContent = total;
+
+            const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-bar').textContent = percentage + '%';
+            document.getElementById('progress-percent').textContent = percentage + '% Complete';
+        }
+
+        // Escape key to close viewer
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeViewer();
+            }
+        });
+    </script>
+</body>
+</html>
