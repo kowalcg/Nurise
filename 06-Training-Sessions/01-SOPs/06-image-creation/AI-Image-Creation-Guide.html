@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>AI-Image-Creation-Guide</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="ai-image-creation-guide-for-amazon-listings">AI Image Creation
+Guide for Amazon Listings</h1>
+<p><strong>Nurise Listing Optimization</strong></p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>This guide covers using ChatGPT 4o to create professional Amazon
+listing images, including main images, secondary images, and
+infographics. AI image generation can produce usable assets in minutes
+rather than hours.</p>
+<h3 id="what-you-can-create">What You Can Create</h3>
+<table>
+<colgroup>
+<col style="width: 54%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>Image Type</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main Images</td>
+<td>Product on white background, with parts, with packaging</td>
+</tr>
+<tr>
+<td>Secondary Images</td>
+<td>Sizing, durability, applications, POV shots</td>
+</tr>
+<tr>
+<td>Infographics</td>
+<td>Feature callouts, comparisons, benefits</td>
+</tr>
+<tr>
+<td>Lifestyle Images</td>
+<td>Product in use, scenarios</td>
+</tr>
+</tbody>
+</table>
+<h3 id="time-comparison">Time Comparison</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Traditional design</td>
+<td>Hours to days</td>
+</tr>
+<tr>
+<td>AI generation</td>
+<td>Minutes per image</td>
+</tr>
+<tr>
+<td>AI with revisions</td>
+<td>5-15 minutes per final image</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-1-getting-started-with-chatgpt-4o">Part 1: Getting Started
+with ChatGPT 4o</h2>
+<h3 id="basic-setup">Basic Setup</h3>
+<ol type="1">
+<li>Access ChatGPT with 4o model</li>
+<li>Create a <strong>Project</strong> for your product</li>
+<li>Organize tasks within the project</li>
+</ol>
+<h3 id="project-organization">Project Organization</h3>
+<p>Keep concepts separate to avoid confusion:</p>
+<pre><code>Project: [Product Name]
+├── Main Image v1
+├── Main Image v2
+├── Durability Graphic
+├── Ease of Use Graphic
+├── POV/Magnification Graphic
+└── Applications Graphic</code></pre>
+<p><strong>Why This Matters:</strong> - Long threads confuse the AI -
+Multiple reference images cause blending - Separate tasks = cleaner
+results</p>
+<h3 id="speed-tips">Speed Tips</h3>
+<ul>
+<li>Each image: 1-1.5 minutes to render</li>
+<li>Run multiple tasks simultaneously</li>
+<li>If stuck over 1.5 minutes, type “Why isn’t this starting?”</li>
+</ul>
+<hr />
+<h2 id="part-2-creating-main-images">Part 2: Creating Main Images</h2>
+<h3 id="main-image-levels">Main Image Levels</h3>
+<p><strong>Level 1: Product Only</strong> - Basic white background - 3D
+render style - Clean and professional</p>
+<p><strong>Level 2: Product + Parts (Inclusions)</strong></p>
+<pre><code>Product + carrying case + accessories + extras</code></pre>
+<p><strong>Level 3: Product + Parts + Packaging</strong></p>
+<pre><code>Product + inclusions + branded box with keywords</code></pre>
+<h3 id="main-image-prompt-example">Main Image Prompt Example</h3>
+<pre><code>Create a product photo on a pure white background showing:
+- [Product description]
+- Clean, professional lighting
+- 3D render style
+
+Scale: 2000 x 2500 pixels</code></pre>
+<h3 id="scaling-images">Scaling Images</h3>
+<p>Request specific dimensions: - Standard: 2000 x 2500 pixels - ChatGPT
+4o can upscale automatically</p>
+<hr />
+<h2 id="part-3-creating-secondary-images">Part 3: Creating Secondary
+Images</h2>
+<h3 id="common-secondary-image-types">Common Secondary Image Types</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sizing graphic</td>
+<td>Show dimensions/fit</td>
+</tr>
+<tr>
+<td>Durability graphic</td>
+<td>Address drop/water concerns</td>
+</tr>
+<tr>
+<td>Applications graphic</td>
+<td>Show use cases</td>
+</tr>
+<tr>
+<td>POV/Magnification</td>
+<td>Show product in action</td>
+</tr>
+<tr>
+<td>Product anatomy</td>
+<td>Highlight features</td>
+</tr>
+<tr>
+<td>Ease of use</td>
+<td>Show simplicity</td>
+</tr>
+<tr>
+<td>Gifting</td>
+<td>Holiday/occasion themes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="applications-graphic-layout">Applications Graphic Layout</h3>
+<p>Show multiple use cases in quadrants:</p>
+<pre><code>┌──────────┬──────────┐
+│ Camping  │ Sports   │
+├──────────┼──────────┤
+│Road Trip │ Hiking   │
+└──────────┴──────────┘</code></pre>
+<h3 id="durability-graphic-elements">Durability Graphic Elements</h3>
+<p>Common elements to include: - Person interacting with product - Drop
+or water scenario - “Shockproof” / “Waterproof” text - Action shot
+showing durability</p>
+<hr />
+<h2 id="part-4-the-sketch-method">Part 4: The Sketch Method</h2>
+<h3 id="why-sketch-first">Why Sketch First</h3>
+<p>Drawing a simple layout helps you: - Describe exactly what you want -
+Verify all elements before refinement - Get cartoonish V1 for approval -
+Refine to photorealistic</p>
+<h3 id="sketch-process">Sketch Process</h3>
+<p><strong>Step 1: Draw Layout</strong> Simple sketch showing: - Where
+text goes - Where images go - General composition</p>
+<p><strong>Step 2: Add Text Description</strong> Describe each element
+clearly: - Title/subtitle text - Scene descriptions - Person actions -
+Color preferences</p>
+<p><strong>Step 3: Generate V1</strong> - First output will be
+cartoonish - Verify all elements present - Check layout is correct</p>
+<p><strong>Step 4: Refine</strong></p>
+<pre><code>&quot;Make this more photorealistic&quot;</code></pre>
+<h3 id="sketch-elements-to-include">Sketch Elements to Include</h3>
+<ol type="1">
+<li>Title placement</li>
+<li>Person position and action</li>
+<li>Product placement</li>
+<li>Background elements</li>
+<li>Text labels</li>
+</ol>
+<hr />
+<h2 id="part-5-handling-people-in-images">Part 5: Handling People in
+Images</h2>
+<h3 id="the-context-rule">The Context Rule</h3>
+<p>ChatGPT needs context to create people:</p>
+<p><strong>Bad Prompt (Too Vague):</strong></p>
+<pre><code>&quot;I want a photo of a girl using binoculars&quot;
+= May be rejected</code></pre>
+<p><strong>Good Prompt (With Context):</strong></p>
+<pre><code>&quot;For extra context, this is a scene of a homeowner maintaining
+their inflatable hot tub on a patio. They should be wearing
+casual outdoor clothing. The adult should be in their 30s-40s
+and look relaxed while performing routine maintenance.&quot;
+= Accepted</code></pre>
+<h3 id="context-elements-to-include">Context Elements to Include</h3>
+<ol type="1">
+<li><strong>Setting/scenario</strong> (backyard patio, spa maintenance,
+pool area)</li>
+<li><strong>Activity being performed</strong> (filter replacement, spa
+cleaning, relaxation)</li>
+<li><strong>Appropriate clothing</strong> (casual outdoor wear, swimwear
+if in spa)</li>
+<li><strong>Age range</strong> (7-9 years old, adult, etc.)</li>
+<li><strong>Color scheme/mood</strong> (outdoor, bright, natural)</li>
+</ol>
+<hr />
+<h2 id="part-6-using-reference-images">Part 6: Using Reference
+Images</h2>
+<h3 id="types-of-reference-images">Types of Reference Images</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hand-drawn sketch</td>
+<td>Layout planning</td>
+</tr>
+<tr>
+<td>Competitor image</td>
+<td>Style inspiration</td>
+</tr>
+<tr>
+<td>Your product photo</td>
+<td>Product accuracy</td>
+</tr>
+<tr>
+<td>Design library examples</td>
+<td>Infographic style</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-to-use-references">How to Use References</h3>
+<ol type="1">
+<li>Upload reference image to ChatGPT</li>
+<li>Describe what you like about it</li>
+<li>Request similar style for your product</li>
+<li>Iterate from there</li>
+</ol>
+<h3 id="amz-design-kit-resource">AMZ Design Kit Resource</h3>
+<p>Library of 30,000+ design examples: - Main images - Secondary images
+- A+ content - Templates</p>
+<p>Cost: ~$15-20</p>
+<hr />
+<h2 id="part-7-revision-best-practices">Part 7: Revision Best
+Practices</h2>
+<h3 id="optimal-revision-count">Optimal Revision Count</h3>
+<p><strong>Sweet Spot: 5-7 revisions</strong></p>
+<table>
+<thead>
+<tr>
+<th>Revisions</th>
+<th>Quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-3</td>
+<td>Improving significantly</td>
+</tr>
+<tr>
+<td>4-5</td>
+<td>Fine-tuning</td>
+</tr>
+<tr>
+<td>6-7</td>
+<td>Marginal improvements</td>
+</tr>
+<tr>
+<td>8+</td>
+<td>Often getting worse</td>
+</tr>
+</tbody>
+</table>
+<h3 id="when-to-stop">When to Stop</h3>
+<p>Signs to stop revising: - Quality degrading - New problems appearing
+- Same issues repeating - Thread getting confused</p>
+<h3 id="hybrid-approach">Hybrid Approach</h3>
+<p>After 5-7 revisions: 1. Take best elements from different versions 2.
+Hand off to designer for final polish 3. Combine quadrants from
+different outputs 4. Fix minor issues in Photoshop</p>
+<hr />
+<h2 id="part-8-market-research-for-images">Part 8: Market Research for
+Images</h2>
+<h3 id="why-research-first">Why Research First</h3>
+<p>Identify what graphics to create based on: - Customer objections
+(DRAB analysis) - Competitor gaps - High-frequency concerns</p>
+<h3 id="key-questions">Key Questions</h3>
+<ol type="1">
+<li>What are top customer objections?</li>
+<li>How many competitors address them visually?</li>
+<li>Are existing competitor graphics good?</li>
+<li>Where are the gaps?</li>
+</ol>
+<h3 id="graphic-strategy">Graphic Strategy</h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No competitor graphics</td>
+<td>Create to differentiate</td>
+</tr>
+<tr>
+<td>Poor competitor graphics</td>
+<td>Create better version</td>
+</tr>
+<tr>
+<td>Good competitor graphics</td>
+<td>Match or exceed quality</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-9-complete-workflow">Part 9: Complete Workflow</h2>
+<h3 id="phase-1-research">Phase 1: Research</h3>
+<ol type="1">
+<li>Review customer feedback/objections</li>
+<li>Audit competitor graphics</li>
+<li>Identify gaps/opportunities</li>
+<li>List graphic types needed</li>
+</ol>
+<h3 id="phase-2-planning">Phase 2: Planning</h3>
+<ol type="1">
+<li>Gather reference images</li>
+<li>Sketch layouts</li>
+<li>Write text descriptions</li>
+<li>Prepare context for people shots</li>
+</ol>
+<h3 id="phase-3-creation">Phase 3: Creation</h3>
+<ol type="1">
+<li>Create ChatGPT project</li>
+<li>Separate tasks for each graphic</li>
+<li>Upload reference images</li>
+<li>Generate V1 (cartoonish OK)</li>
+<li>Verify all elements present</li>
+<li>Request “more photorealistic”</li>
+<li>Iterate 3-5 times max</li>
+</ol>
+<h3 id="phase-4-refinement">Phase 4: Refinement</h3>
+<ol type="1">
+<li>Select best outputs</li>
+<li>Hand off to designer if needed</li>
+<li>Final polish in editing software</li>
+<li>Combine best elements</li>
+</ol>
+<h3 id="phase-5-testing">Phase 5: Testing</h3>
+<ol type="1">
+<li>Run market research tests</li>
+<li>Compare against current assets</li>
+<li>Compare against competitors</li>
+<li>Deploy winners</li>
+</ol>
+<hr />
+<h2 id="part-10-prompt-template">Part 10: Prompt Template</h2>
+<h3 id="standard-prompt-structure">Standard Prompt Structure</h3>
+<pre><code>For extra context: [Describe the scene/situation]
+
+Elements needed:
+- [Element 1 with position]
+- [Element 2 with position]
+- [Element 3 with position]
+
+Text to include:
+- Title: &quot;[Your title]&quot;
+- Subtitle: &quot;[Your subtitle]&quot;
+
+Style notes:
+- [Person description with age, clothing, activity]
+- [Color scheme preferences]
+- [Mood/atmosphere]</code></pre>
+<h3 id="example-durability-graphic-hot-tub-filter">Example: Durability
+Graphic (Hot Tub Filter)</h3>
+<pre><code>For extra context: This is a marketing graphic for a hot tub filter
+showing it can handle high heat and continuous water exposure.
+
+Elements needed:
+- Title &quot;Premium Durability&quot; at top
+- Homeowner relaxing in inflatable spa on left
+- Filter cartridge with heat waves on center
+- Clean filtered water flowing on right
+- &quot;Heat Resistant&quot; text badge
+
+Text to include:
+- Title: &quot;Engineered for Hot Water&quot;
+- Badges: &quot;Heat Resistant&quot; &quot;Tri-Lobal Filtration&quot;
+
+Style notes:
+- Adult in casual swimwear near spa
+- Backyard patio setting with inflatable hot tub
+- Warm, inviting mood
+- Professional product photography style</code></pre>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logo quality issues</td>
+<td>Final touch-up in Photoshop</td>
+</tr>
+<tr>
+<td>Thread confusion</td>
+<td>Break into separate threads</td>
+</tr>
+<tr>
+<td>Rendering stuck</td>
+<td>Type “Why isn’t this starting?”</td>
+</tr>
+<tr>
+<td>Cartoonish results</td>
+<td>Request “more photorealistic”</td>
+</tr>
+<tr>
+<td>People creation rejected</td>
+<td>Add more context (see Part 5)</td>
+</tr>
+<tr>
+<td>Text rendering wrong</td>
+<td>Request specific corrections</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="resources">Resources</h2>
+<h3 id="tools">Tools</h3>
+<ul>
+<li>ChatGPT 4o (primary)</li>
+<li>AMZ Design Kit (references)</li>
+<li>Photoshop/Illustrator (final polish)</li>
+</ul>
+<h3 id="testing">Testing</h3>
+<ul>
+<li>PickFu (image testing)</li>
+<li>DataDive AI Product Brief (customer insights)</li>
+</ul>
+<hr />
+<p><strong>Time Estimate:</strong> 15-30 minutes per graphic (including
+revisions) <strong>Difficulty:</strong> Beginner to Intermediate</p>
+<hr />
+<p><em>Nurise Listing Optimization Guide v1.0</em></p>
+</body>
+</html>

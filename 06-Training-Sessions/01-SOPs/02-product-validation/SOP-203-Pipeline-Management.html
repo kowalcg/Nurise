@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SOP-203-Pipeline-Management</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="sop-203-pipeline-management">SOP-203: Pipeline Management</h1>
+<p><strong>Nurise Listing Optimization</strong></p>
+<hr />
+<h2 id="purpose">Purpose</h2>
+<p>Organize validated products in your pipeline, compare scores,
+calculate profitability, and prioritize which products to pursue.</p>
+<h2 id="when-to-use">When to Use</h2>
+<ul>
+<li>After validating 10+ products (SOP-202)</li>
+<li>Comparing opportunities across your pipeline</li>
+<li>Deciding which products to source/launch</li>
+<li>Preparing for manufacturer quotes</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Multiple products validated
+(SOP-202)</label></li>
+<li><label><input type="checkbox" />Products saved to appropriate
+Spaces</label></li>
+<li><label><input type="checkbox" />Scorecard data complete for each
+product</label></li>
+</ul>
+<hr />
+<h2 id="procedure">Procedure</h2>
+<h3 id="step-1-access-your-pipeline">Step 1: Access Your Pipeline</h3>
+<ol type="1">
+<li>Go to <strong>Niche Pipeline</strong> in DataDive</li>
+<li>Select the Space containing your validated products</li>
+<li>Review the list view showing all dives</li>
+</ol>
+<h3 id="step-2-review-score-comparison">Step 2: Review Score
+Comparison</h3>
+<p>The pipeline view shows key metrics for comparison:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>What It Shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Score</td>
+<td>Overall validation score</td>
+</tr>
+<tr>
+<td>Search Volume</td>
+<td>Total keyword volume</td>
+</tr>
+<tr>
+<td>Competitor Strength</td>
+<td>How tough the competition is</td>
+</tr>
+<tr>
+<td>Review Count</td>
+<td>Average competitor reviews</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sort by Score</strong> to see highest-potential products
+first.</p>
+<h3 id="step-3-apply-labels-for-status">Step 3: Apply Labels for
+Status</h3>
+<p>Update labels based on validation results:</p>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Strong Candidate</code></td>
+<td>High score, worth pursuing</td>
+</tr>
+<tr>
+<td><code>Getting Quotes</code></td>
+<td>Sent to manufacturers</td>
+</tr>
+<tr>
+<td><code>Quotes Received</code></td>
+<td>Have pricing, need decision</td>
+</tr>
+<tr>
+<td><code>Ready to Launch</code></td>
+<td>Green light, preparing launch</td>
+</tr>
+<tr>
+<td><code>On Hold</code></td>
+<td>Good but not now</td>
+</tr>
+<tr>
+<td><code>Passed</code></td>
+<td>Decided against</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-4-use-profits-calculator">Step 4: Use Profits
+Calculator</h3>
+<p>For top candidates, enter profitability data:</p>
+<p><strong>4a. Access Calculator</strong> 1. Click on a dive 2. Scroll
+to <strong>Profits</strong> section 3. Click to expand</p>
+<p><strong>4b. Enter Your Numbers</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unit Cost</td>
+<td>Manufacturer quote</td>
+</tr>
+<tr>
+<td>Batch Size</td>
+<td>Your planned order</td>
+</tr>
+<tr>
+<td>Shipping/Unit</td>
+<td>Freight quote ÷ units</td>
+</tr>
+<tr>
+<td>Amazon Fees</td>
+<td>Auto-calculated</td>
+</tr>
+<tr>
+<td>Retail Price</td>
+<td>Your selling price</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4c. Review Output</strong> The calculator shows: - Total COGS
+breakdown - Profit per unit - Required launch budget - ROI
+percentage</p>
+<h3 id="step-5-compare-budget-requirements">Step 5: Compare Budget
+Requirements</h3>
+<p>After entering profits data for multiple products:</p>
+<ol type="1">
+<li>Go back to Pipeline view</li>
+<li>Sort or filter by budget required</li>
+<li>Match opportunities to your available capital</li>
+</ol>
+<p><strong>Budget Planning Example:</strong></p>
+<pre><code>Available: $50,000
+
+Product A: $15,000 launch budget - 180% ROI
+Product B: $25,000 launch budget - 150% ROI
+Product C: $45,000 launch budget - 200% ROI
+
+Decision: Launch A + B, save C for later</code></pre>
+<h3 id="step-6-review-summary-metrics">Step 6: Review Summary
+Metrics</h3>
+<p>The pipeline provides aggregate views:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>What to Look For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Search Volume Summary</td>
+<td>Higher = more demand</td>
+</tr>
+<tr>
+<td>Competitor Strength</td>
+<td>Lower = easier entry</td>
+</tr>
+<tr>
+<td>Review Count Average</td>
+<td>Lower = less established</td>
+</tr>
+<tr>
+<td>Price Point Median</td>
+<td>Match your target range</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-7-create-comparison-notes">Step 7: Create Comparison
+Notes</h3>
+<p>For your top 3-5 candidates, document:</p>
+<pre><code>Product: [Name]
+Score: [X]
+Pros:
+- [Strength 1]
+- [Strength 2]
+Cons:
+- [Concern 1]
+- [Concern 2]
+Budget Required: $[X]
+ROI Estimate: [X]%
+Decision: [Go/Maybe/Pass]</code></pre>
+<h3 id="step-8-prioritize-and-assign-next-steps">Step 8: Prioritize and
+Assign Next Steps</h3>
+<p>Create action items for moving forward:</p>
+<p><strong>For “Go” Products:</strong> - [ ] Request manufacturer
+samples - [ ] Get final quotes with MOQ - [ ] Research shipping options
+- [ ] Plan launch timeline</p>
+<p><strong>For “Maybe” Products:</strong> - [ ] Get preliminary quotes -
+[ ] Research further - [ ] Revisit in 2 weeks</p>
+<p><strong>For “Pass” Products:</strong> - [ ] Archive dive - [ ] Note
+reason for passing - [ ] May revisit if market changes</p>
+<h3 id="step-9-set-up-tracking-optional">Step 9: Set Up Tracking
+(Optional)</h3>
+<p>For products moving to launch: 1. Create Rank Radar (SOP-401) 2.
+Begin monitoring competitor keywords 3. Establish baseline before your
+launch</p>
+<hr />
+<h2 id="success-criteria">Success Criteria</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />All validated products
+labeled</label></li>
+<li><label><input type="checkbox" />Top candidates have profit
+calculations</label></li>
+<li><label><input type="checkbox" />Budget requirements
+documented</label></li>
+<li><label><input type="checkbox" />Clear priority order
+established</label></li>
+<li><label><input type="checkbox" />Next steps assigned for top
+products</label></li>
+</ul>
+<h2 id="common-issues">Common Issues</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scores inconsistent</td>
+<td>Verify same scoring method used</td>
+</tr>
+<tr>
+<td>Can’t compare fairly</td>
+<td>Ensure MKLs equally cleaned</td>
+</tr>
+<tr>
+<td>Budget too high for all</td>
+<td>Start with lowest-budget option</td>
+</tr>
+<tr>
+<td>Too many candidates</td>
+<td>Focus on top 5, archive rest</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pipeline-review-frequency">Pipeline Review Frequency</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Review Cadence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Active research</td>
+<td>Weekly</td>
+</tr>
+<tr>
+<td>Getting quotes</td>
+<td>Every 2-3 days</td>
+</tr>
+<tr>
+<td>Ready to launch</td>
+<td>Daily</td>
+</tr>
+<tr>
+<td>Monitoring</td>
+<td>Monthly</td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-sops">Related SOPs</h2>
+<ul>
+<li>Previous: <a href="SOP-202-Product-Validation-Complete.md">SOP-202:
+Product Validation Complete</a></li>
+<li>Next: <a
+href="../03-listing-optimization/SOP-301-Listing-Analysis.md">SOP-301:
+Listing Analysis</a> (for launched products)</li>
+<li>Related: <a
+href="../04-keyword-tracking/SOP-401-Rank-Radar-Setup.md">SOP-401: Rank
+Radar Setup</a> (for tracking)</li>
+</ul>
+<hr />
+<p><strong>Time Estimate:</strong> 20 minutes
+<strong>Difficulty:</strong> Intermediate</p>
+<hr />
+<p><em>Nurise Listing Optimization SOP v1.0</em></p>
+</body>
+</html>

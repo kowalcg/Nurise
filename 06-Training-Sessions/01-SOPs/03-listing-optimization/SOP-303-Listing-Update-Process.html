@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SOP-303-Listing-Update-Process</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="sop-303-listing-update-process">SOP-303: Listing Update
+Process</h1>
+<p><strong>Nurise Listing Optimization</strong></p>
+<hr />
+<h2 id="purpose">Purpose</h2>
+<p>Safely implement keyword changes in Amazon Seller Central, following
+best practices to avoid listing suppression or ranking drops.</p>
+<h2 id="when-to-use">When to Use</h2>
+<ul>
+<li>After completing keyword optimization (SOP-302)</li>
+<li>Ready to update live listing</li>
+<li>Making incremental changes to existing listing</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Keyword optimization complete
+(SOP-302)</label></li>
+<li><label><input type="checkbox" />Changes documented</label></li>
+<li><label><input type="checkbox" />Seller Central access</label></li>
+<li><label><input type="checkbox" />Rank Radar set up for monitoring
+(recommended)</label></li>
+</ul>
+<hr />
+<h2 id="procedure">Procedure</h2>
+<h3 id="step-1-review-the-golden-rule">Step 1: Review the Golden
+Rule</h3>
+<blockquote>
+<p><strong>Make only 1-2 changes at a time, then wait 3-5 days before
+making more changes.</strong></p>
+</blockquote>
+<p><strong>Why This Matters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Consequence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Too many changes at once</td>
+<td>Listing suppression</td>
+</tr>
+<tr>
+<td>Algorithm confusion</td>
+<td>Temporary rank drops</td>
+</tr>
+<tr>
+<td>Indexing issues</td>
+<td>Visibility loss</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-2-prioritize-your-changes">Step 2: Prioritize Your
+Changes</h3>
+<p>From your optimization document, select: - <strong>One title
+change</strong> OR - <strong>One bullet change</strong> OR - <strong>Two
+minor changes</strong> (e.g., two bullet edits)</p>
+<p><strong>Do NOT:</strong> - Change title, bullets, and description
+simultaneously - Add many new keywords at once - Remove large amounts of
+copy</p>
+<h3 id="step-3-log-into-seller-central">Step 3: Log Into Seller
+Central</h3>
+<ol type="1">
+<li>Go to Amazon Seller Central</li>
+<li>Navigate to <strong>Inventory</strong> → <strong>Manage
+Inventory</strong></li>
+<li>Find your product</li>
+<li>Click <strong>Edit</strong></li>
+</ol>
+<h3 id="step-4-make-your-change">Step 4: Make Your Change</h3>
+<p><strong>For Title Changes:</strong> 1. Go to <strong>Product
+Identity</strong> section 2. Locate the Title field 3. Make your exact
+change (copy from optimization doc) 4. Double-check spelling and
+formatting</p>
+<p><strong>For Bullet Changes:</strong> 1. Go to
+<strong>Description</strong> section 2. Find the specific bullet point
+3. Make your exact change 4. Verify character count is within limits</p>
+<p><strong>For Backend Keywords:</strong> 1. Go to
+<strong>Keywords</strong> tab 2. Update Search Terms field 3. Separate
+keywords with spaces (not commas) 4. Stay within 250 byte limit</p>
+<h3 id="step-5-review-before-saving">Step 5: Review Before Saving</h3>
+<p>Before clicking Save:</p>
+<ul class="task-list">
+<li><label><input type="checkbox" />Change matches your documented
+optimization</label></li>
+<li><label><input type="checkbox" />No typos or formatting
+errors</label></li>
+<li><label><input type="checkbox" />Character limits not
+exceeded</label></li>
+<li><label><input type="checkbox" />Copy still reads
+naturally</label></li>
+<li><label><input type="checkbox" />No compliance issues</label></li>
+</ul>
+<h3 id="step-6-save-and-document">Step 6: Save and Document</h3>
+<ol type="1">
+<li>Click <strong>Save and finish</strong></li>
+<li>Note the date and time of change</li>
+<li>Update your tracking document:</li>
+</ol>
+<pre><code>UPDATE LOG
+-----------
+Date: [Date/Time]
+ASIN: [ASIN]
+Change Made: [Specific change]
+Section: [Title/Bullet/Description/Backend]
+Previous: &quot;[Old text]&quot;
+New: &quot;[New text]&quot;
+Next Review: [Date + 5 days]</code></pre>
+<h3 id="step-7-verify-change-went-live">Step 7: Verify Change Went
+Live</h3>
+<p>After 15-30 minutes: 1. Go to your Amazon product page 2. Hard
+refresh the page (Ctrl+Shift+R) 3. Verify your change appears 4. If not
+visible, wait a few hours</p>
+<p><strong>Note:</strong> Some changes may take up to 24 hours to
+propagate.</p>
+<h3 id="step-8-set-up-monitoring">Step 8: Set Up Monitoring</h3>
+<p>If not already done: 1. Ensure Rank Radar is tracking the product
+(SOP-401) 2. Note current positions for target keywords 3. Set calendar
+reminder to review in 3-5 days</p>
+<h3 id="step-9-wait-period">Step 9: Wait Period</h3>
+<p>During the 3-5 day wait: - <strong>DO NOT</strong> make additional
+listing changes - <strong>DO</strong> monitor positions in Rank Radar -
+<strong>DO</strong> check for any suppression notices -
+<strong>DO</strong> note any ranking changes</p>
+<h3 id="step-10-evaluate-results">Step 10: Evaluate Results</h3>
+<p>After 3-5 days:</p>
+<p><strong>Check Rank Radar:</strong> | Result | Interpretation | Next
+Step | |——–|—————-|———–| | Position improved | Change worked | Consider
+next optimization | | Position unchanged | Neutral effect | May need
+more time or different approach | | Position dropped | May need
+reverting | Investigate cause |</p>
+<p><strong>Check Listing Builder:</strong> - Re-import listing - Verify
+match types updated - Check SEO Leaderboard position</p>
+<hr />
+<h2 id="success-criteria">Success Criteria</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Change made in Seller
+Central</label></li>
+<li><label><input type="checkbox" />Change verified on live
+listing</label></li>
+<li><label><input type="checkbox" />Update logged in tracking
+document</label></li>
+<li><label><input type="checkbox" />Monitoring set up</label></li>
+<li><label><input type="checkbox" />3-5 day wait period
+observed</label></li>
+<li><label><input type="checkbox" />Results evaluated</label></li>
+</ul>
+<h2 id="common-issues">Common Issues</h2>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Change not showing</td>
+<td>Wait 24 hours, then contact support</td>
+</tr>
+<tr>
+<td>Listing suppressed</td>
+<td>Review for compliance issues, submit case</td>
+</tr>
+<tr>
+<td>Rankings dropped</td>
+<td>May be temporary; wait full 5 days</td>
+</tr>
+<tr>
+<td>Can’t edit field</td>
+<td>May be locked by brand registry; check permissions</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-not-to-do">What NOT to Do</h2>
+<ul>
+<li>Copy/paste entire new listing over existing</li>
+<li>Change title, bullets, AND description at once</li>
+<li>Make dramatic keyword additions</li>
+<li>Remove large amounts of existing copy</li>
+<li>Ignore the waiting period</li>
+</ul>
+<h2 id="safe-change-schedule-example">Safe Change Schedule Example</h2>
+<pre><code>Week 1, Monday: Title change → Wait
+Week 1, Friday: Review results
+Week 2, Monday: Bullet 1 change → Wait
+Week 2, Friday: Review results
+Week 3, Monday: Bullet 2 change → Wait
+...continue pattern...</code></pre>
+<h2 id="related-sops">Related SOPs</h2>
+<ul>
+<li>Previous: <a href="SOP-302-Keyword-Optimization.md">SOP-302: Keyword
+Optimization</a></li>
+<li>Next: <a
+href="../04-keyword-tracking/SOP-402-Weekly-Monitoring-Routine.md">SOP-402:
+Weekly Monitoring Routine</a></li>
+<li>Related: <a
+href="../05-troubleshooting/SOP-501-Diagnose-Performance-Issues.md">SOP-501:
+Diagnose Performance Issues</a> (if problems occur)</li>
+</ul>
+<hr />
+<p><strong>Time Estimate:</strong> 15 minutes (plus 3-5 day wait)
+<strong>Difficulty:</strong> Beginner</p>
+<hr />
+<p><em>Nurise Listing Optimization SOP v1.0</em></p>
+</body>
+</html>

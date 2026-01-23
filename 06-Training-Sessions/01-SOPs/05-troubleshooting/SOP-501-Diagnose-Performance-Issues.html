@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SOP-501-Diagnose-Performance-Issues</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="sop-501-diagnose-performance-issues">SOP-501: Diagnose
+Performance Issues</h1>
+<p><strong>Nurise Listing Optimization</strong></p>
+<hr />
+<h2 id="purpose">Purpose</h2>
+<p>Systematically identify the root cause when a listing isn’t
+performing as expected, including browse node mismatches, indexing gaps,
+and visibility problems.</p>
+<h2 id="when-to-use">When to Use</h2>
+<ul>
+<li>Listing not ranking for expected keywords</li>
+<li>All keywords showing green (not indexed)</li>
+<li>Positions stuck at 101+</li>
+<li>Rankings declining unexpectedly</li>
+<li>Competitor data looks inconsistent</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />DataDive account access</label></li>
+<li><label><input type="checkbox" />Product ASIN and active
+Dive</label></li>
+<li><label><input type="checkbox" />Rank Radar set up (for position
+data)</label></li>
+<li><label><input type="checkbox" />Understanding of expected
+keywords</label></li>
+</ul>
+<hr />
+<h2 id="procedure">Procedure</h2>
+<h3 id="step-1-identify-the-symptom">Step 1: Identify the Symptom</h3>
+<p>What are you observing?</p>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely Cause</th>
+<th>Go To</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All keywords green (not indexed)</td>
+<td>Browse node or stock</td>
+<td>Step 2</td>
+</tr>
+<tr>
+<td>Inconsistent keyword positions</td>
+<td>Wrong competitor selection</td>
+<td>Step 3</td>
+</tr>
+<tr>
+<td>Missing positions for relevant keywords</td>
+<td>Indexing gaps</td>
+<td>Step 4</td>
+</tr>
+<tr>
+<td>Keywords don’t match product type</td>
+<td>Filter/cleanup needed</td>
+<td>Step 5</td>
+</tr>
+<tr>
+<td>Gradual ranking decline</td>
+<td>Campaign or listing issue</td>
+<td>Step 6</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-2-browse-node-diagnostic">Step 2: Browse Node
+Diagnostic</h3>
+<p><strong>2a. Check Your Browse Node</strong> 1. Navigate to
+<strong>Deep Dive</strong> for your product 2. Find your browse node
+listing 3. Note the full category path</p>
+<p><strong>2b. Compare to Competitors</strong> 1. In Master Keyword
+List, hover over competitor ASINs 2. Browse node displays in tooltip 3.
+Compare patterns:</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All same node</td>
+<td>Standard for niche</td>
+</tr>
+<tr>
+<td>Mixed specific/broad</td>
+<td>Some are major brands</td>
+</tr>
+<tr>
+<td>Your product different</td>
+<td><strong>Potential mismatch</strong></td>
+</tr>
+<tr>
+<td>Very broad node</td>
+<td>Big brand privilege</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2c. Document Findings</strong></p>
+<pre><code>BROWSE NODE CHECK
+-----------------
+Your Node: [Path]
+Competitor 1: [Path]
+Competitor 2: [Path]
+Competitor 3: [Path]
+Match: Yes / No
+Issue: [Description]</code></pre>
+<h3 id="step-3-competitor-selection-diagnostic">Step 3: Competitor
+Selection Diagnostic</h3>
+<p><strong>Symptoms of Bad Selection:</strong> - Random product types in
+MKL - Keywords for unrelated products - Positions only for wrong
+terms</p>
+<p><strong>3a. Review Competitor List</strong> 1. Go to your Dive 2.
+Check competitor ASINs selected 3. Verify they are: - Same product type
+- Same format (single pack, multi-pack, etc.) - Not unrelated items</p>
+<p><strong>3b. Look for These Problems</strong> - [ ] Different product
+categories mixed - [ ] Brand variations included incorrectly - [ ] Items
+from parent listing not relevant</p>
+<p><strong>3c. If Problems Found</strong> Option A: Remove and reselect
+competitors Option B: Use “Find Competitors” to auto-generate 15 Option
+C: Filter keywords to focus on relevant terms</p>
+<h3 id="step-4-indexing-gap-diagnostic">Step 4: Indexing Gap
+Diagnostic</h3>
+<p><strong>4a. Set Up Clean View</strong> 1. Open Master Keyword List 2.
+Remove brand names (click “B”) 3. Set search volume threshold (450+)</p>
+<p><strong>4b. Invert the List</strong> 1. Click “Invert” 2. Green (not
+indexed) keywords rise to top 3. These are your gaps</p>
+<p><strong>4c. Identify Priority Gaps</strong></p>
+<table>
+<thead>
+<tr>
+<th>Search Volume</th>
+<th>Competitors Rank?</th>
+<th>Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High (5,000+)</td>
+<td>Yes</td>
+<td>CRITICAL</td>
+</tr>
+<tr>
+<td>High (5,000+)</td>
+<td>Some</td>
+<td>HIGH</td>
+</tr>
+<tr>
+<td>Medium (1,000-5,000)</td>
+<td>Yes</td>
+<td>MEDIUM</td>
+</tr>
+<tr>
+<td>Low (&lt;1,000)</td>
+<td>Yes</td>
+<td>LOW</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4d. Document Gaps</strong></p>
+<pre><code>INDEXING GAPS
+-------------
+Critical:
+- [Keyword] - [Search Vol] - Not in copy
+- [Keyword] - [Search Vol] - Not in copy
+
+High:
+- [Keyword] - [Search Vol] - Broad match only
+
+Actions Needed:
+- [Description]</code></pre>
+<h3 id="step-5-stockvisibility-diagnostic">Step 5: Stock/Visibility
+Diagnostic</h3>
+<p><strong>5a. Quick Stock Check</strong> When all keywords show green,
+verify:</p>
+<ol type="1">
+<li><strong>Listing Active?</strong> - Check Amazon product page</li>
+<li><strong>In Stock?</strong> - Check inventory level</li>
+<li><strong>Suppressed?</strong> - Check for listing warnings</li>
+<li><strong>Correct ASIN?</strong> - Verify child vs parent</li>
+</ol>
+<p><strong>5b. Variation Check</strong> If product has variations: -
+DataDive tracks from parent level - Check if correct child is being
+analyzed - Pool pump keywords in hot tub filter analysis = variation
+issue</p>
+<h3 id="step-6-ranking-decline-diagnostic">Step 6: Ranking Decline
+Diagnostic</h3>
+<p><strong>6a. Review Rank Radar</strong> 1. Open heat map 2. Look for
+pattern: - When did decline start? - Gradual or sudden? - Specific
+keywords or all?</p>
+<p><strong>6b. Check Potential Causes</strong></p>
+<table>
+<thead>
+<tr>
+<th>Cause</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stock out</td>
+<td>Gap in data, then recovery</td>
+</tr>
+<tr>
+<td>Copy changed</td>
+<td>Amazon auto-changes sometimes</td>
+</tr>
+<tr>
+<td>Browse node shift</td>
+<td>New node appearing</td>
+</tr>
+<tr>
+<td>Competition</td>
+<td>Competitors improving</td>
+</tr>
+<tr>
+<td>Campaign pause</td>
+<td>IR gaps appearing</td>
+</tr>
+</tbody>
+</table>
+<p><strong>6c. Cross-Reference</strong> - Check Seller Central for any
+changes - Review campaign performance - Check for listing updates you
+didn’t make</p>
+<h3 id="step-7-document-your-diagnosis">Step 7: Document Your
+Diagnosis</h3>
+<pre><code>DIAGNOSTIC REPORT
+-----------------
+Date: [Date]
+ASIN: [ASIN]
+
+Symptom: [What was observed]
+Root Cause: [What was found]
+Evidence: [Supporting data]
+
+Recommended Fix:
+- [Action 1]
+- [Action 2]
+
+Next Steps: See SOP-502 for fixes</code></pre>
+<hr />
+<h2 id="diagnostic-checklists">Diagnostic Checklists</h2>
+<h3 id="quick-browse-node-check">Quick Browse Node Check</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Compare your node to top 5
+competitors</label></li>
+<li><label><input type="checkbox" />Are you in most specific relevant
+node?</label></li>
+<li><label><input type="checkbox" />Do top sellers share similar
+nodes?</label></li>
+</ul>
+<h3 id="quick-indexing-check">Quick Indexing Check</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Run MKL with clean
+competitors</label></li>
+<li><label><input type="checkbox" />Invert list to see gaps</label></li>
+<li><label><input type="checkbox" />Note high-volume missing
+keywords</label></li>
+<li><label><input type="checkbox" />Verify in Listing
+Builder</label></li>
+</ul>
+<h3 id="quick-competitor-check">Quick Competitor Check</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />All competitors same product
+type?</label></li>
+<li><label><input type="checkbox" />No unrelated items?</label></li>
+<li><label><input type="checkbox" />Keyword positions make
+sense?</label></li>
+</ul>
+<h3 id="quick-visibility-check">Quick Visibility Check</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Listing active on
+Amazon?</label></li>
+<li><label><input type="checkbox" />Inventory available?</label></li>
+<li><label><input type="checkbox" />No suppression
+warnings?</label></li>
+<li><label><input type="checkbox" />Correct child ASIN
+tracked?</label></li>
+</ul>
+<hr />
+<h2 id="common-diagnostic-patterns">Common Diagnostic Patterns</h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All green, competitors ranking</td>
+<td>Browse node mismatch</td>
+</tr>
+<tr>
+<td>Random keywords appearing</td>
+<td>Bad competitor selection</td>
+</tr>
+<tr>
+<td>High volume gaps</td>
+<td>Indexing/copy issue</td>
+</tr>
+<tr>
+<td>Gradual slip, no stock issue</td>
+<td>Needs campaign support</td>
+</tr>
+<tr>
+<td>Sudden drop all keywords</td>
+<td>Check for listing changes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="success-criteria">Success Criteria</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Root cause identified</label></li>
+<li><label><input type="checkbox" />Evidence documented</label></li>
+<li><label><input type="checkbox" />Fix path determined</label></li>
+<li><label><input type="checkbox" />Ready for SOP-502 (Fix Common
+Problems)</label></li>
+</ul>
+<h2 id="related-sops">Related SOPs</h2>
+<ul>
+<li>Previous: <a
+href="../04-keyword-tracking/SOP-402-Weekly-Monitoring-Routine.md">SOP-402:
+Weekly Monitoring Routine</a></li>
+<li>Next: <a href="SOP-502-Fix-Common-Problems.md">SOP-502: Fix Common
+Problems</a></li>
+<li>Related: <a
+href="../03-listing-optimization/SOP-301-Listing-Analysis.md">SOP-301:
+Listing Analysis</a></li>
+</ul>
+<hr />
+<p><strong>Time Estimate:</strong> 20-30 minutes
+<strong>Difficulty:</strong> Intermediate</p>
+<hr />
+<p><em>Nurise Listing Optimization SOP v1.0</em></p>
+</body>
+</html>

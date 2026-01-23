@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SOP-702-Optimization-Validation-Procedure</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="sop-702-optimization-validation-procedure">SOP-702: Optimization
+Validation Procedure</h1>
+<p><strong>Nurise Listing Optimization</strong></p>
+<hr />
+<h2 id="purpose">Purpose</h2>
+<p>Validate that all listing optimization steps have been properly
+executed, verify the implementation matches DataDive learnings, and
+confirm measurable results are tracking as expected.</p>
+<h2 id="when-to-use">When to Use</h2>
+<ul>
+<li>After completing listing optimization cycle (SOP-301 through
+SOP-303)</li>
+<li>Before and after major listing changes</li>
+<li>Weekly as part of quality assurance</li>
+<li>When results don’t match expectations</li>
+<li>Before presenting results to stakeholders</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />All optimization SOPs (301-303)
+completed</label></li>
+<li><label><input type="checkbox" />Rank Radar set up and tracking
+(SOP-401/402)</label></li>
+<li><label><input type="checkbox" />Access to DataDive, Seller Central,
+and analytics</label></li>
+<li><label><input type="checkbox" />At least 7 days of post-optimization
+data</label></li>
+</ul>
+<hr />
+<h2 id="procedure">Procedure</h2>
+<h3 id="phase-1-pre-optimization-validation-checklist">Phase 1:
+Pre-Optimization Validation Checklist</h3>
+<p>Before making any listing changes, verify these foundations are in
+place:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                PRE-OPTIMIZATION VALIDATION                       │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   ☐ MKL QUALITY CHECK                                           │
+│   ├── Brand names removed (&quot;B&quot; button clicked)                  │
+│   ├── Irrelevant keywords filtered out                          │
+│   ├── Relevancy threshold set (450+)                            │
+│   └── All buckets checked (Cloud, Outlier, Residue)             │
+│                                                                  │
+│   ☐ COMPETITOR VALIDATION                                        │
+│   ├── All 10-15 competitors are same product type               │
+│   ├── Same format (6-pack vs 2-pack consistency)                │
+│   ├── No unrelated categories mixed in                          │
+│   └── Browse nodes verified as matching                         │
+│                                                                  │
+│   ☐ BASELINE DOCUMENTED                                          │
+│   ├── Current organic ranks recorded                            │
+│   ├── SEO Leaderboard position noted                            │
+│   ├── Current CTR and CVR captured                              │
+│   └── Rank Radar highlight set for &quot;Pre-optimization&quot;           │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<h3 id="phase-2-listing-builder-validation">Phase 2: Listing Builder
+Validation</h3>
+<p>Verify the listing optimization meets DataDive standards:</p>
+<p><strong>Step 1: Keyword Coverage Audit</strong></p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Target</th>
+<th>Your Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Root keywords in title (exact match)</td>
+<td>All high-volume roots</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>“hot tub filter” exact match</td>
+<td>In title</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>“type vi” or “type 6” exact match</td>
+<td>In title or bullets</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>“spa filter” exact match</td>
+<td>In title or bullets</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Broad matches converted to exact</td>
+<td>Priority keywords</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 2: Match Type Verification</strong></p>
+<p>For each priority keyword, verify in Listing Builder:</p>
+<pre><code>┌───────────────────────────────────────────────────────────────┐
+│               MATCH TYPE VERIFICATION                          │
+├────────────────────┬───────────┬───────────┬─────────────────┤
+│ Keyword            │ Expected  │ Actual    │ Pass/Fail       │
+├────────────────────┼───────────┼───────────┼─────────────────┤
+│ type vi filter     │ Exact     │           │                 │
+│ hot tub filter     │ Exact     │           │                 │
+│ spa filter         │ Exact     │           │                 │
+│ bestway filter     │ Exact     │           │                 │
+│ coleman saluspa    │ Exact     │           │                 │
+│ lay-z-spa filter   │ Exact     │           │                 │
+│ inflatable hot tub │ Exact     │           │                 │
+└────────────────────┴───────────┴───────────┴─────────────────┘</code></pre>
+<p><strong>Step 3: SEO Leaderboard Position</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Actual</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Leaderboard position</td>
+<td>Top 5</td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Gap to #1 (ranking juice)</td>
+<td>&lt;10,000</td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Indexed keywords (%)</td>
+<td>95%+</td>
+<td></td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phase-3-implementation-validation">Phase 3: Implementation
+Validation</h3>
+<p>Verify changes were implemented correctly in Seller Central:</p>
+<p><strong>Step 1: Live Listing Check</strong></p>
+<pre><code>LIVE LISTING VERIFICATION
+─────────────────────────
+☐ Title matches optimized version exactly
+☐ Bullets match optimized version exactly
+☐ Description matches (if applicable)
+☐ Backend search terms populated
+☐ No Amazon auto-corrections occurred
+☐ Browse node is correct (Hot Tub Accessories &gt; Filters)</code></pre>
+<p><strong>Step 2: Amazon Override Detection</strong></p>
+<p>Amazon sometimes auto-corrects listings. Check for:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Optimized Version</th>
+<th>Live Version</th>
+<th>Match?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title</td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Bullet 1</td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Bullet 2</td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Bullet 3</td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Bullet 4</td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Bullet 5</td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<p><strong>If mismatch found:</strong> Submit flat file update to
+restore optimized copy.</p>
+<h3 id="phase-4-tracking-validation">Phase 4: Tracking Validation</h3>
+<p>Verify monitoring is properly configured:</p>
+<p><strong>Step 1: Rank Radar Setup Verification</strong></p>
+<pre><code>RANK RADAR VALIDATION
+─────────────────────
+☐ Product ASIN added to tracking
+☐ Auto-dive scheduled (frequency: _______)
+☐ Keywords highlighting configured
+☐ Date highlights set for optimization events
+☐ Weekly monitoring cadence established</code></pre>
+<p><strong>Step 2: Key Metrics Tracking</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Tracking Location</th>
+<th>Frequency</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Organic rank (hero keywords)</td>
+<td>Rank Radar</td>
+<td>Daily</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Sessions</td>
+<td>Seller Central</td>
+<td>Weekly</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Unit session % (CVR)</td>
+<td>Seller Central</td>
+<td>Weekly</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Click-through rate</td>
+<td>Brand Analytics</td>
+<td>Weekly</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Search query performance</td>
+<td>Brand Analytics</td>
+<td>Weekly</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phase-5-results-validation">Phase 5: Results Validation</h3>
+<p>Measure actual results against expected outcomes:</p>
+<p><strong>Step 1: Indexing Verification (24-48 hours
+post-change)</strong></p>
+<pre><code>INDEXING CHECK
+──────────────
+☐ Run new Dive on product
+☐ Check MKL for updated positions
+☐ Verify gaps from Phase 2 now show positions
+☐ Document any keywords still not indexed</code></pre>
+<p><strong>Step 2: Rank Movement Verification (7-14 days
+post-change)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Keyword</th>
+<th>Pre-Opt Rank</th>
+<th>Current Rank</th>
+<th>Movement</th>
+<th>Target Met?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type vi filter</td>
+<td></td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>hot tub filter</td>
+<td></td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>spa filter</td>
+<td></td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>bestway filter</td>
+<td></td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+<tr>
+<td>inflatable spa filter</td>
+<td></td>
+<td></td>
+<td></td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Expected Outcomes:</strong></p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                 EXPECTED RESULTS TIMELINE                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   24-48 Hours Post-Change:                                       │
+│   ├── New keywords begin indexing                               │
+│   ├── Exact match keywords show improvement                     │
+│   └── SEO Leaderboard position may shift                        │
+│                                                                  │
+│   7-14 Days Post-Change:                                         │
+│   ├── Organic ranks stabilize at new positions                  │
+│   ├── Gaps should be closed (green → red in MKL)                │
+│   └── CTR may begin improving (if images unchanged)             │
+│                                                                  │
+│   30 Days Post-Change:                                           │
+│   ├── Full rank impact visible                                  │
+│   ├── Sessions should increase if SEO improved                  │
+│   └── Ready for next optimization cycle                         │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<h3 id="phase-6-performance-validation">Phase 6: Performance
+Validation</h3>
+<p>Compare before/after metrics:</p>
+<p><strong>Step 1: SEO Performance Metrics</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>30-Day Before</th>
+<th>30-Day After</th>
+<th>Change</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Avg. organic rank (hero keywords)</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Improved by 5+ positions</td>
+</tr>
+<tr>
+<td>Keywords in top 10</td>
+<td></td>
+<td></td>
+<td></td>
+<td>+2 or more</td>
+</tr>
+<tr>
+<td>Keywords indexed</td>
+<td></td>
+<td></td>
+<td></td>
+<td>95%+ of MKL</td>
+</tr>
+<tr>
+<td>SEO Leaderboard position</td>
+<td></td>
+<td></td>
+<td></td>
+<td>Top 5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 2: Business Performance Metrics</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>30-Day Before</th>
+<th>30-Day After</th>
+<th>Change</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sessions</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Unit session %</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Total orders</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Total revenue</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="phase-7-issue-detection-escalation">Phase 7: Issue Detection
+&amp; Escalation</h3>
+<p>If results don’t match expectations, investigate:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                  TROUBLESHOOTING DECISION TREE                   │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   Keywords not indexing after 48 hours?                          │
+│   ├── Check: Is listing active and in stock?                    │
+│   ├── Check: Browse node correct?                               │
+│   ├── Check: Listing suppressed?                                │
+│   └── Action: See SOP-501 (Diagnose Performance Issues)         │
+│                                                                  │
+│   Ranks not improving after 14 days?                             │
+│   ├── Check: Was change actually implemented?                   │
+│   ├── Check: Did Amazon override your copy?                     │
+│   ├── Check: Is PPC supporting the keywords?                    │
+│   └── Action: See SOP-502 (Fix Common Problems)                 │
+│                                                                  │
+│   Sessions/revenue declining despite rank improvement?           │
+│   ├── Check: Seasonality impact?                                │
+│   ├── Check: Competitor pricing changes?                        │
+│   ├── Check: Review rating changes?                             │
+│   └── Action: Focus on CTR/CVR optimization next                │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<hr />
+<h2 id="hot-tub-filter-validation-specifics">Hot Tub Filter Validation
+Specifics</h2>
+<h3 id="category-specific-checks">Category-Specific Checks</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 46%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>Check</th>
+<th>Requirement</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Browse node</td>
+<td>“Patio, Lawn &amp; Garden &gt; Pools, Hot Tubs &amp; Supplies &gt;
+Hot Tub Accessories &gt; Filters”</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Compatibility keywords</td>
+<td>SaluSpa, Bestway, Coleman, Lay-Z-Spa, Miami, Helsinki, Paris</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Format keywords</td>
+<td>Type VI, Type 6, cartridge, replacement</td>
+<td>☐</td>
+</tr>
+<tr>
+<td>Seasonality awareness</td>
+<td>Inventory aligned with May-August peak</td>
+<td>☐</td>
+</tr>
+</tbody>
+</table>
+<h3 id="competitor-benchmark-validation">Competitor Benchmark
+Validation</h3>
+<p>For Type VI hot tub filter niche, verify:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Niche Leader</th>
+<th>Our Target</th>
+<th>Current</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ranking juice position</td>
+<td>#1</td>
+<td>Top 3</td>
+<td></td>
+</tr>
+<tr>
+<td>Reviews</td>
+<td>1,000+</td>
+<td>Comparable</td>
+<td></td>
+</tr>
+<tr>
+<td>Rating</td>
+<td>4.5+</td>
+<td>4.5+</td>
+<td></td>
+</tr>
+<tr>
+<td>Main image quality</td>
+<td>Professional</td>
+<td>Match or exceed</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="validation-report-template">Validation Report Template</h2>
+<p>After completing all phases, generate a summary:</p>
+<pre><code>OPTIMIZATION VALIDATION REPORT
+══════════════════════════════════════════════════════════════════
+
+Product: Type VI Hot Tub Filter 6-Pack
+ASIN: _________________
+Validation Date: _______________
+Optimization Completed: _______________
+
+PRE-OPTIMIZATION BASELINE
+─────────────────────────
+SEO Leaderboard Position: ___
+Keywords Indexed: ___/___
+Avg. Hero Keyword Rank: ___
+Monthly Sessions: ___
+Unit Session %: ___%
+
+POST-OPTIMIZATION RESULTS (30 Days)
+───────────────────────────────────
+SEO Leaderboard Position: ___ (Change: ___)
+Keywords Indexed: ___/___ (Change: ___)
+Avg. Hero Keyword Rank: ___ (Change: ___)
+Monthly Sessions: ___ (Change: __%)
+Unit Session %: ___% (Change: ___)
+
+VALIDATION STATUS
+─────────────────
+☐ PASS - All targets met
+☐ PARTIAL - Some targets met, issues identified
+☐ FAIL - Significant issues requiring investigation
+
+ISSUES IDENTIFIED
+─────────────────
+1. _______________________________________________
+2. _______________________________________________
+
+RECOMMENDED NEXT STEPS
+──────────────────────
+1. _______________________________________________
+2. _______________________________________________
+3. _______________________________________________
+
+══════════════════════════════════════════════════════════════════</code></pre>
+<hr />
+<h2 id="success-criteria">Success Criteria</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />All Phase 1-7 checks
+completed</label></li>
+<li><label><input type="checkbox" />No critical issues
+identified</label></li>
+<li><label><input type="checkbox" />Keywords indexing as
+expected</label></li>
+<li><label><input type="checkbox" />Ranks moving in expected
+direction</label></li>
+<li><label><input type="checkbox" />Monitoring systems confirmed
+operational</label></li>
+<li><label><input type="checkbox" />Report generated and
+documented</label></li>
+</ul>
+<h2 id="common-issues">Common Issues</h2>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 42%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Likely Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keywords not indexing</td>
+<td>Browse node mismatch</td>
+<td>Submit Seller Central case</td>
+</tr>
+<tr>
+<td>Amazon overriding copy</td>
+<td>Catalog data conflict</td>
+<td>Upload flat file</td>
+</tr>
+<tr>
+<td>Ranks declining</td>
+<td>Too many simultaneous changes</td>
+<td>Revert to previous version</td>
+</tr>
+<tr>
+<td>No session increase</td>
+<td>SEO improved but CTR/CVR issues</td>
+<td>Focus on image optimization</td>
+</tr>
+<tr>
+<td>Wrong keywords appearing</td>
+<td>Competitor selection error</td>
+<td>Regenerate competitor list</td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-sops">Related SOPs</h2>
+<ul>
+<li>Previous: <a
+href="SOP-701-Amazon-Product-Competitive-Analyzer.md">SOP-701: Amazon
+Product Competitive Analyzer</a></li>
+<li>Related: <a
+href="../03-listing-optimization/SOP-301-Listing-Analysis.md">SOP-301:
+Listing Analysis</a></li>
+<li>Related: <a
+href="../05-troubleshooting/SOP-501-Diagnose-Performance-Issues.md">SOP-501:
+Diagnose Performance Issues</a></li>
+<li>Related: <a
+href="../04-keyword-tracking/SOP-402-Weekly-Monitoring-Routine.md">SOP-402:
+Weekly Monitoring Routine</a></li>
+</ul>
+<hr />
+<p><strong>Time Estimate:</strong> 30-45 minutes (initial), 15 minutes
+(subsequent) <strong>Difficulty:</strong> Intermediate
+<strong>Frequency:</strong> After each optimization cycle + weekly spot
+checks</p>
+<hr />
+<p><em>Nurise Listing Optimization SOP v1.0</em></p>
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SOP-701-Amazon-Product-Competitive-Analyzer</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="sop-701-amazon-product-competitive-analyzer">SOP-701: Amazon
+Product Competitive Analyzer</h1>
+<p><strong>Nurise Product Analysis</strong></p>
+<hr />
+<h2 id="purpose">Purpose</h2>
+<p>Use the AI-powered Amazon Product Competitive Analyzer skill to
+evaluate product viability, calculate margins, score opportunities, and
+generate GO/NO-GO decisions for potential hot tub, spa, and pool
+equipment products.</p>
+<h2 id="when-to-use">When to Use</h2>
+<ul>
+<li>Evaluating new supplier product lines (Bestway, Coleman, etc.)</li>
+<li>Conducting competitive analysis for potential inventory</li>
+<li>Making data-driven GO/NO-GO decisions</li>
+<li>Building product portfolio recommendations</li>
+<li>Preparing investment decisions for product orders</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Claude Code access with the skill
+installed</label></li>
+<li><label><input type="checkbox" />Product catalog CSV (from
+supplier)</label></li>
+<li><label><input type="checkbox" />DataDive competitor exports
+(niche-{CODE}-competitors.csv)</label></li>
+<li><label><input type="checkbox" />Access to project knowledge base
+files</label></li>
+<li><label><input type="checkbox" />Meeting notes documented in
+08-Meeting-Notes/</label></li>
+</ul>
+<hr />
+<h2 id="system-overview">System Overview</h2>
+<h3 id="what-the-analyzer-does">What the Analyzer Does</h3>
+<p>The skill is a <strong>self-learning analysis system</strong>
+that:</p>
+<ol type="1">
+<li>Analyzes products from any supplier catalog</li>
+<li>Processes DataDive competitive research automatically</li>
+<li>Applies learned patterns from previous analyses</li>
+<li>Calculates 8-factor scoring model</li>
+<li>Generates GO/NO-GO decisions with confidence levels</li>
+<li>Outputs comparison tables and detailed reports</li>
+</ol>
+<h3 id="decision-framework">Decision Framework</h3>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                    4-TIER MARGIN EVALUATION                      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│    16%+ Margin    ─────────────────►  STRONG GO                 │
+│    (Preferred)                        Priority Order             │
+│                                                                  │
+│    15%+ Margin    ─────────────────►  GO                        │
+│    (Minimum)                          Proceed with Analysis      │
+│                                                                  │
+│    10-15% Margin  ─────────────────►  SPECIAL REVIEW            │
+│    (Review Zone)                      Additional Validation      │
+│                                                                  │
+│    &lt;10% Margin    ─────────────────►  NO GO                     │
+│    (Below Target)                     Auto-Reject                │
+│                                                                  │
+└─────────────────────────────────────────────────────────────────┘</code></pre>
+<hr />
+<h2 id="procedure">Procedure</h2>
+<h3 id="step-1-prepare-input-data">Step 1: Prepare Input Data</h3>
+<p><strong>1a. Product Catalog CSV</strong></p>
+<p>Ensure your supplier catalog has minimum required columns:</p>
+<table>
+<thead>
+<tr>
+<th>Required</th>
+<th>Column Names Accepted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product ID</td>
+<td>ITEM#, SKU#, Product_ID, ItemNumber</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>DESCRIPTION, Product_Name, Title</td>
+</tr>
+<tr>
+<td>Cost</td>
+<td>FOB, Cost, Unit_Cost, Wholesale_Price</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Optional columns:</strong> ASIN, Amazon_Price, UPC,
+PRODUCT_TYPE, ORDER_QTY</p>
+<p><strong>Example for Hot Tub Filter Products:</strong></p>
+<pre class="csv"><code>ITEM#, DESCRIPTION, FOB, Amazon.ca Price, SmartScout_ASIN, PRODUCT_TYPE
+58476, Type VI Filter Cartridge 6-Pack, 12.50, 49.99, B0D9YXVSHK, Hot Tub Filters
+58477, SaluSpa Type VI Replacement 2-Pack, 5.25, 22.99, B0C7XXXXX, Hot Tub Filters</code></pre>
+<p><strong>1b. DataDive Competitor Export</strong></p>
+<p>Export from DataDive and place in Downloads folder: - File pattern:
+<code>niche-{CODE}-competitors.csv</code> - Required columns: ASIN,
+Brand, Rating, Reviews, Price, Sales</p>
+<h3 id="step-2-run-the-analysis">Step 2: Run the Analysis</h3>
+<p><strong>Invoke the Skill:</strong></p>
+<pre><code>&quot;Analyze these [X] products from [Supplier]-Catalog.csv using
+the Amazon Product Competitive Analyzer skill&quot;</code></pre>
+<p><strong>For hot tub filter products specifically:</strong></p>
+<pre><code>&quot;Analyze the Type VI hot tub filter products from the Bestway catalog.
+Focus on spa filter and pool equipment categories.&quot;</code></pre>
+<h3 id="step-3-review-the-8-phase-analysis-process">Step 3: Review the
+8-Phase Analysis Process</h3>
+<p>The analyzer automatically executes this workflow:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                     ANALYSIS WORKFLOW DIAGRAM                    │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+         ┌────────────────────────────────────────┐
+         │  PHASE 0: Pre-Analysis Setup           │
+         │  • Load knowledge base                  │
+         │  • Check for new meeting notes          │
+         │  • Update preferences                   │
+         └────────────────────────────────────────┘
+                              │
+                              ▼
+         ┌────────────────────────────────────────┐
+         │  PHASE 1: Data Ingestion               │
+         │  • Auto-detect CSV format              │
+         │  • Map columns to standard schema      │
+         │  • Cross-reference with DataDive       │
+         └────────────────────────────────────────┘
+                              │
+                              ▼
+         ┌────────────────────────────────────────┐
+         │  PHASE 2: Competitive Analysis         │
+         │  • Parse 10-20 competitors             │
+         │  • Classify competition strength       │
+         │  • Identify opportunities (FBA gaps)   │
+         └────────────────────────────────────────┘
+                              │
+                              ▼
+         ┌────────────────────────────────────────┐
+         │  PHASE 3: Financial Modeling           │
+         │  • Calculate landed costs              │
+         │  • Model pricing scenarios             │
+         │  • Apply 4-tier margin thresholds      │
+         └────────────────────────────────────────┘
+                              │
+                              ▼
+         ┌────────────────────────────────────────┐
+         │  PHASE 4: Pattern Matching             │
+         │  • Check against 8+ learned patterns   │
+         │  • Apply scoring adjustments           │
+         │  • Identify FBM→FBA opportunities      │
+         └────────────────────────────────────────┘
+                              │
+                              ▼
+         ┌────────────────────────────────────────┐
+         │  PHASE 5: Scoring &amp; Decision           │
+         │  • Calculate 8-factor weighted score   │
+         │  • Determine GO/NO-GO decision         │
+         │  • Assign confidence level             │
+         └────────────────────────────────────────┘
+                              │
+                              ▼
+         ┌────────────────────────────────────────┐
+         │  PHASE 6: Output Generation            │
+         │  • Update comparison table             │
+         │  • Generate individual reports         │
+         │  • Document learning insights          │
+         └────────────────────────────────────────┘
+                              │
+                              ▼
+         ┌────────────────────────────────────────┐
+         │  PHASE 7: Feedback Loop                │
+         │  • Log predictions for validation      │
+         │  • Track decisions for learning        │
+         │  • Queue for weight adjustments        │
+         └────────────────────────────────────────┘
+                              │
+                              ▼
+         ┌────────────────────────────────────────┐
+         │  PHASE 8: Continuous Improvement       │
+         │  • Update knowledge base               │
+         │  • Refine patterns                     │
+         │  • Improve future accuracy             │
+         └────────────────────────────────────────┘</code></pre>
+<h3 id="step-4-understand-the-8-factor-scoring-model">Step 4: Understand
+the 8-Factor Scoring Model</h3>
+<p>Each product is scored using weighted factors:</p>
+<pre><code>┌──────────────────────────────────────────────────────────────────┐
+│                    8-FACTOR SCORING MODEL                         │
+├───────────────────────────────┬──────────────────────────────────┤
+│ Factor                        │ Weight │ What It Measures         │
+├───────────────────────────────┼────────┼──────────────────────────┤
+│ 1. Margin Viability           │  25%   │ Phase 1 margin vs 16%    │
+│ 2. Competition Strength       │  20%   │ Competitor intensity     │
+│ 3. FBA Capability             │  15%   │ FBM→FBA opportunity      │
+│ 4. Rating &amp; Reviews           │  10%   │ Review quality/quantity  │
+│ 5. Seasonality Risk           │  10%   │ Peak season dependency   │
+│ 6. Supply Gap Opportunity     │  10%   │ Market availability      │
+│ 7. Freight Optimization       │   5%   │ Container efficiency     │
+│ 8. Brand Approval             │   5%   │ Listing restrictions     │
+└───────────────────────────────┴────────┴──────────────────────────┘
+
+SCORE INTERPRETATION:
+├── 85-100 points: STRONG GO (High confidence)
+├── 70-84 points:  GO (Proceed with validation)
+├── 55-69 points:  CONDITIONAL GO (Requires additional review)
+├── 40-54 points:  WEAK GO / HOLD (Significant concerns)
+└── &lt;40 points:    NO GO (Do not pursue)</code></pre>
+<h3 id="step-5-interpret-the-comparison-table-output">Step 5: Interpret
+the Comparison Table Output</h3>
+<p>The analyzer generates a master comparison table:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────────────────────┐
+│                      PRODUCT COMPARISON TABLE EXAMPLE                            │
+├──────┬─────────┬───────────────────┬───────┬───────────┬─────────┬─────────────┤
+│ Rank │ ID      │ Product           │ Score │ Decision  │ Revenue │ Key Risk    │
+├──────┼─────────┼───────────────────┼───────┼───────────┼─────────┼─────────────┤
+│  1   │ 58476   │ Type VI 6-Pack    │  81   │ STRONG GO │ $62K    │ Seasonality │
+│  2   │ 58477   │ SaluSpa 2-Pack    │  71   │ GO        │ $36K    │ Competition │
+│  3   │ 58478   │ Coleman Filter    │  63   │ COND GO   │ TBD     │ FBA needed  │
+│  4   │ 58479   │ Lay-Z-Spa Filter  │  45   │ WEAK GO   │ $8K     │ Low margin  │
+│  5   │ 58480   │ Generic Filter    │  36   │ NO GO     │ N/A     │ 7% margin   │
+└──────┴─────────┴───────────────────┴───────┴───────────┴─────────┴─────────────┘</code></pre>
+<h3 id="step-6-review-individual-product-reports">Step 6: Review
+Individual Product Reports</h3>
+<p>For each analyzed product, 3 reports are generated:</p>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr>
+<th>Report</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EXECUTIVE-SUMMARY-Product-{ID}.md</td>
+<td>Decision, revenue, investment, key actions, timeline</td>
+</tr>
+<tr>
+<td>COMPETITIVE-LANDSCAPE-Product-{ID}.md</td>
+<td>Competitor analysis, positioning, buy box strategy</td>
+</tr>
+<tr>
+<td>FINANCIAL-MODEL-Product-{ID}.md</td>
+<td>Cost structure, margin scenarios, ROI calculations</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-7-log-decisions-for-learning">Step 7: Log Decisions for
+Learning</h3>
+<p>After reviewing analysis, provide feedback:</p>
+<p><strong>When making a decision:</strong></p>
+<pre><code>&quot;Todd decided GO on Product 58476 (Type VI 6-Pack filter)&quot;</code></pre>
+<p><strong>When results come in:</strong></p>
+<pre><code>&quot;Product 58476: $78K revenue after 6 months, 48% margin, ranked #3&quot;</code></pre>
+<p>This feedback improves future prediction accuracy.</p>
+<hr />
+<h2 id="hot-tub-filter-product-considerations">Hot Tub Filter Product
+Considerations</h2>
+<h3 id="category-specific-patterns">Category-Specific Patterns</h3>
+<p>For spa and pool equipment, the analyzer applies these learned
+patterns:</p>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 32%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Condition</th>
+<th>Score Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seasonal High-Margin</td>
+<td>70-80% May-Aug + 50%+ margin</td>
+<td>+5 points</td>
+</tr>
+<tr>
+<td>FBM→FBA Conversion</td>
+<td>FBM listing + 100+ reviews + 4.5+ rating</td>
+<td>+15 points</td>
+</tr>
+<tr>
+<td>Supply Gap</td>
+<td>Limited availability + existing demand</td>
+<td>+10 points</td>
+</tr>
+<tr>
+<td>Canadian Tire Anchor</td>
+<td>CT price exists = Amazon can price higher</td>
+<td>+8 points</td>
+</tr>
+</tbody>
+</table>
+<h3 id="seasonality-considerations">Seasonality Considerations</h3>
+<pre><code>Hot Tub/Spa Filter Demand Pattern:
+
+      ▲ Sales
+      │
+100%  │                    ████
+      │                ████████████
+ 80%  │            ████████████████████
+      │        ████████████████████████████
+ 60%  │    ████████████████████████████████████
+      │████████████████████████████████████████████
+ 40%  │████████████████████████████████████████████████
+      │████████████████████████████████████████████████████
+ 20%  │████████████████████████████████████████████████████████
+      │████████████████████████████████████████████████████████████
+      └────────────────────────────────────────────────────────────►
+       Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct  Nov  Dec
+                         ▲                   ▲
+                    Peak Season         Peak Season
+                    Start (Apr)         End (Aug)
+
+Key Planning Points:
+• February order → April arrival for May-Aug peak
+• 70-80% of annual revenue in May-August
+• Maintain minimum inventory off-season</code></pre>
+<hr />
+<h2 id="success-criteria">Success Criteria</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Input data properly
+formatted</label></li>
+<li><label><input type="checkbox" />All DataDive exports in Downloads
+folder</label></li>
+<li><label><input type="checkbox" />8-factor scores calculated for each
+product</label></li>
+<li><label><input type="checkbox" />Comparison table
+generated</label></li>
+<li><label><input type="checkbox" />GO/NO-GO decisions
+assigned</label></li>
+<li><label><input type="checkbox" />Key risks identified for each
+product</label></li>
+<li><label><input type="checkbox" />Learning feedback provided after
+decisions</label></li>
+</ul>
+<h2 id="common-issues">Common Issues</h2>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DataDive file not found</td>
+<td>Place niche-{CODE}-competitors.csv in Downloads</td>
+</tr>
+<tr>
+<td>Columns not detected</td>
+<td>Verify CSV has ITEM# or SKU# column</td>
+</tr>
+<tr>
+<td>Score seems too low/high</td>
+<td>Check if all 8 factors have data</td>
+</tr>
+<tr>
+<td>Pattern not matching</td>
+<td>Verify product category aligns with patterns</td>
+</tr>
+<tr>
+<td>Margin calculation off</td>
+<td>Verify FOB cost and freight estimates</td>
+</tr>
+</tbody>
+</table>
+<h2 id="model-cost-considerations">Model Cost Considerations</h2>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 55%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Model</th>
+<th>Cost per 15 Products</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sonnet 4.5</strong> (Recommended)</td>
+<td>$1.28-$1.64</td>
+<td>Standard analysis with complete DataDive data</td>
+</tr>
+<tr>
+<td>Opus 4.5</td>
+<td>$6.40-$8.20</td>
+<td>Complex strategy decisions, limited data</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quick-reference-commands">Quick Reference Commands</h2>
+<p><strong>Analyze product batch:</strong></p>
+<pre><code>&quot;Analyze these 25 products from Bestway-2026-Catalog.csv&quot;</code></pre>
+<p><strong>Update from meeting:</strong></p>
+<pre><code>&quot;We had a meeting where Todd said to prioritize year-round
+products over seasonal. Update the model.&quot;</code></pre>
+<p><strong>Check learning status:</strong></p>
+<pre><code>&quot;Show me what the skill has learned since last month&quot;</code></pre>
+<p><strong>Generate comparison table:</strong></p>
+<pre><code>&quot;Create comparison table for all analyzed hot tub filter products&quot;</code></pre>
+<hr />
+<h2 id="related-sops">Related SOPs</h2>
+<ul>
+<li>Related: <a
+href="../02-product-validation/SOP-202-Product-Validation-Complete.md">SOP-202:
+Product Validation Complete</a></li>
+<li>Related: <a
+href="../03-listing-optimization/SOP-301-Listing-Analysis.md">SOP-301:
+Listing Analysis</a></li>
+<li>Next: <a href="SOP-702-Knowledge-Base-Management.md">SOP-702:
+Managing the Knowledge Base</a></li>
+</ul>
+<hr />
+<p><strong>Time Estimate:</strong> 2-3 minutes per product with DataDive
+data <strong>Difficulty:</strong> Intermediate <strong>Recommended
+Model:</strong> Sonnet 4.5</p>
+<hr />
+<p><em>Nurise Product Analysis SOP v1.0</em></p>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SOP-401-Rank-Radar-Setup</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="sop-401-rank-radar-setup">SOP-401: Rank Radar Setup</h1>
+<p><strong>Nurise Listing Optimization</strong></p>
+<hr />
+<h2 id="purpose">Purpose</h2>
+<p>Set up keyword position tracking for your products using DataDive
+Rank Radar, enabling ongoing monitoring of organic rankings and PPC
+performance.</p>
+<h2 id="when-to-use">When to Use</h2>
+<ul>
+<li>After optimizing a listing (SOP-302)</li>
+<li>When launching a new product</li>
+<li>When starting competitor tracking</li>
+<li>Setting up monitoring for existing products</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />DataDive account access</label></li>
+<li><label><input type="checkbox" />Amazon Seller Central account logged
+in</label></li>
+<li><label><input type="checkbox" />Product has an active Dive in Niche
+Pipeline</label></li>
+<li><label><input type="checkbox" />Master Keyword List cleaned and
+filtered</label></li>
+</ul>
+<hr />
+<h2 id="procedure">Procedure</h2>
+<h3 id="step-1-connect-amazon-account-first-time-only">Step 1: Connect
+Amazon Account (First Time Only)</h3>
+<p>If not already connected:</p>
+<ol type="1">
+<li>Go to <strong>Account</strong> → <strong>Amazon</strong></li>
+<li>Ensure you’re logged into Seller Central in another tab</li>
+<li>Follow the pop-up prompts to grant permissions</li>
+<li>For multi-brand accounts: Select the brand from dropdown</li>
+</ol>
+<p><strong>Data Now Available:</strong> - Search Impression Share (SIS)
+- Search Query Performance (SQP) - PPC Campaign Data - Conversion
+Reports</p>
+<h3 id="step-2-navigate-to-rank-radar-creation">Step 2: Navigate to Rank
+Radar Creation</h3>
+<ol type="1">
+<li>Go to <strong>Niche Pipeline</strong></li>
+<li>Open the Dive for your product</li>
+<li>Click <strong>Create Rank Radar</strong></li>
+</ol>
+<h3 id="step-3-clean-keywords-before-tracking">Step 3: Clean Keywords
+Before Tracking</h3>
+<p>Before finalizing, ensure your keyword list is relevant:</p>
+<p><strong>3a. Remove Branded Terms</strong> - Click the
+<strong>“B”</strong> button to exclude brand names - Unless specifically
+tracking brand performance</p>
+<p><strong>3b. Set Search Volume Threshold</strong> - Minimum:
+<strong>450</strong> search volume - Lower volume keywords go to
+Residue</p>
+<p><strong>3c. Filter for Relevance</strong> - Remove keywords for wrong
+product types - Ensure good market fit keywords remain</p>
+<h3 id="step-4-set-up-tracking">Step 4: Set Up Tracking</h3>
+<ol type="1">
+<li>Confirm ASIN selection</li>
+<li>Review keywords to be tracked</li>
+<li>Click to create Rank Radar</li>
+<li>Note: Position data may take <strong>up to 24 hours</strong> to
+populate</li>
+</ol>
+<h3 id="step-5-configure-competitor-tracking-optional">Step 5: Configure
+Competitor Tracking (Optional)</h3>
+<p>You can track competitor ASINs without account access:</p>
+<ol type="1">
+<li>Add competitor ASINs to the same Rank Radar</li>
+<li>Their positions will be tracked alongside yours</li>
+<li>Useful for benchmarking and opportunity identification</li>
+</ol>
+<h3 id="step-6-verify-initial-setup">Step 6: Verify Initial Setup</h3>
+<p>After 24 hours, check:</p>
+<ol type="1">
+<li>Heat map is displaying data</li>
+<li>Keywords are populating with positions</li>
+<li>PPC data is flowing (if applicable)</li>
+<li>SQP data is available</li>
+</ol>
+<h3 id="step-7-document-baseline">Step 7: Document Baseline</h3>
+<p>Record your starting positions:</p>
+<pre><code>RANK RADAR BASELINE
+-------------------
+Date: [Date]
+ASIN: [ASIN]
+Keywords Tracked: [Number]
+
+Key Positions:
+- [Top keyword 1]: Position [X]
+- [Top keyword 2]: Position [X]
+- [Top keyword 3]: Position [X]
+
+Notes: [Any observations]</code></pre>
+<hr />
+<h2 id="position-reference-guide">Position Reference Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>Page</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-10</td>
+<td>Page 1 Top</td>
+<td>Excellent</td>
+</tr>
+<tr>
+<td>11-20</td>
+<td>Page 1 Bottom</td>
+<td>Good</td>
+</tr>
+<tr>
+<td>21-45</td>
+<td>Page 2</td>
+<td>Acceptable</td>
+</tr>
+<tr>
+<td>46-75</td>
+<td>Page 3</td>
+<td>Needs Work</td>
+</tr>
+<tr>
+<td>76-100</td>
+<td>Page 4+</td>
+<td>Poor</td>
+</tr>
+<tr>
+<td>101+</td>
+<td>Deep</td>
+<td>Critical</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="success-criteria">Success Criteria</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Amazon account connected (if first
+time)</label></li>
+<li><label><input type="checkbox" />Rank Radar created for
+product</label></li>
+<li><label><input type="checkbox" />Keywords cleaned before
+tracking</label></li>
+<li><label><input type="checkbox" />Initial positions
+populating</label></li>
+<li><label><input type="checkbox" />Baseline documented</label></li>
+<li><label><input type="checkbox" />Ready for ongoing monitoring
+(SOP-402)</label></li>
+</ul>
+<h2 id="common-issues">Common Issues</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No data after 24 hours</td>
+<td>Verify ASIN is active, check dive setup</td>
+</tr>
+<tr>
+<td>Hit keyword limits</td>
+<td>Archive low-volume keywords (&lt;450 SV)</td>
+</tr>
+<tr>
+<td>PPC data not showing</td>
+<td>Ensure Amazon connection is complete</td>
+</tr>
+<tr>
+<td>Competitor not tracking</td>
+<td>Add their ASIN separately to Rank Radar</td>
+</tr>
+</tbody>
+</table>
+<h2 id="managing-keyword-limits">Managing Keyword Limits</h2>
+<p>If you exceed your subscription limits:</p>
+<ol type="1">
+<li>Filter: <code>Search Volume &lt; 450</code></li>
+<li>Select filtered keywords</li>
+<li>Choose <strong>Archive</strong> action</li>
+<li>This frees up tracking capacity</li>
+</ol>
+<h2 id="whats-tracked">What’s Tracked</h2>
+<table>
+<thead>
+<tr>
+<th>Data Type</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Organic Position</td>
+<td>DataDive crawling</td>
+</tr>
+<tr>
+<td>Impression Rank</td>
+<td>Amazon PPC data</td>
+</tr>
+<tr>
+<td>Campaign Type</td>
+<td>Your Seller Central</td>
+</tr>
+<tr>
+<td>Sales/Spend</td>
+<td>PPC integration</td>
+</tr>
+<tr>
+<td>CTR/CVR</td>
+<td>SQP data</td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-sops">Related SOPs</h2>
+<ul>
+<li>Previous: <a
+href="../03-listing-optimization/SOP-303-Listing-Update-Process.md">SOP-303:
+Listing Update Process</a></li>
+<li>Next: <a href="SOP-402-Weekly-Monitoring-Routine.md">SOP-402: Weekly
+Monitoring Routine</a></li>
+<li>Related: <a
+href="../05-troubleshooting/SOP-501-Diagnose-Performance-Issues.md">SOP-501:
+Diagnose Performance Issues</a></li>
+</ul>
+<hr />
+<p><strong>Time Estimate:</strong> 15-20 minutes (plus 24 hours for
+data) <strong>Difficulty:</strong> Beginner</p>
+<hr />
+<p><em>Nurise Listing Optimization SOP v1.0</em></p>
+</body>
+</html>

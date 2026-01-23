@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>SOP-302-Keyword-Optimization</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<h1 id="sop-302-keyword-optimization">SOP-302: Keyword Optimization</h1>
+<p><strong>Nurise Listing Optimization</strong></p>
+<hr />
+<h2 id="purpose">Purpose</h2>
+<p>Add missing keywords to your listing copy, convert broad matches to
+exact matches, and improve overall keyword coverage while maintaining
+readability.</p>
+<h2 id="when-to-use">When to Use</h2>
+<ul>
+<li>After completing listing analysis (SOP-301)</li>
+<li>Addressing specific keyword gaps</li>
+<li>Improving SEO Leaderboard position</li>
+<li>Preparing listing updates</li>
+</ul>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Listing analysis complete
+(SOP-301)</label></li>
+<li><label><input type="checkbox" />Gap list documented with
+priorities</label></li>
+<li><label><input type="checkbox" />Access to Listing
+Builder</label></li>
+<li><label><input type="checkbox" />Understanding of current listing
+structure</label></li>
+</ul>
+<hr />
+<h2 id="procedure">Procedure</h2>
+<h3 id="step-1-review-your-gap-list">Step 1: Review Your Gap List</h3>
+<p>Open your documented gaps from SOP-301: - HIGH priority gaps (tackle
+first) - MEDIUM priority gaps (if time allows) - Focus on 1-2 changes
+per optimization session</p>
+<p><strong>Critical Rule:</strong> &gt; Make only 1-2 keyword changes at
+a time, then wait 3-5 days before making more changes.</p>
+<h3 id="step-2-understand-keyword-placement-value">Step 2: Understand
+Keyword Placement Value</h3>
+<p>Where you place keywords matters:</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>SEO Weight</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title</td>
+<td>Highest</td>
+<td>Top 2-3 keywords</td>
+</tr>
+<tr>
+<td>Bullets</td>
+<td>High</td>
+<td>Supporting keywords</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Medium</td>
+<td>Long-tail variations</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>Low</td>
+<td>Overflow keywords</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-3-convert-broad-to-exact-match">Step 3: Convert Broad to
+Exact Match</h3>
+<p>For keywords showing “Broad Match”:</p>
+<p><strong>Before (Broad):</strong></p>
+<pre><code>Title: &quot;Replacement Cartridge Filter for Type VI Hot Tub Spa&quot;
+Keyword: &quot;type vi hot tub filter&quot; = Broad match</code></pre>
+<p><strong>After (Exact):</strong></p>
+<pre><code>Title: &quot;Type VI Hot Tub Filter - Replacement Cartridge for Spa...&quot;
+Keyword: &quot;type vi hot tub filter&quot; = Exact match</code></pre>
+<p><strong>Technique:</strong> 1. Identify the exact keyword phrase
+needed 2. Rearrange existing words to create exact phrase 3. Maintain
+readability and compliance</p>
+<h3 id="step-4-add-missing-keywords">Step 4: Add Missing Keywords</h3>
+<p>For keywords not in copy at all:</p>
+<p><strong>4a. Find Natural Placement</strong> - Read current copy -
+Identify where keyword fits naturally - Don’t force awkward phrasing</p>
+<p><strong>4b. Example Addition:</strong></p>
+<pre><code>GAP: &quot;bestway saluspa filter replacement&quot;
+
+Original Bullet:
+&quot;Premium hot tub filter cartridge with trilobal filtration&quot;
+
+Updated Bullet:
+&quot;Premium Bestway SaluSpa filter replacement cartridge with trilobal filtration&quot;</code></pre>
+<h3 id="step-5-use-the-ai-copywriter-optional">Step 5: Use the AI
+Copywriter (Optional)</h3>
+<p>If making larger changes or creating from scratch:</p>
+<ol type="1">
+<li>In Listing Builder, click <strong>AI Copywriter</strong></li>
+<li>Select mode:
+<ul>
+<li><strong>Cosmo/Rufus</strong> - New algorithm optimized</li>
+<li><strong>Classic</strong> - Traditional keyword-focused</li>
+</ul></li>
+<li>Generate content</li>
+<li>Review coverage automatically</li>
+</ol>
+<p><strong>When to Use AI:</strong> - Creating new listings from scratch
+- Major overhaul needed - Want to see optimal keyword placement</p>
+<p><strong>When NOT to Use AI:</strong> - Minor tweaks to existing
+listing - Just adding 1-2 keywords - Want to preserve brand voice</p>
+<h3 id="step-6-test-keyword-value">Step 6: Test Keyword Value</h3>
+<p>Before finalizing, verify keyword matters:</p>
+<p><strong>Point System Test:</strong> 1. Note current point score 2.
+Remove the text you’re considering 3. Check if score changes: -
+<strong>Score drops</strong> = Text has SEO value (keep it) -
+<strong>Score unchanged</strong> = Not SEO-relevant (can modify)</p>
+<p><strong>Example:</strong></p>
+<pre><code>Text: &quot;fits Coleman SaluSpa and Lay-Z-Spa models&quot;
+Before removal: 122 points
+After removal: 122 points
+Conclusion: Phrase has no SEO value for your MKL</code></pre>
+<h3 id="step-7-avoid-keyword-skewing">Step 7: Avoid Keyword Skewing</h3>
+<p>Don’t add irrelevant high-volume keywords:</p>
+<p><strong>Warning Signs:</strong> - Score jumps dramatically after
+adding keyword - Keyword doesn’t match your product type - SERP for
+keyword shows different products</p>
+<p><strong>Example of Skewing:</strong></p>
+<pre><code>Product: Type VI Hot Tub Filter
+Bad addition: &quot;pool pump&quot; (high volume but wrong product)
+Result: False #1 SEO ranking, won&#39;t help actual sales</code></pre>
+<h3 id="step-8-review-final-copy">Step 8: Review Final Copy</h3>
+<p>Before saving, verify:</p>
+<ul class="task-list">
+<li><label><input type="checkbox" />Exact matches for priority
+keywords</label></li>
+<li><label><input type="checkbox" />Copy still reads
+naturally</label></li>
+<li><label><input type="checkbox" />No compliance issues</label></li>
+<li><label><input type="checkbox" />Within character limits</label></li>
+<li><label><input type="checkbox" />Brand voice maintained</label></li>
+</ul>
+<p><strong>Character Limits:</strong> | Field | Limit | |——-|——-| |
+Title | 200 characters | | Bullets | 500 characters each | | Description
+| 2,000 characters | | Backend | 250 bytes |</p>
+<h3 id="step-9-document-changes-made">Step 9: Document Changes Made</h3>
+<p>Record what you changed:</p>
+<pre><code>Date: [Date]
+ASIN: [ASIN]
+
+Changes Made:
+1. Title: Added &quot;type vi hot tub filter&quot; as exact match
+2. Bullet 1: Added &quot;bestway saluspa&quot; phrase
+
+Keywords Addressed:
+- type vi hot tub filter (Broad → Exact)
+- bestway saluspa filter replacement (Missing → Added)
+
+SEO Score: [Before] → [After]
+Leaderboard: #[X] → #[Y]</code></pre>
+<h3 id="step-10-prepare-for-implementation">Step 10: Prepare for
+Implementation</h3>
+<p>Your optimized copy is ready for: - SOP-303: Listing Update Process -
+Implementation in Seller Central - Monitoring with Rank Radar</p>
+<hr />
+<h2 id="success-criteria">Success Criteria</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Priority gaps addressed (1-2 per
+session)</label></li>
+<li><label><input type="checkbox" />Broad matches converted to
+exact</label></li>
+<li><label><input type="checkbox" />Copy reads naturally</label></li>
+<li><label><input type="checkbox" />Point system verified changes have
+value</label></li>
+<li><label><input type="checkbox" />No keyword skewing
+introduced</label></li>
+<li><label><input type="checkbox" />Changes documented</label></li>
+<li><label><input type="checkbox" />Ready for Seller Central
+update</label></li>
+</ul>
+<h2 id="common-issues">Common Issues</h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Can’t fit keyword naturally</td>
+<td>Try bullets instead of title</td>
+</tr>
+<tr>
+<td>Keyword too long for title</td>
+<td>Use in description or backend</td>
+</tr>
+<tr>
+<td>Score didn’t improve</td>
+<td>Keyword may not be in MKL, verify</td>
+</tr>
+<tr>
+<td>Copy sounds awkward</td>
+<td>Rewrite for flow, keep keywords</td>
+</tr>
+</tbody>
+</table>
+<h2 id="keyword-optimization-checklist">Keyword Optimization
+Checklist</h2>
+<p><strong>For Each Priority Keyword:</strong> - [ ] Identified current
+match type - [ ] Found natural placement location - [ ] Added/rearranged
+for exact match - [ ] Verified with point system - [ ] Checked
+readability - [ ] Documented change</p>
+<h2 id="related-sops">Related SOPs</h2>
+<ul>
+<li>Previous: <a href="SOP-301-Listing-Analysis.md">SOP-301: Listing
+Analysis</a></li>
+<li>Next: <a href="SOP-303-Listing-Update-Process.md">SOP-303: Listing
+Update Process</a></li>
+<li>Related: <a
+href="../04-keyword-tracking/SOP-402-Weekly-Monitoring-Routine.md">SOP-402:
+Weekly Monitoring Routine</a></li>
+</ul>
+<hr />
+<p><strong>Time Estimate:</strong> 30 minutes
+<strong>Difficulty:</strong> Intermediate</p>
+<hr />
+<p><em>Nurise Listing Optimization SOP v1.0</em></p>
+</body>
+</html>
