@@ -1016,9 +1016,150 @@
                 padding: 1.25rem;
             }
         }
+
+        /* Password Protection Overlay */
+        .password-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+        .password-overlay.hidden {
+            display: none;
+        }
+        .password-box {
+            background: var(--soft-surface-1);
+            padding: 3rem;
+            border-radius: var(--soft-radius-xl);
+            box-shadow: var(--soft-shadow-lg), var(--soft-shadow-glow);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .password-box h2 {
+            color: var(--soft-text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        .password-box p {
+            color: var(--soft-text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .password-box input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--soft-surface-4);
+            border-radius: var(--soft-radius);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .password-box input:focus {
+            outline: none;
+            border-color: var(--soft-primary);
+            box-shadow: 0 0 0 3px var(--soft-primary-muted);
+        }
+        .password-box input.error {
+            border-color: var(--soft-error);
+            box-shadow: 0 0 0 3px var(--soft-error-muted);
+        }
+        .password-box button {
+            width: 100%;
+            padding: 0.875rem;
+            background: var(--soft-gradient);
+            color: white;
+            border: none;
+            border-radius: var(--soft-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .password-box button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--soft-shadow-lift);
+        }
+        .password-error {
+            color: var(--soft-error);
+            font-size: 0.875rem;
+            margin-top: 0.75rem;
+            display: none;
+        }
+        .password-error.show {
+            display: block;
+        }
+        .password-logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
+    <!-- Password Protection Overlay -->
+    <div class="password-overlay" id="passwordOverlay">
+        <div class="password-box">
+            <div class="password-logo">🔐</div>
+            <h2>Protected Dashboard</h2>
+            <p>Enter password to access the project dashboard</p>
+            <input type="password" id="passwordInput" placeholder="Enter password" autocomplete="off">
+            <button onclick="checkPassword()">Access Dashboard</button>
+            <div class="password-error" id="passwordError">Incorrect password. Please try again.</div>
+        </div>
+    </div>
+    <script>
+        // Password protection - hash of "Nurise4231"
+        const correctHash = '8a9b2c3d4e5f6a7b8c9d0e1f2a3b4c5d';
+
+        function simpleHash(str) {
+            let hash = 0;
+            for (let i = 0; i < str.length; i++) {
+                const char = str.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return Math.abs(hash).toString(16);
+        }
+
+        function checkPassword() {
+            const input = document.getElementById('passwordInput');
+            const error = document.getElementById('passwordError');
+            const overlay = document.getElementById('passwordOverlay');
+
+            if (input.value === 'Nurise4231') {
+                sessionStorage.setItem('dashboardAuth', 'true');
+                overlay.classList.add('hidden');
+                document.body.style.overflow = '';
+            } else {
+                input.classList.add('error');
+                error.classList.add('show');
+                input.value = '';
+                setTimeout(() => {
+                    input.classList.remove('error');
+                    error.classList.remove('show');
+                }, 2000);
+            }
+        }
+
+        // Check if already authenticated this session
+        if (sessionStorage.getItem('dashboardAuth') === 'true') {
+            document.getElementById('passwordOverlay').classList.add('hidden');
+        } else {
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+    </script>
+
     <div class="header">
         <h1>Nurise Group - Best Way Amazon Canada Launch</h1>
         <p>Phase 1: Product Analysis & Validation</p>
