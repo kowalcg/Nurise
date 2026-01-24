@@ -1114,19 +1114,6 @@
         </div>
     </div>
     <script>
-        // Password protection - hash of "Nurise4231"
-        const correctHash = '8a9b2c3d4e5f6a7b8c9d0e1f2a3b4c5d';
-
-        function simpleHash(str) {
-            let hash = 0;
-            for (let i = 0; i < str.length; i++) {
-                const char = str.charCodeAt(i);
-                hash = ((hash << 5) - hash) + char;
-                hash = hash & hash;
-            }
-            return Math.abs(hash).toString(16);
-        }
-
         function checkPassword() {
             const input = document.getElementById('passwordInput');
             const error = document.getElementById('passwordError');
@@ -1140,23 +1127,28 @@
                 input.classList.add('error');
                 error.classList.add('show');
                 input.value = '';
-                setTimeout(() => {
+                setTimeout(function() {
                     input.classList.remove('error');
                     error.classList.remove('show');
                 }, 2000);
             }
         }
 
-        // Check if already authenticated this session
-        if (sessionStorage.getItem('dashboardAuth') === 'true') {
-            document.getElementById('passwordOverlay').classList.add('hidden');
-        } else {
-            document.body.style.overflow = 'hidden';
-        }
+        // Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if already authenticated this session
+            if (sessionStorage.getItem('dashboardAuth') === 'true') {
+                document.getElementById('passwordOverlay').classList.add('hidden');
+            } else {
+                document.body.style.overflow = 'hidden';
+                // Focus password input
+                document.getElementById('passwordInput').focus();
+            }
 
-        // Allow Enter key to submit
-        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') checkPassword();
+            // Allow Enter key to submit
+            document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') checkPassword();
+            });
         });
     </script>
 
