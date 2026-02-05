@@ -1018,87 +1018,19 @@
         }
 
         /* Password Protection Overlay */
-        .password-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-        }
-        .password-overlay.hidden {
-            display: none;
-        }
-        .password-box {
-            background: var(--soft-surface-1);
-            padding: 3rem;
-            border-radius: var(--soft-radius-xl);
-            box-shadow: var(--soft-shadow-lg), var(--soft-shadow-glow);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        .password-box h2 {
-            color: var(--soft-text-primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-        .password-box p {
-            color: var(--soft-text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-        .password-box input {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 2px solid var(--soft-surface-4);
-            border-radius: var(--soft-radius);
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .password-box input:focus {
-            outline: none;
-            border-color: var(--soft-primary);
-            box-shadow: 0 0 0 3px var(--soft-primary-muted);
-        }
-        .password-box input.error {
-            border-color: var(--soft-error);
-            box-shadow: 0 0 0 3px var(--soft-error-muted);
-        }
-        .password-box button {
-            width: 100%;
-            padding: 0.875rem;
-            background: var(--soft-gradient);
-            color: white;
-            border: none;
-            border-radius: var(--soft-radius);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .password-box button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--soft-shadow-lift);
-        }
-        .password-error {
-            color: var(--soft-error);
-            font-size: 0.875rem;
-            margin-top: 0.75rem;
-            display: none;
-        }
-        .password-error.show {
-            display: block;
-        }
-        .password-logo {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+        .password-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); display: flex; align-items: center; justify-content: center; z-index: 10000; }
+        .password-overlay.hidden { display: none; }
+        .password-box { background: var(--soft-surface-1); padding: 3rem; border-radius: var(--soft-radius-xl); box-shadow: var(--soft-shadow-lg), var(--soft-shadow-glow); text-align: center; max-width: 400px; width: 90%; }
+        .password-box h2 { color: var(--soft-text-primary); margin-bottom: 0.5rem; font-size: 1.5rem; }
+        .password-box p { color: var(--soft-text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .password-box input { width: 100%; padding: 0.875rem 1rem; border: 2px solid var(--soft-surface-4); border-radius: var(--soft-radius); font-size: 1rem; margin-bottom: 1rem; transition: border-color 0.2s, box-shadow 0.2s; }
+        .password-box input:focus { outline: none; border-color: var(--soft-primary); box-shadow: 0 0 0 3px var(--soft-primary-muted); }
+        .password-box input.error { border-color: var(--soft-error); box-shadow: 0 0 0 3px var(--soft-error-muted); }
+        .password-box button { width: 100%; padding: 0.875rem; background: var(--soft-gradient); color: white; border: none; border-radius: var(--soft-radius); font-size: 1rem; font-weight: 600; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .password-box button:hover { transform: translateY(-2px); box-shadow: var(--soft-shadow-lift); }
+        .password-error { color: var(--soft-error); font-size: 0.875rem; margin-top: 0.75rem; display: none; }
+        .password-error.show { display: block; }
+        .password-logo { font-size: 3rem; margin-bottom: 1rem; }
     </style>
 </head>
 <body>
@@ -1118,7 +1050,6 @@
             const input = document.getElementById('passwordInput');
             const error = document.getElementById('passwordError');
             const overlay = document.getElementById('passwordOverlay');
-
             if (input.value === 'Nurise4231') {
                 sessionStorage.setItem('dashboardAuth', 'true');
                 overlay.classList.add('hidden');
@@ -1127,13 +1058,9 @@
                 input.classList.add('error');
                 error.classList.add('show');
                 input.value = '';
-                setTimeout(function() {
-                    input.classList.remove('error');
-                    error.classList.remove('show');
-                }, 2000);
+                setTimeout(function() { input.classList.remove('error'); error.classList.remove('show'); }, 2000);
             }
         }
-
         document.addEventListener('DOMContentLoaded', function() {
             if (sessionStorage.getItem('dashboardAuth') === 'true') {
                 document.getElementById('passwordOverlay').classList.add('hidden');
@@ -1141,7 +1068,6 @@
                 document.body.style.overflow = 'hidden';
                 document.getElementById('passwordInput').focus();
             }
-
             document.getElementById('passwordInput').addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') checkPassword();
             });
@@ -1757,7 +1683,7 @@
                 name: '03 - Progress Meeting 2',
                 date: 'January 9, 2026',
                 icon: '🔍',
-                videoFile: 'https://drive.google.com/drive/folders/1npLZLLEOBTZJJpDxpg5XVYrbFvXTCITm?usp=drive_link',
+                videoFile: 'https://drive.google.com/file/d/11QZt5Myw-Y6s4mcivz4x-jhgn4g0-olW/view?usp=sharing',
                 files: [
                     {
                         name: 'Meeting Minutes',
