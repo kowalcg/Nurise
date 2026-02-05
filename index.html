@@ -1016,140 +1016,73 @@
                 padding: 1.25rem;
             }
         }
-
-        /* Password Protection Overlay */
-        .password-overlay {
+    
+        /* Password Protection */
+        #password-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            z-index: 10000;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 10000;
+            flex-direction: column;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
-        .password-overlay.hidden {
-            display: none;
-        }
-        .password-box {
-            background: var(--soft-surface-1);
-            padding: 3rem;
-            border-radius: var(--soft-radius-xl);
-            box-shadow: var(--soft-shadow-lg), var(--soft-shadow-glow);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        .password-box h2 {
-            color: var(--soft-text-primary);
-            margin-bottom: 0.5rem;
+        #password-overlay h2 {
+            color: #f8fafc;
             font-size: 1.5rem;
-        }
-        .password-box p {
-            color: var(--soft-text-secondary);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-        .password-box input {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            border: 2px solid var(--soft-surface-4);
-            border-radius: var(--soft-radius);
-            font-size: 1rem;
             margin-bottom: 1rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
         }
-        .password-box input:focus {
-            outline: none;
-            border-color: var(--soft-primary);
-            box-shadow: 0 0 0 3px var(--soft-primary-muted);
-        }
-        .password-box input.error {
-            border-color: var(--soft-error);
-            box-shadow: 0 0 0 3px var(--soft-error-muted);
-        }
-        .password-box button {
-            width: 100%;
-            padding: 0.875rem;
-            background: var(--soft-gradient);
+        #password-overlay input {
+            padding: 0.75rem 1.25rem;
+            border: 2px solid rgba(124, 92, 255, 0.3);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.1);
             color: white;
-            border: none;
-            border-radius: var(--soft-radius);
             font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            width: 300px;
+            text-align: center;
+            outline: none;
         }
-        .password-box button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--soft-shadow-lift);
+        #password-overlay input:focus {
+            border-color: #7c5cff;
+            box-shadow: 0 0 20px rgba(124, 92, 255, 0.3);
         }
-        .password-error {
-            color: var(--soft-error);
+        #password-overlay .error {
+            color: #f87171;
+            margin-top: 0.5rem;
             font-size: 0.875rem;
-            margin-top: 0.75rem;
-            display: none;
+            min-height: 1.25rem;
         }
-        .password-error.show {
-            display: block;
-        }
-        .password-logo {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+
     </style>
 </head>
 <body>
-    <!-- Password Protection Overlay -->
-    <div class="password-overlay" id="passwordOverlay">
-        <div class="password-box">
-            <div class="password-logo">🔐</div>
-            <h2>Protected Dashboard</h2>
-            <p>Enter password to access the project dashboard</p>
-            <input type="password" id="passwordInput" placeholder="Enter password" autocomplete="off">
-            <button onclick="checkPassword()">Access Dashboard</button>
-            <div class="password-error" id="passwordError">Incorrect password. Please try again.</div>
-        </div>
+
+    <div id="password-overlay">
+        <h2>Nurise Group - Project Dashboard</h2>
+        <p style="color: #94a3b8; margin-bottom: 1.5rem;">Enter password to access</p>
+        <input type="password" id="password-input" placeholder="Enter password..." onkeypress="if(event.key==='Enter')checkPassword()">
+        <div class="error" id="password-error"></div>
     </div>
     <script>
-        function checkPassword() {
-            const input = document.getElementById('passwordInput');
-            const error = document.getElementById('passwordError');
-            const overlay = document.getElementById('passwordOverlay');
-
-            if (input.value === 'Nurise4231') {
-                sessionStorage.setItem('dashboardAuth', 'true');
-                overlay.classList.add('hidden');
-                document.body.style.overflow = '';
+        (function() {
+            if (sessionStorage.getItem('dashboard_auth') === 'true') {
+                document.getElementById('password-overlay').style.display = 'none';
             } else {
-                input.classList.add('error');
-                error.classList.add('show');
-                input.value = '';
-                setTimeout(function() {
-                    input.classList.remove('error');
-                    error.classList.remove('show');
-                }, 2000);
+                document.getElementById('password-input').focus();
+            }
+        })();
+        function checkPassword() {
+            if (document.getElementById('password-input').value === 'Nurise4231') {
+                sessionStorage.setItem('dashboard_auth', 'true');
+                document.getElementById('password-overlay').style.display = 'none';
+            } else {
+                document.getElementById('password-error').textContent = 'Incorrect password';
+                document.getElementById('password-input').value = '';
             }
         }
-
-        // Wait for DOM to be ready
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if already authenticated this session
-            if (sessionStorage.getItem('dashboardAuth') === 'true') {
-                document.getElementById('passwordOverlay').classList.add('hidden');
-            } else {
-                document.body.style.overflow = 'hidden';
-                // Focus password input
-                document.getElementById('passwordInput').focus();
-            }
-
-            // Allow Enter key to submit
-            document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') checkPassword();
-            });
-        });
     </script>
 
     <div class="header">
@@ -1333,8 +1266,15 @@
                 <h2 class="section-title">Listing Optimization & Creation</h2>
 
                 <div class="subsection">
-                    <h3 class="subsection-title">Existing Listing Optimization (2 ASINs)</h3>
-                    <div class="file-grid" id="listing-optimization">
+                    <h3 class="subsection-title">🔥 Saluspa Hot Tub Filter (Type VI)</h3>
+                    <div class="file-grid" id="saluspa-filter">
+                        <!-- Files will be added dynamically -->
+                    </div>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-title">🏰 Bouncy Castle (H2OGo)</h3>
+                    <div class="file-grid" id="bouncy-castle">
                         <!-- Files will be added dynamically -->
                     </div>
                 </div>
@@ -1436,7 +1376,48 @@
 
                 <div class="subsection">
                     <h3 class="subsection-title">Data Dive Resources</h3>
-                    <p style="margin-bottom: 1rem;">Access the complete Data Dive documentation to learn product research and competitive analysis:</p>
+
+                    <h4 style="font-size: 1rem; font-weight: 600; color: var(--soft-text-primary); margin: 2rem 0 1rem 0;">📚 Internal Training Materials</h4>
+                    <p style="margin-bottom: 1.5rem; color: var(--soft-text-secondary);">Complete training guides created specifically for your team, organized by workflow:</p>
+
+                    <!-- Getting Started -->
+                    <h5 style="font-size: 0.9rem; font-weight: 600; color: var(--soft-text-primary); margin: 2rem 0 0.75rem 0; padding-left: 0.5rem; border-left: 3px solid var(--soft-primary);">🎯 Getting Started</h5>
+                    <div class="file-grid" id="datadive-setup">
+                        <!-- Files will be added dynamically -->
+                    </div>
+
+                    <!-- Product Research -->
+                    <h5 style="font-size: 0.9rem; font-weight: 600; color: var(--soft-text-primary); margin: 2rem 0 0.75rem 0; padding-left: 0.5rem; border-left: 3px solid var(--soft-secondary);">📊 Product Research & Validation</h5>
+                    <div class="file-grid" id="datadive-research">
+                        <!-- Files will be added dynamically -->
+                    </div>
+
+                    <!-- Listing Optimization -->
+                    <h5 style="font-size: 0.9rem; font-weight: 600; color: var(--soft-text-primary); margin: 2rem 0 0.75rem 0; padding-left: 0.5rem; border-left: 3px solid var(--soft-success);">✏️ Listing Creation & Optimization</h5>
+                    <div class="file-grid" id="datadive-listings">
+                        <!-- Files will be added dynamically -->
+                    </div>
+
+                    <!-- Tracking & Monitoring -->
+                    <h5 style="font-size: 0.9rem; font-weight: 600; color: var(--soft-text-primary); margin: 2rem 0 0.75rem 0; padding-left: 0.5rem; border-left: 3px solid var(--soft-info);">📈 Tracking & Monitoring</h5>
+                    <div class="file-grid" id="datadive-tracking">
+                        <!-- Files will be added dynamically -->
+                    </div>
+
+                    <!-- Advanced Training -->
+                    <h5 style="font-size: 0.9rem; font-weight: 600; color: var(--soft-text-primary); margin: 2rem 0 0.75rem 0; padding-left: 0.5rem; border-left: 3px solid var(--soft-warning);">🔧 Advanced Training</h5>
+                    <div class="file-grid" id="datadive-advanced">
+                        <!-- Files will be added dynamically -->
+                    </div>
+
+                    <!-- Creative Tools -->
+                    <h5 style="font-size: 0.9rem; font-weight: 600; color: var(--soft-text-primary); margin: 2rem 0 0.75rem 0; padding-left: 0.5rem; border-left: 3px solid var(--soft-error);">🎨 Creative Tools</h5>
+                    <div class="file-grid" id="datadive-creative">
+                        <!-- Files will be added dynamically -->
+                    </div>
+
+                    <h4 style="font-size: 1rem; font-weight: 600; color: var(--soft-text-primary); margin: 3rem 0 1rem 0;">🌐 External Resources</h4>
+                    <p style="margin-bottom: 1rem; color: var(--soft-text-secondary);">Official DataDive documentation and support:</p>
                     <div class="file-grid">
                         <a href="https://support.datadive.tools/hc/en-us" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
                             <div class="file-card" style="border: 2px solid rgba(124, 92, 255, 0.4); background: var(--soft-gradient-subtle);">
@@ -1544,19 +1525,22 @@
         const projectFiles = {
     'priority-skus': [
         { name: 'MASTER PRODUCT ANALYSIS (PDF)', file: '03-Analysis/MASTER-PRODUCT-ANALYSIS.pdf', status: 'completed' },
-        { name: 'MASTER PRODUCT ANALYSIS PRINT (PDF)', file: '03-Analysis/MASTER-PRODUCT-ANALYSIS-PRINT.pdf', status: 'completed' },
-        { name: 'MASTER PRODUCT ANALYSIS CORRECTED (PDF)', file: '03-Analysis/MASTER-PRODUCT-ANALYSIS-CORRECTED.pdf', status: 'completed' },
         { name: 'Priority 15 Items Analysis (PDF)', file: '03-Analysis/Priority-15-Items-Analysis.pdf', status: 'completed' },
     ],
     'team-skus': [
     ],
     'final-report': [
         { name: 'MASTER PRODUCT ANALYSIS (PDF)', file: '03-Analysis/MASTER-PRODUCT-ANALYSIS.pdf', status: 'completed' },
-        { name: 'MASTER PRODUCT ANALYSIS PRINT (PDF)', file: '03-Analysis/MASTER-PRODUCT-ANALYSIS-PRINT.pdf', status: 'completed' },
-        { name: 'MASTER PRODUCT ANALYSIS CORRECTED (PDF)', file: '03-Analysis/MASTER-PRODUCT-ANALYSIS-CORRECTED.pdf', status: 'completed' },
         { name: 'Priority 15 Items Analysis (PDF)', file: '03-Analysis/Priority-15-Items-Analysis.pdf', status: 'completed' },
     ],
-    'listing-optimization': [
+    'saluspa-filter': [
+        { name: 'Product Brief', file: '09-Listing-Optimization/Saluspa-Hot-Tub-Filter/Product-Brief.pdf', status: 'completed' },
+        { name: 'Complete Competitive Analysis', file: '09-Listing-Optimization/Saluspa-Hot-Tub-Filter/saluspa-filter-competitive-analysis-final.pdf', status: 'completed' },
+        { name: 'Project Overview', file: '09-Listing-Optimization/Saluspa-Hot-Tub-Filter/README.pdf', status: 'completed' },
+        { name: 'Data Sources', file: '09-Listing-Optimization/Saluspa-Hot-Tub-Filter/DATA-SOURCES.pdf', status: 'completed' },
+    ],
+    'bouncy-castle': [
+        { name: 'Product Brief', file: '09-Listing-Optimization/Bouncy-Castle-H2OGo/Product-Brief.pdf', status: 'in-progress' },
     ],
     'listing-training': [
     ],
@@ -1569,6 +1553,25 @@
     'templates-examples': [
     ],
     'datadive-setup': [
+        { name: 'DataDive Account Setup', file: '06-Training-Sessions/02-DataDive-Training/DataDive-Account-Setup.pdf', status: 'completed' },
+    ],
+    'datadive-research': [
+        { name: 'Product Validation Scorecard', file: '06-Training-Sessions/02-DataDive-Training/DataDive-Product-Validation-Scorecard.pdf', status: 'completed' },
+        { name: 'Product Validation Walkthrough', file: '06-Training-Sessions/02-DataDive-Training/DataDive-Product-Validation-Walkthrough.pdf', status: 'completed' },
+    ],
+    'datadive-listings': [
+        { name: 'Listing Builder Training', file: '06-Training-Sessions/02-DataDive-Training/DataDive-Listing-Builder-Training.pdf', status: 'completed' },
+        { name: 'Listing Builder Reference Guide', file: '06-Training-Sessions/02-DataDive-Training/DataDive-Listing-Builder-Video-Transcripts.pdf', status: 'completed' },
+    ],
+    'datadive-tracking': [
+        { name: 'Rank Radar Training', file: '06-Training-Sessions/02-DataDive-Training/DataDive-Rank-Radar-Training.pdf', status: 'completed' },
+    ],
+    'datadive-advanced': [
+        { name: 'Complete Training Notes', file: '06-Training-Sessions/02-DataDive-Training/DataDive-Training-Notes.pdf', status: 'completed' },
+        { name: 'Troubleshooting & Diagnostics', file: '06-Training-Sessions/02-DataDive-Training/DataDive-Troubleshooting-Diagnostics.pdf', status: 'completed' },
+    ],
+    'datadive-creative': [
+        { name: 'ChatGPT 4o Image Creation', file: '06-Training-Sessions/02-DataDive-Training/ChatGPT-40-Amazon-Image-Creation.pdf', status: 'completed' },
     ],
     'datadive-training': [
     ],
@@ -1580,11 +1583,15 @@
         { name: 'Progress Meeting 2 Minutes (PDF)', file: '08-Meeting-Notes/03-Progress-Meeting-2-Friday 9jan2026/Progress_Meeting_2_Minutes_Jan9_2026.pdf', status: 'completed' },
         { name: 'Progress Meeting 2 Executive Summary (PDF)', file: '08-Meeting-Notes/03-Progress-Meeting-2-Friday 9jan2026/Progress_Meeting_2_Executive_Summary.pdf', status: 'completed' },
         { name: 'Progress Meeting 3 Minutes (PDF)', file: '08-Meeting-Notes/04-Progress-Meeting-3-Thruday 15jan2026/Meeting-Minutes-Progress-Meeting-3.pdf', status: 'completed' },
+        { name: 'Progress Meeting 4 Minutes (PDF)', file: '08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Meeting-Minutes-Progress-Meeting-4-Jan29-2026.pdf', status: 'completed' },
+        { name: 'Progress Meeting 4 Executive Summary (PDF)', file: '08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Executive_Summary_Progress_Meeting_4.pdf', status: 'completed' },
+        { name: 'Progress Meeting 4 Recording (Video)', file: 'https://drive.google.com/file/d/1ylorW2b1X1yCTCwzDSmdCDQykVvQ5gAh/view?usp=sharing', status: 'completed' },
     ],
     'email-archive': [
         { name: 'Email to Todd and Douae (PDF)', file: '08-Meeting-Notes/04-Progress-Meeting-3-Thruday 15jan2026/Email-to-Todd-and-Douae.pdf', status: 'completed' },
         { name: 'EMAIL Progress Meeting 1 Summary (PDF)', file: '08-Meeting-Notes/02-Progress-Meeting-1/EMAIL_Progress_Meeting_1_Summary.pdf', status: 'completed' },
         { name: 'EMAIL Progress Meeting 2 Summary (PDF)', file: '08-Meeting-Notes/03-Progress-Meeting-2-Friday 9jan2026/EMAIL_Progress_Meeting_2_Summary.pdf', status: 'completed' },
+        { name: 'EMAIL Progress Meeting 4 Summary (PDF)', file: '08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Email_Progress_Meeting_4_Summary.pdf', status: 'completed' },
         { name: 'EMAIL Kickoff Meeting Summary (PDF)', file: '08-Meeting-Notes/01-Kickoff-Meeting/EMAIL_Kickoff_Meeting_Summary.pdf', status: 'completed' },
     ],
     'summary-docs': [
@@ -1607,6 +1614,7 @@
         { name: 'SOP-303: Listing Update Process', file: '06-Training-Sessions/01-SOPs/03-listing-optimization/SOP-303-Listing-Update-Process.pdf', status: 'completed' },
         { name: 'SOP-304: Listing Builder Complete Guide', file: '06-Training-Sessions/01-SOPs/03-listing-optimization/SOP-304-Listing-Builder-Complete-Guide.pdf', status: 'completed' },
         { name: 'SOP-305: Amazon Indexing Mechanics', file: '06-Training-Sessions/01-SOPs/03-listing-optimization/SOP-305-Amazon-Indexing-Mechanics.pdf', status: 'completed' },
+        { name: 'SOP-306: Amazon Indexing Visual Reference', file: '06-Training-Sessions/01-SOPs/03-listing-optimization/SOP-306-Amazon-Indexing-Visual-Reference-Expert-Insights.pdf', status: 'completed' },
     ],
     'sop-keyword-tracking': [
         { name: 'SOP-401: Rank Radar Setup', file: '06-Training-Sessions/01-SOPs/04-keyword-tracking/SOP-401-Rank-Radar-Setup.pdf', status: 'completed' },
@@ -1649,7 +1657,7 @@
                 name: '01 - Kickoff Meeting',
                 date: 'January 5, 2026',
                 icon: '🎯',
-                videoFile: '08-Meeting-Notes/01-Kickoff-Meeting/Kickoff meeting  - 2026_01_05 12_52 EST - Recording.mp4',
+                videoFile: 'https://drive.google.com/file/d/1iUrrFVNS7Fv2msmssoXPvQfn91irri6p/view?usp=sharing',
                 files: [
                     {
                         name: 'Meeting Agenda',
@@ -1670,7 +1678,7 @@
                 name: '02 - Progress Meeting 1',
                 date: 'January 7, 2026',
                 icon: '📊',
-                videoFile: '08-Meeting-Notes/02-Progress-Meeting-1/Progress meeting 1 - 2026_01_07 14_26 EST - Recording.mp4',
+                videoFile: 'https://drive.google.com/file/d/1vFoxgQwkdLbQwH03TdVDaIwjTxULvhDj/view?usp=sharing',
                 files: [
                     {
                         name: 'Meeting Minutes',
@@ -1691,7 +1699,7 @@
                 name: '03 - Progress Meeting 2',
                 date: 'January 9, 2026',
                 icon: '🔍',
-                videoFile: '08-Meeting-Notes/03-Progress-Meeting-2-Friday 9jan2026/03-Progress-Meeting-2-Friday 9jan2025.mp4',
+                videoFile: 'https://drive.google.com/file/d/11QZt5Myw-Y6s4mcivz4x-jhgn4g0-olW/view?usp=sharing',
                 files: [
                     {
                         name: 'Meeting Minutes',
@@ -1712,12 +1720,33 @@
                 name: '04 - Progress Meeting 3',
                 date: 'January 15, 2026',
                 icon: '📈',
-                videoFile: '08-Meeting-Notes/04-Progress-Meeting-3-Thruday 15jan2026/Project review - 2026_01_15 13_59 EST - Recording.mp4',
+                videoFile: 'https://drive.google.com/file/d/1cjbntKvUWIjKJL-HVmQvUVW4NM1V6Ogt/view?usp=sharing',
                 files: [
                     {
                         name: 'Meeting Minutes',
                         file: '08-Meeting-Notes/04-Progress-Meeting-3-Thruday 15jan2026/Meeting-Minutes-Progress-Meeting-3.pdf',
                         pdfFile: '08-Meeting-Notes/04-Progress-Meeting-3-Thruday 15jan2026/Meeting-Minutes-Progress-Meeting-3.pdf',
+                        status: 'completed'
+                    }
+                ]
+            },
+            {
+                id: '05-progress-4',
+                name: '05 - Progress Meeting 4',
+                date: 'January 29, 2026',
+                icon: '🚀',
+                videoFile: 'https://drive.google.com/file/d/1ylorW2b1X1yCTCwzDSmdCDQykVvQ5gAh/view?usp=sharing',
+                files: [
+                    {
+                        name: 'Meeting Minutes',
+                        file: '08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Meeting-Minutes-Progress-Meeting-4-Jan29-2026.pdf',
+                        pdfFile: '08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Meeting-Minutes-Progress-Meeting-4-Jan29-2026.pdf',
+                        status: 'completed'
+                    },
+                    {
+                        name: 'Executive Summary',
+                        file: '08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Executive_Summary_Progress_Meeting_4.pdf',
+                        pdfFile: '08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Executive_Summary_Progress_Meeting_4.pdf',
                         status: 'completed'
                     }
                 ]
@@ -2001,7 +2030,7 @@
             document.getElementById('stat-total').textContent = total;
 
             // Manual project progress override (actual project completion vs file completion)
-            const percentage = 65; // Manually set to reflect actual project progress
+            const percentage = 85; // Manually set to reflect actual project progress
             document.getElementById('progress-bar').style.width = percentage + '%';
             document.getElementById('progress-bar').textContent = percentage + '%';
             document.getElementById('progress-percent').textContent = percentage + '% Complete';
