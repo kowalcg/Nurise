@@ -1134,18 +1134,14 @@
             }
         }
 
-        // Wait for DOM to be ready
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if already authenticated this session
             if (sessionStorage.getItem('dashboardAuth') === 'true') {
                 document.getElementById('passwordOverlay').classList.add('hidden');
             } else {
                 document.body.style.overflow = 'hidden';
-                // Focus password input
                 document.getElementById('passwordInput').focus();
             }
 
-            // Allow Enter key to submit
             document.getElementById('passwordInput').addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') checkPassword();
             });
@@ -1647,7 +1643,7 @@
         { name: 'Progress Meeting 3 Minutes (PDF)', file: '08-Meeting-Notes/04-Progress-Meeting-3-Thruday 15jan2026/Meeting-Minutes-Progress-Meeting-3.pdf', status: 'completed' },
         { name: 'Progress Meeting 4 Minutes (PDF)', file: '08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Meeting-Minutes-Progress-Meeting-4-Jan29-2026.pdf', status: 'completed' },
         { name: 'Progress Meeting 4 Executive Summary (PDF)', file: '08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Executive_Summary_Progress_Meeting_4.pdf', status: 'completed' },
-        { name: 'Progress Meeting 4 Recording (Video)', file: '08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Listing optimization - 2026_01_29 14_54 EST - Recording.mp4', status: 'completed' },
+        { name: 'Progress Meeting 4 Recording (Video)', file: 'https://drive.google.com/file/d/1ylorW2b1X1yCTCwzDSmdCDQykVvQ5gAh/view?usp=sharing', status: 'completed' },
     ],
     'email-archive': [
         { name: 'Email to Todd and Douae (PDF)', file: '08-Meeting-Notes/04-Progress-Meeting-3-Thruday 15jan2026/Email-to-Todd-and-Douae.pdf', status: 'completed' },
@@ -1719,7 +1715,7 @@
                 name: '01 - Kickoff Meeting',
                 date: 'January 5, 2026',
                 icon: '🎯',
-                videoFile: '08-Meeting-Notes/01-Kickoff-Meeting/Kickoff meeting  - 2026_01_05 12_52 EST - Recording.mp4',
+                videoFile: 'https://drive.google.com/file/d/1iUrrFVNS7Fv2msmssoXPvQfn91irri6p/view?usp=sharing',
                 files: [
                     {
                         name: 'Meeting Agenda',
@@ -1740,7 +1736,7 @@
                 name: '02 - Progress Meeting 1',
                 date: 'January 7, 2026',
                 icon: '📊',
-                videoFile: '08-Meeting-Notes/02-Progress-Meeting-1/Progress meeting 1 - 2026_01_07 14_26 EST - Recording.mp4',
+                videoFile: 'https://drive.google.com/file/d/1vFoxgQwkdLbQwH03TdVDaIwjTxULvhDj/view?usp=sharing',
                 files: [
                     {
                         name: 'Meeting Minutes',
@@ -1761,7 +1757,7 @@
                 name: '03 - Progress Meeting 2',
                 date: 'January 9, 2026',
                 icon: '🔍',
-                videoFile: '08-Meeting-Notes/03-Progress-Meeting-2-Friday 9jan2026/03-Progress-Meeting-2-Friday 9jan2025.mp4',
+                videoFile: 'https://drive.google.com/drive/folders/1npLZLLEOBTZJJpDxpg5XVYrbFvXTCITm?usp=drive_link',
                 files: [
                     {
                         name: 'Meeting Minutes',
@@ -1782,7 +1778,7 @@
                 name: '04 - Progress Meeting 3',
                 date: 'January 15, 2026',
                 icon: '📈',
-                videoFile: '08-Meeting-Notes/04-Progress-Meeting-3-Thruday 15jan2026/Project review - 2026_01_15 13_59 EST - Recording.mp4',
+                videoFile: 'https://drive.google.com/file/d/1cjbntKvUWIjKJL-HVmQvUVW4NM1V6Ogt/view?usp=sharing',
                 files: [
                     {
                         name: 'Meeting Minutes',
