@@ -1,0 +1,232 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-01-13",
+  "total_analyses": 15,
+  "accuracy_metrics": {
+    "predictions_made": 15,
+    "predictions_validated": 0,
+    "accuracy_rate": null,
+    "note": "Awaiting Todd's decision on Product 58498 to calculate accuracy"
+  },
+  "patterns": [
+    {
+      "pattern_id": "FBM_TO_FBA_CONVERSION",
+      "description": "FBM listings with good ratings but 0% buy box share represent FBA conversion opportunities",
+      "confidence": 0.85,
+      "evidence_count": 1,
+      "success_indicators": [
+        "Existing listing with 100+ reviews",
+        "Rating 4.5+",
+        "Currently FBM with 0% buy box",
+        "Competition exists but weak",
+        "High-ticket item ($250+)"
+      ],
+      "expected_improvement": "60% buy box win rate after FBA conversion",
+      "scoring_adjustment": "+15 points",
+      "products_matching": [
+        "58498 (Sand Filter)"
+      ],
+      "created": "2026-01-13",
+      "last_validated": null
+    },
+    {
+      "pattern_id": "SUPPLY_GAP_OPPORTUNITY",
+      "description": "Products with existing demand but limited availability in market",
+      "confidence": 0.80,
+      "evidence_count": 1,
+      "success_indicators": [
+        "Specific replacement item not widely available",
+        "Existing listing has reviews (market validation)",
+        "Low PPC costs (limited competition)",
+        "Complementary to products already sold"
+      ],
+      "expected_outcome": "Profitable with minimal marketing spend",
+      "scoring_adjustment": "+10 points",
+      "products_matching": [
+        "58498 (Sand Filter)",
+        "Pump Filter (from Meeting 2)"
+      ],
+      "created": "2026-01-13",
+      "last_validated": null
+    },
+    {
+      "pattern_id": "HIGH_RATING_MEDIUM_COMPETITION",
+      "description": "Products with 4.5+ rating but facing only Medium competition strength",
+      "confidence": 0.75,
+      "evidence_count": 1,
+      "success_indicators": [
+        "Product rating 4.5+",
+        "100-1000 reviews (established but not dominant)",
+        "Competitor strength: Medium (not Very Strong)",
+        "Page 1 ranking on key keywords available"
+      ],
+      "expected_outcome": "Can gain market share with optimization",
+      "scoring_adjustment": "+8 points",
+      "products_matching": [
+        "58498 (Sand Filter)"
+      ],
+      "created": "2026-01-13",
+      "last_validated": null
+    },
+    {
+      "pattern_id": "SEASONAL_HIGH_MARGIN",
+      "description": "Seasonal products (70-80% sales in 4 months) with 50%+ margins can justify risk",
+      "confidence": 0.70,
+      "evidence_count": 1,
+      "success_indicators": [
+        "Seasonal concentration 70-80% in May-August",
+        "Margin 50%+",
+        "High-ticket item ($250+)",
+        "Complementary to existing sales",
+        "Can maintain small inventory off-season"
+      ],
+      "risk_factors": [
+        "Must hit seasonal window (April launch for May-August peak)",
+        "Stockout during peak = lost year",
+        "Competition intensifies in peak season"
+      ],
+      "scoring_adjustment": "+5 points if April launch feasible",
+      "products_matching": [
+        "58498 (Sand Filter)"
+      ],
+      "created": "2026-01-13",
+      "last_validated": null
+    },
+    {
+      "pattern_id": "FREIGHT_COST_CRITICAL",
+      "description": "Bulky items dramatically affected by freight allocation method",
+      "confidence": 0.90,
+      "evidence_count": 2,
+      "success_indicators": [
+        "Large/bulky product",
+        "Cubic volume freight allocation penalizes product",
+        "Flat rate allocation ($5/unit) improves margins significantly"
+      ],
+      "financial_impact": "Can swing product from non-viable to viable",
+      "recommendation": "Always calculate both methods for bulky items",
+      "scoring_adjustment": "Recalculate margins with flat rate before rejection",
+      "products_matching": [
+        "58498 (Sand Filter)",
+        "Trampolines (from Meeting 2)",
+        "Pump Filter (from Meeting 2)"
+      ],
+      "created": "2026-01-13",
+      "last_validated": null
+    },
+    {
+      "pattern_id": "VOLUME_ECONOMICS_THRESHOLD",
+      "description": "Small batch (24 units) costs 50% more per unit than full container (700 units)",
+      "confidence": 0.95,
+      "evidence_count": 2,
+      "critical_learning": "NEVER evaluate product viability on small-batch costs",
+      "thresholds": {
+        "small_batch": "24 units",
+        "full_container": "700 units",
+        "cost_reduction": "~50%",
+        "margin_impact": "Can swing from 15% (threshold) to 25% (good)"
+      },
+      "recommendation": "Always calculate margins at full container volume",
+      "scoring_adjustment": "If margins fail at small batch, recalculate at full container before rejection",
+      "products_matching": [
+        "All products"
+      ],
+      "created": "2026-01-13",
+      "last_validated": "Meeting 1 & Meeting 2"
+    }
+  ],
+  "rejection_patterns": [
+    {
+      "pattern_id": "BRAND_APPROVAL_BLOCKED",
+      "description": "Cannot proceed without brand authorization from trademark holder",
+      "confidence": 1.0,
+      "evidence_count": 1,
+      "auto_reject_criteria": [
+        "Brand registry required",
+        "Authorization pending",
+        "Chicken-egg situation (need PO to get approval, need approval to get PO)"
+      ],
+      "decision": "HOLD until authorization resolved",
+      "products_matching": [
+        "Coleman Air Mattress (from Meeting 2)"
+      ],
+      "created": "2026-01-13"
+    },
+    {
+      "pattern_id": "MARGIN_4_TIER_EVALUATION",
+      "description": "4-tier margin evaluation system: 16%+ STRONG GO, 15%+ GO, 10-15% SPECIAL REVIEW, <10% NO GO",
+      "confidence": 0.95,
+      "evidence_count": 15,
+      "decision_tiers": {
+        "tier_1_strong_go": {
+          "threshold": "16%+",
+          "decision": "STRONG GO",
+          "description": "Preferred margin - excellent viability"
+        },
+        "tier_2_go": {
+          "threshold": "15-16%",
+          "decision": "GO",
+          "description": "Minimum acceptable for ongoing business"
+        },
+        "tier_3_special_review": {
+          "threshold": "10-15%",
+          "decision": "SPECIAL REVIEW",
+          "description": "Requires additional validation - not auto-reject",
+          "review_criteria": [
+            "Path to 15%+ margin visible (price increase, cost reduction)",
+            "Strong market validation exists",
+            "Strategic value (complementary product, brand relationship)",
+            "Volume economics improve margin at full container"
+          ]
+        },
+        "tier_4_reject": {
+          "threshold": "<10%",
+          "decision": "NO GO",
+          "description": "Auto-reject - no viable path to profitability"
+        }
+      },
+      "exception": "New launches may go negative temporarily if market strongly validated",
+      "products_by_tier": {
+        "auto_reject_below_10": [
+          "90716 (Coleman QuickPump - 7.3% margin)",
+          "90711 (Coleman Air Mattress Twin - 7.2% margin)",
+          "90703 (Coleman Air Mattress King - 7.5% margin)"
+        ],
+        "special_review_10_to_15": [
+          "90708 (Coleman SupportRest Twin - 11.8% margin)",
+          "58951 (Pool Cover - 4.5% margin at market price, but tests at premium pricing)",
+          "90712 (Coleman SupportRest King - possible 15.7% @estimate)"
+        ]
+      },
+      "created": "2026-01-13",
+      "last_validated": "15-Product Analysis (Jan 2026)"
+    }
+  ],
+  "scoring_weight_adjustments": {
+    "note": "These weights adjust over time based on accuracy of predictions",
+    "current_weights": {
+      "margin_percentage": 25,
+      "competition_strength": 20,
+      "fba_status": 15,
+      "rating_and_reviews": 10,
+      "seasonality_risk": 10,
+      "supply_gap_opportunity": 10,
+      "freight_optimization": 5,
+      "brand_approval": 5
+    },
+    "weight_history": [],
+    "next_adjustment_trigger": "After 3 validated predictions"
+  },
+  "learning_queue": [
+    {
+      "prediction_id": "58498_STRONG_GO",
+      "product": "58498 - Sand Filter",
+      "predicted_decision": "STRONG GO",
+      "predicted_score": 81,
+      "actual_decision": null,
+      "actual_outcome": null,
+      "date_predicted": "2026-01-13",
+      "date_validated": null,
+      "validation_notes": "Awaiting Todd's decision and market results"
+    }
+  ]
+}

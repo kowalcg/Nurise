@@ -1,0 +1,189 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-01-29",
+  "file_type": "listing-optimization-patterns",
+  "description": "Stores learned patterns from successful listing optimizations to improve future listings",
+
+  "patterns": {
+    "title_structures": {
+      "pool_equipment": {
+        "template": "{Brand} {Product Type} {Size/Qty} | {Feature 1} {Feature 2} | {Compatibility} | {Differentiator}",
+        "example": "Premium Type VI Hot Tub Filter Cartridges 6-Pack | Spa Filter Replacement for Bestway Coleman SaluSpa | Lay-Z-Spa Inflatable Hot Tub & Pool Pump Cartridge Filters | 50 Micron Fine Filtration",
+        "avg_ranking_juice": 5400000,
+        "success_rate": 1.0,
+        "observations": "Front-load compatibility keywords, include exact product type, mention quantity for multi-packs"
+      },
+      "inflatables": {
+        "template": "{Brand} {Product Type} {Size/Age Group} | {Main Feature} {Safety Feature} | {Use Case} | {Differentiator}",
+        "example": "H2OGo Bouncy Castle XXL for Kids 6-12 | Inflatable Water Slide with Splash Pool | Outdoor Summer Fun | Heavy-Duty Commercial Grade",
+        "avg_ranking_juice": 7200000,
+        "success_rate": 1.0,
+        "observations": "Emphasize size/age range, safety is critical keyword, seasonal context helps"
+      }
+    },
+
+    "bullet_distribution": {
+      "optimal_keyword_roots_per_bullet": 2,
+      "avg_characters_per_bullet": 350,
+      "successful_patterns": [
+        {
+          "bullet_1": "Primary benefit + Main feature + Social proof",
+          "avg_ranking_juice": 640000,
+          "keywords_focus": "Benefit keywords (premium, superior, best-selling)"
+        },
+        {
+          "bullet_2": "Compatibility + Ease of use + Model numbers",
+          "avg_ranking_juice": 580000,
+          "keywords_focus": "Compatibility keywords (fits, works with, compatible)"
+        },
+        {
+          "bullet_3": "Durability + Cost-effectiveness + Quality materials",
+          "avg_ranking_juice": 520000,
+          "keywords_focus": "Value keywords (durable, long-lasting, cost-effective)"
+        },
+        {
+          "bullet_4": "Safety + Quality certifications + Family-friendly",
+          "avg_ranking_juice": 480000,
+          "keywords_focus": "Safety keywords (certified, safe, tested)"
+        },
+        {
+          "bullet_5": "Warranty + Customer support + Multi-pack value",
+          "avg_ranking_juice": 440000,
+          "keywords_focus": "Support keywords (warranty, guarantee, support)"
+        }
+      ]
+    },
+
+    "ranking_juice_benchmarks": {
+      "by_niche": {
+        "hot_tub_filters": {
+          "top_performer": 55350000,
+          "good": 33676000,
+          "acceptable": 25000000,
+          "needs_improvement": 15000000,
+          "sample_size": 2
+        },
+        "inflatables": {
+          "top_performer": 72000000,
+          "good": 55000000,
+          "acceptable": 40000000,
+          "needs_improvement": 25000000,
+          "sample_size": 1
+        }
+      }
+    },
+
+    "mkl_coverage_targets": {
+      "excellent": {
+        "min_percentage": 90,
+        "exact_match_count": 40,
+        "volume_coverage": 94,
+        "description": "Top 3 SEO Leaderboard position expected"
+      },
+      "good": {
+        "min_percentage": 85,
+        "exact_match_count": 35,
+        "volume_coverage": 90,
+        "description": "Top 5 SEO Leaderboard position expected"
+      },
+      "acceptable": {
+        "min_percentage": 75,
+        "exact_match_count": 30,
+        "volume_coverage": 85,
+        "description": "Top 10 SEO Leaderboard position expected"
+      },
+      "needs_improvement": {
+        "min_percentage": 60,
+        "exact_match_count": 25,
+        "volume_coverage": 75,
+        "description": "Beyond top 10, requires optimization"
+      }
+    },
+
+    "successful_broad_to_exact_conversions": [
+      {
+        "original": "filter for hot tub type vi",
+        "converted_to": "type vi hot tub filter",
+        "ranking_juice_gain": 180000,
+        "multiplier_improvement": "1.5x to 3.0x (2x gain)",
+        "product": "Saluspa Hot Tub Filter"
+      },
+      {
+        "original": "cartridge spa filter",
+        "converted_to": "spa filter cartridge",
+        "ranking_juice_gain": 150000,
+        "multiplier_improvement": "1.5x to 3.0x (2x gain)",
+        "product": "Saluspa Hot Tub Filter"
+      }
+    ],
+
+    "image_strategy_success": {
+      "7_image_standard": {
+        "success_rate": 1.0,
+        "avg_conversion_lift": 0.15,
+        "observations": "Infographics and compatibility charts perform best for technical products"
+      },
+      "image_quality_impact": {
+        "2000x2000_vs_1000x1000": {
+          "zoom_engagement": 1.35,
+          "conversion_improvement": 0.08
+        }
+      }
+    },
+
+    "category_specific_learnings": {
+      "pool_equipment": {
+        "critical_keywords": ["type vi", "hot tub filter", "spa filter cartridge", "replacement", "compatible"],
+        "must_include_model_numbers": true,
+        "compatibility_emphasis": "high",
+        "seasonal_context": "May-August peak mentioned increases relevancy"
+      },
+      "inflatables": {
+        "critical_keywords": ["bouncy castle", "inflatable", "water slide", "outdoor", "kids"],
+        "must_include_age_range": true,
+        "safety_emphasis": "critical",
+        "seasonal_context": "Summer mentions helpful but not required"
+      }
+    }
+  },
+
+  "learning_history": [
+    {
+      "date": "2026-01-21",
+      "product": "Saluspa Hot Tub Filter",
+      "product_id": "type-vi-filter",
+      "total_ranking_juice": 33676000,
+      "mkl_coverage": 0.91,
+      "volume_coverage": 0.94,
+      "seo_leaderboard_position": 3,
+      "patterns_applied": ["pool_equipment_title_structure", "compatibility_heavy_bullets"],
+      "new_patterns_discovered": ["exact_match_front_loading_critical", "model_numbers_boost_trust"]
+    },
+    {
+      "date": "2026-01-21",
+      "product": "Bouncy Castle H2OGo",
+      "product_id": "bouncy-castle",
+      "total_ranking_juice": 55350000,
+      "mkl_coverage": 0.17,
+      "volume_coverage": 0.45,
+      "seo_leaderboard_position": 1,
+      "patterns_applied": ["inflatables_title_structure", "safety_emphasis_bullets"],
+      "new_patterns_discovered": ["age_range_keywords_high_volume", "outdoor_summer_combo_strong"],
+      "notes": "Low MKL coverage due to product discontinuation - optimization focused on sell-through"
+    }
+  ],
+
+  "continuous_improvement": {
+    "next_refinements": [
+      "Track actual rank changes 30 days post-implementation",
+      "Correlate ranking juice predictions with real rankings",
+      "Build category-specific keyword priority matrices",
+      "Develop automated broad-to-exact match conversion suggestions"
+    ],
+    "accuracy_tracking": {
+      "predicted_vs_actual_rankings": [],
+      "mkl_coverage_correlation_with_sales": [],
+      "ranking_juice_formula_validation": []
+    }
+  }
+}

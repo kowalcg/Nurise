@@ -1,0 +1,404 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-01-13",
+  "total_products_analyzed": 15,
+  "success_model_confidence": 0.75,
+  "note": "Model will improve as more products analyzed and outcomes validated",
+
+  "critical_success_factors": {
+    "rank_ordered": [
+      {
+        "rank": 1,
+        "factor": "Margin Viability",
+        "weight": 25,
+        "description": "4-tier margin evaluation: 16%+ STRONG GO, 15%+ GO, 10-15% SPECIAL REVIEW, <10% NO GO",
+        "why_critical": "Below 10% = auto-reject. 10-15% requires additional validation. 15%+ minimum for GO.",
+        "measurement": "Calculate at 700-unit full container, use flat-rate freight for bulky items",
+        "confidence": 1.0,
+        "evidence_sources": ["Meeting 1", "Meeting 2", "Todd explicit statements"]
+      },
+      {
+        "rank": 2,
+        "factor": "Competition Strength",
+        "weight": 20,
+        "description": "Ability to compete against existing sellers (prefer Medium or weaker competition)",
+        "why_critical": "Very Strong competitors (96%+ page 1 coverage) extremely hard to displace",
+        "measurement": "DataDive competitor analysis: Very Strong vs Strong vs Medium vs Weak",
+        "success_indicators": [
+          "Medium competition or weaker",
+          "Weak competitor listings (poor SEO, images)",
+          "Supply gaps in market",
+          "Big brands with poor Amazon execution"
+        ],
+        "confidence": 0.85,
+        "evidence_sources": ["DataDive methodology", "Meeting 1", "Product 58498"]
+      },
+      {
+        "rank": 3,
+        "factor": "FBA Capability",
+        "weight": 15,
+        "description": "Ability to fulfill via FBA (or convert FBM to FBA)",
+        "why_critical": "FBA dramatically favored by algorithm for buy box win rate (60% improvement)",
+        "measurement": "Current FBA status, cost to convert, FBA fees acceptability",
+        "success_indicators": [
+          "Product eligible for FBA",
+          "FBA fees don't destroy margins",
+          "Currently FBM with conversion opportunity"
+        ],
+        "confidence": 0.95,
+        "evidence_sources": ["Product 58498 analysis", "Meeting 2", "Buy box dynamics"]
+      },
+      {
+        "rank": 4,
+        "factor": "Rating & Reviews",
+        "weight": 10,
+        "description": "Existing customer validation or ability to generate reviews",
+        "why_critical": "Reviews build trust, 4.5+ rating essential for conversion",
+        "measurement": "Current review count and rating if existing listing, review generation strategy if new",
+        "success_indicators": [
+          "Existing listing with 100+ reviews at 4.5+",
+          "Clear path to generate reviews if new listing",
+          "Product quality supports positive reviews"
+        ],
+        "confidence": 0.80,
+        "evidence_sources": ["Product 58498 (106 reviews @ 4.6)", "Meeting 2"]
+      },
+      {
+        "rank": 5,
+        "factor": "Seasonality Risk",
+        "weight": 10,
+        "description": "Revenue concentration in specific months and ability to manage off-season",
+        "why_critical": "70-80% concentration in 4 months creates risk, but manageable with 50%+ margins",
+        "measurement": "Percentage of sales in peak months, off-season strategy",
+        "success_indicators": [
+          "Year-round demand (preferred)",
+          "Seasonal but 50%+ margins justify risk",
+          "Can maintain small inventory off-season",
+          "April launch timing feasible for May-August peak"
+        ],
+        "confidence": 0.85,
+        "evidence_sources": ["Pool equipment seasonality", "Todd preferences", "Meeting 2"]
+      },
+      {
+        "rank": 6,
+        "factor": "Supply Gap Opportunity",
+        "weight": 10,
+        "description": "Market demand with limited availability creates pricing power",
+        "why_critical": "Supply gaps allow profitable pricing without aggressive price competition",
+        "measurement": "Availability of similar items, wait times, competitor stock status",
+        "success_indicators": [
+          "Specific item not widely available",
+          "Existing demand evidence (reviews, search volume)",
+          "Low PPC costs due to limited competition",
+          "Complementary to products already sold"
+        ],
+        "confidence": 0.80,
+        "evidence_sources": ["Product 58498", "Pump filter (Meeting 2)"]
+      },
+      {
+        "rank": 7,
+        "factor": "Freight Optimization",
+        "weight": 5,
+        "description": "Ability to optimize shipping costs through allocation method or volume",
+        "why_critical": "Can swing product from non-viable to viable (especially bulky items)",
+        "measurement": "Compare cubic volume vs flat-rate allocation, full container vs small batch",
+        "success_indicators": [
+          "Flat-rate allocation dramatically improves margins",
+          "Full container (700 units) reduces cost ~50% vs small batch",
+          "Multiple products in container allow cross-subsidization"
+        ],
+        "confidence": 0.90,
+        "evidence_sources": ["Meeting 1 & 2", "Volume economics discussion"]
+      },
+      {
+        "rank": 8,
+        "factor": "Brand Approval Status",
+        "weight": 5,
+        "description": "Authorization to sell branded products on Amazon",
+        "why_critical": "Total blocker - cannot proceed without approval",
+        "measurement": "Brand Registry status, authorization letters, PO requirements",
+        "success_indicators": [
+          "No brand restrictions (unbranded or own brand)",
+          "Brand approval secured",
+          "Clear path to approval"
+        ],
+        "failure_indicators": [
+          "Brand approval pending with no resolution timeline",
+          "Chicken-egg PO requirement",
+          "Trademark holder unresponsive"
+        ],
+        "confidence": 1.0,
+        "evidence_sources": ["Coleman air mattress blocker (Meeting 2)"]
+      }
+    ]
+  },
+
+  "scoring_formula": {
+    "description": "Weighted score out of 100 points",
+    "calculation": "Sum of (factor_score × factor_weight) for all factors",
+    "score_interpretation": {
+      "85_100": "STRONG GO - High confidence success",
+      "70_84": "GO - Solid opportunity with manageable risks",
+      "55_69": "CONDITIONAL GO - Proceed with caution, additional validation needed",
+      "40_54": "WEAK GO / HOLD - Significant concerns, may not be viable",
+      "0_39": "NO GO - Too many risk factors, not recommended"
+    },
+    "confidence_multiplier": {
+      "description": "Overall confidence in recommendation based on data completeness",
+      "high_80_100": "Complete DataDive analysis, validated margins, clear competitive landscape",
+      "medium_60_79": "Good analysis but missing some data points",
+      "low_0_59": "Incomplete analysis, significant unknowns"
+    }
+  },
+
+  "success_patterns": {
+    "pattern_1_fbm_to_fba_conversion": {
+      "description": "FBM listing with good reviews converted to FBA",
+      "typical_score": "75-85",
+      "key_characteristics": [
+        "Existing listing with 100+ reviews at 4.5+",
+        "Currently FBM with 0% buy box share",
+        "Competition exists but not dominant",
+        "High-ticket item ($200+)",
+        "Supply gap or limited availability"
+      ],
+      "expected_outcome": "60% buy box win rate after FBA conversion",
+      "investment_profile": "Moderate (FBA prep, initial inventory)",
+      "risk_level": "Medium (established demand, but FBA conversion required)",
+      "example": "Product 58498 - Sand Filter"
+    },
+
+    "pattern_2_supply_gap_exploitation": {
+      "description": "Market demand with limited current supply",
+      "typical_score": "70-80",
+      "key_characteristics": [
+        "Specific replacement item not widely available",
+        "Existing reviews validate market demand",
+        "Low PPC costs (limited active competition)",
+        "Complementary to products already sold (known customer base)",
+        "Profitable at current market pricing"
+      ],
+      "expected_outcome": "Profitable with minimal marketing spend",
+      "investment_profile": "Low-Moderate (test batch 24-48 units sufficient)",
+      "risk_level": "Low-Medium (validated demand, low competition)",
+      "example": "Product 58498 - Sand Filter, Pump Filter"
+    },
+
+    "pattern_3_weak_competitor_displacement": {
+      "description": "Big brands with poor Amazon execution",
+      "typical_score": "65-75",
+      "key_characteristics": [
+        "Recognized brand names (Little Tikes, etc.)",
+        "Poor Amazon listings (weak SEO, bad images)",
+        "Amazon buyers prioritize visual quality over brand (unless brand-searching)",
+        "Premium construction visible in photos justifies higher price",
+        "Medium competition strength overall"
+      ],
+      "expected_outcome": "Can capture market share with superior listing optimization",
+      "investment_profile": "Moderate (inventory, listing optimization, initial PPC)",
+      "risk_level": "Medium (brand recognition vs listing quality trade-off)",
+      "example": "Trampolines (Little Tikes weak listings)"
+    },
+
+    "pattern_4_seasonal_high_margin": {
+      "description": "Seasonal product with 50%+ margins justifying concentrated risk",
+      "typical_score": "70-80",
+      "key_characteristics": [
+        "70-80% sales concentration in 4-month window",
+        "Margin 50%+ at full container volume",
+        "High-ticket item ($200+)",
+        "Can maintain small inventory off-season to keep listing active",
+        "April launch timing achievable for May-August peak"
+      ],
+      "expected_outcome": "Profitable if seasonal window hit, margins absorb off-season costs",
+      "investment_profile": "Moderate (smaller initial order, test market)",
+      "risk_level": "Medium-High (seasonal concentration, timing critical)",
+      "example": "Product 58498 - Sand Filter (pool equipment)"
+    }
+  },
+
+  "failure_patterns": {
+    "pattern_1_insufficient_margin": {
+      "description": "Product margin falls below viable thresholds",
+      "typical_score": "0-39 for <10%, 40-54 for 10-15%",
+      "key_characteristics": {
+        "auto_reject_below_10": [
+          "Margin <10% even at full container volume",
+          "Margin <10% even with flat-rate freight",
+          "No visible path to 10%+ margin"
+        ],
+        "special_review_10_to_15": [
+          "Margin 10-15% requires justification",
+          "Must show path to 15%+ (price increase, cost reduction)",
+          "Strong market validation needed",
+          "Strategic value consideration"
+        ]
+      },
+      "decision_rules": {
+        "<10%": "REJECT - Auto-reject, not viable",
+        "10-15%": "SPECIAL REVIEW - Needs additional validation and justification",
+        "15%+": "PROCEED - Meets minimum viable threshold"
+      },
+      "exception": "Strong market validation + clear path to 15% may allow CONDITIONAL GO for 10-15% products",
+      "examples": [
+        "Product 90716 Coleman QuickPump (7.3% margin) = AUTO REJECT",
+        "Product 90708 SupportRest Twin (11.8% margin) = SPECIAL REVIEW needed"
+      ]
+    },
+
+    "pattern_2_brand_approval_blocked": {
+      "description": "Cannot obtain authorization to sell branded products",
+      "typical_score": "N/A - HOLD",
+      "key_characteristics": [
+        "Brand Registry required",
+        "Authorization pending from trademark holder",
+        "Chicken-egg PO requirement",
+        "No clear resolution timeline"
+      ],
+      "decision": "HOLD - Cannot proceed until resolved",
+      "exception": "None (absolute blocker)",
+      "example": "Coleman Air Mattress (Meeting 2)"
+    },
+
+    "pattern_3_dominated_market": {
+      "description": "Very Strong competitors with 96%+ page 1 coverage",
+      "typical_score": "30-50",
+      "key_characteristics": [
+        "Multiple Very Strong competitors",
+        "Little differentiation opportunity",
+        "High PPC costs to compete",
+        "Established brands with thousands of reviews",
+        "No supply gaps or weaknesses to exploit"
+      ],
+      "decision": "NO GO or WEAK GO - Extremely difficult to gain traction",
+      "exception": "If brand exclusivity or unique features provide edge",
+      "example": "Theoretical (not yet encountered in analysis)"
+    },
+
+    "pattern_4_insurance_prohibitive": {
+      "description": "Product risk profile creates unacceptable insurance costs",
+      "typical_score": "Variable (reduces overall viability)",
+      "key_characteristics": [
+        "Children's inflatables",
+        "Trampolines requiring $5M liability",
+        "Major retailers require high coverage minimums",
+        "Insurance provider resistance"
+      ],
+      "decision": "Case-by-case (factor insurance cost into margin calculation)",
+      "exception": "If margins high enough to absorb insurance costs",
+      "example": "Trampolines (Meeting 2), Past inflatable castle experience"
+    }
+  },
+
+  "continuous_improvement_metrics": {
+    "track_over_time": [
+      {
+        "metric": "Prediction accuracy rate",
+        "current_value": null,
+        "target": "85%+ accuracy",
+        "calculation": "Correct GO/NO-GO predictions ÷ Total predictions",
+        "review_frequency": "After every 5 products"
+      },
+      {
+        "metric": "Scoring weight optimization",
+        "current_weights": "See critical_success_factors",
+        "adjustment_trigger": "After 3 validated predictions",
+        "method": "Increase weights for factors that predict success, decrease for less predictive factors"
+      },
+      {
+        "metric": "New pattern identification",
+        "current_patterns": 8,
+        "target": "Identify new patterns as data grows",
+        "review_frequency": "After every 10 products"
+      },
+      {
+        "metric": "Todd's decision alignment",
+        "current_value": null,
+        "target": "90%+ alignment with final decisions",
+        "calculation": "Recommendations matching Todd's actual decisions",
+        "review_frequency": "After every decision"
+      }
+    ]
+  },
+
+  "decision_framework": {
+    "proceed_when": [
+      "Target margins work out (16%+ STRONG GO, 15%+ GO)",
+      "Competitive advantage exists (features, pricing, FBA, exclusivity)",
+      "Market demand validated (competitor data, retail sales, reviews)",
+      "Listing strategy clear (use existing vs new, optimization plan)",
+      "Brand approval secured (if needed)",
+      "Freight costs optimized (flat-rate vs cubic, full container)",
+      "Test batch makes sense financially (24-48 units for high-ticket)"
+    ],
+
+    "hold_when": [
+      "Brand approval pending with unclear timeline",
+      "Need more data (incomplete DataDive analysis)",
+      "Pricing viability unclear (waiting on final container costs)",
+      "Technical verification needed (voltage, specifications, compatibility)"
+    ],
+
+    "special_review_when": [
+      "Margins 10-15% - requires additional validation before decision",
+      "Path to 15%+ margin visible (price increase, cost reduction potential)",
+      "Strong market validation exists but margin borderline",
+      "Strategic value justifies closer review"
+    ],
+
+    "reject_when": [
+      "Margins unacceptable even with optimization (<10% = auto-reject)",
+      "Competition too strong (Very Strong competitors dominating)",
+      "Pricing disadvantage cannot be overcome",
+      "Brand approval impossible to obtain",
+      "Insurance prohibitive (no path to acceptable cost)",
+      "Supply chain consistency cannot be maintained (stockout risk)"
+    ]
+  },
+
+  "learning_roadmap": {
+    "phase_1_foundation": {
+      "status": "Complete",
+      "achievements": [
+        "Knowledge base initialized",
+        "Product 58498 analyzed (baseline)",
+        "Meeting insights extracted",
+        "Todd's preferences documented",
+        "Success factors identified"
+      ]
+    },
+
+    "phase_2_validation": {
+      "status": "In Progress",
+      "objectives": [
+        "Analyze next 3-5 products (62322, 90716, 60310, etc.)",
+        "Validate scoring model accuracy",
+        "Refine weights based on Todd's decisions",
+        "Identify new patterns"
+      ],
+      "success_criteria": "80%+ alignment with Todd's decisions"
+    },
+
+    "phase_3_optimization": {
+      "status": "Pending",
+      "objectives": [
+        "Auto-adjust weights based on prediction accuracy",
+        "Expand pattern library (target 15-20 patterns)",
+        "Integrate market feedback (actual sales results)",
+        "Develop category-specific models (pool equipment vs camping vs fitness)"
+      ],
+      "success_criteria": "90%+ prediction accuracy, new patterns emerge"
+    },
+
+    "phase_4_autonomy": {
+      "status": "Future",
+      "objectives": [
+        "Self-calibrating model (automatic weight adjustments)",
+        "Predictive analytics (forecast product success before launch)",
+        "Risk modeling (probability distributions for revenue/margin scenarios)",
+        "Portfolio optimization (recommend product mix for container orders)"
+      ],
+      "success_criteria": "System provides strategic guidance beyond individual product analysis"
+    }
+  }
+}

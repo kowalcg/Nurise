@@ -1,0 +1,344 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-01-13",
+  "markets": {
+    "amazon_canada": {
+      "overview": {
+        "population_base": "38 million",
+        "vs_us": "10x smaller",
+        "search_volume_ratio": "~10% of US equivalent",
+        "competition_level": "Generally less than US (not all US sellers active)",
+        "opportunity": "Less competition but smaller market"
+      },
+      "market_dynamics": {
+        "typical_sales_ratio": {
+          "canada": "250 units/month",
+          "us": "1,200 units/month",
+          "example_product": "Hot tub filter"
+        },
+        "ranking_importance": {
+          "position_1_3": "~60% of clicks",
+          "position_4_10": "~30% of clicks",
+          "position_11_20": "~8% of clicks",
+          "beyond_page_1": "<2% of clicks",
+          "mobile_factor": "Users especially unlikely to scroll deep"
+        }
+      }
+    },
+
+    "pool_equipment": {
+      "category": "Pool & Spa Equipment",
+      "seasonality": {
+        "peak_months": ["May", "June", "July", "August"],
+        "peak_percentage": "70-80% of annual sales",
+        "current_trend": "Dropping (January) but will pick up seasonally",
+        "keywords_affected": [
+          "Filter",
+          "Pump",
+          "Pool chemicals",
+          "Cleaning equipment"
+        ]
+      },
+      "specific_products": {
+        "sand_filter_pump": {
+          "market_size": "Medium",
+          "competition": "Medium",
+          "supply_status": "Gap - specific replacement not widely available",
+          "seasonality": "Strong (70-80% May-August)",
+          "example_asin": "Product 58498",
+          "key_spec": "GPH (gallons per hour) rating for matching"
+        }
+      },
+      "launch_timing": {
+        "optimal": "April",
+        "rationale": "Hit seasonal window when category picks up",
+        "risk": "Late April arrival is late for peak spring season start"
+      }
+    },
+
+    "trampolines": {
+      "category": "Sports & Outdoors / Toys",
+      "market_size": "$500K total market",
+      "concentration": "70% from few keywords",
+      "segments": {
+        "kids_toddler": {
+          "size": "36-inch",
+          "target": "Toddlers, safety-focused parents",
+          "price_point": "$110 average",
+          "competitors": ["Little Tikes"],
+          "opportunity": "Big brands have terrible Amazon listings (poor SEO, weak images)"
+        },
+        "adult_exercise": {
+          "size": "40-48 inch",
+          "target": "Adults, fitness enthusiasts",
+          "price_point": "$110+ average",
+          "features": "Adjustable handrests, better padding",
+          "opportunity": "Premium construction justifies higher prices"
+        }
+      },
+      "competitive_dynamics": {
+        "amazon_buyer_behavior": "Care more about photo quality than brand names (unless specifically searching brand)",
+        "premium_positioning": "Visible quality (photos show construction, safety) justifies premium",
+        "cheap_competitors": "$60-80 creates pricing floor"
+      },
+      "challenges": {
+        "insurance": "$5M minimum liability coverage required by major retailers",
+        "provider_concern": "Not keen on trampolines or children's inflatables",
+        "cost": "Expensive to maintain"
+      }
+    },
+
+    "coleman_camping": {
+      "category": "Camping & Outdoor Recreation",
+      "brand_strength": "#1 camping brand in Canada",
+      "market_validation": "$5M/year on single SKU (air mattress)",
+      "competitive_landscape": {
+        "dominated_by": "Few major brands",
+        "coleman_challenges": [
+          "Significantly higher pricing than competitors",
+          "Requires external pump (competitors have built-in)",
+          "Competitors have better listings and features"
+        ]
+      },
+      "market_entry_barrier": {
+        "blocker": "Brand approval required from trademark holder",
+        "status": "Authorization pending",
+        "chicken_egg": "Need PO to get approval, need approval to get PO"
+      },
+      "strategic_value": "Retail relationship maintenance, obligation to small/medium customers"
+    }
+  },
+
+  "competitive_intelligence": {
+    "seller_landscape": {
+      "chinese_sellers": {
+        "market_share": "50%+ of third-party sellers",
+        "methods": [
+          "DDP shipments",
+          "Undervalue or reclassify items to avoid tariffs"
+        ],
+        "impact": "Creates pricing pressure for legitimate sellers operating above board"
+      }
+    },
+
+    "listing_quality_gaps": {
+      "big_brand_weakness": {
+        "example": "Little Tikes trampolines",
+        "issues": [
+          "Poor Amazon SEO",
+          "Weak images",
+          "Limited keyword optimization"
+        ],
+        "opportunity": "Amazon buyers prioritize visual presentation over brand (unless brand-searching)"
+      },
+      "typical_weak_listings": [
+        "Poor images (low resolution, bad angles)",
+        "Inadequate descriptions",
+        "Limited keyword coverage",
+        "Wrong audience targeting (adult vs kids)",
+        "Missing features in title/bullets"
+      ]
+    },
+
+    "fba_vs_fbm": {
+      "buy_box_preference": "FBA heavily favored by algorithm",
+      "prime_eligibility": "Critical competitive advantage",
+      "fbm_disadvantages": [
+        "Lower buy box win rate",
+        "Lower conversion rate",
+        "Less algorithm visibility"
+      ],
+      "conversion_opportunity": "FBM to FBA = ~60% improvement in success rate"
+    },
+
+    "pricing_strategies_observed": {
+      "coupon_usage": {
+        "purpose": "Lower customer-facing price without changing list price",
+        "benefit": "Win buy box while maintaining price parity with retail partners",
+        "mechanics": "Amazon calculates fees on post-coupon price",
+        "cost": "$0.60 coupon fee per transaction"
+      },
+      "retail_anchor_pricing": {
+        "canadian_tire": "Used as pricing reference",
+        "risk": "Amazon may penalize if significantly higher than CT equivalent",
+        "strategy": "Monitor retail partner pricing closely"
+      }
+    }
+  },
+
+  "keyword_intelligence": {
+    "ecosystem_fundamentals": {
+      "importance": "Keywords are fundamental to entire Amazon ecosystem",
+      "applies_to": [
+        "Product listings",
+        "PPC campaigns",
+        "Organic search",
+        "Algorithm recognition",
+        "Customer discovery"
+      ],
+      "hierarchy": {
+        "title": "Most important (highest algorithm weight)",
+        "bullet_points": "Secondary important",
+        "description": "Supporting",
+        "backend": "Hidden but indexed"
+      }
+    },
+
+    "data_sources": {
+      "chain": "Amazon → Jungle Scout → Data Dive",
+      "brand_analytics": "Amazon allows sellers to pull reports",
+      "tools_purpose": "Reprocess data into manageable, understandable format"
+    },
+
+    "ranking_factors": {
+      "immediate_impact": [
+        "PPC campaigns",
+        "External traffic (social media, email lists)",
+        "Algorithm rewards external traffic with better organic ranking"
+      ],
+      "sustained_impact": [
+        "Sales velocity",
+        "Conversion rate",
+        "Review accumulation",
+        "Keyword relevance in listing"
+      ]
+    },
+
+    "search_volume_thresholds": {
+      "minimum_canada": "450+ searches/month (customizable)",
+      "rationale": "Higher search volume = more opportunity (if can rank)",
+      "seasonality_factor": "Keywords fluctuate throughout year"
+    }
+  },
+
+  "new_listing_advantages": {
+    "honeymoon_period": {
+      "duration": "60-90 days",
+      "benefit": "Extra traffic from Amazon to gather performance data",
+      "strategy": "Heavy initial marketing investment to capitalize",
+      "trade_off": "Lose existing reviews if creating new listing"
+    },
+
+    "decision_framework": {
+      "use_existing_when": [
+        "Listing has good reviews (100+)",
+        "Rating 4.5+",
+        "Decent ranking on key keywords"
+      ],
+      "create_new_when": [
+        "Existing listing abandoned/poor quality",
+        "Minimal reviews",
+        "Poor keyword optimization",
+        "Can't improve existing listing due to Amazon restrictions"
+      ],
+      "requirement_for_new": "Must relabel product with new UPC (existing UPC tied to old ASIN)"
+    }
+  },
+
+  "supply_chain_intelligence": {
+    "freight_trends": {
+      "recent_increases": {
+        "three_weeks_ago": "$5,000-$5,500 for 40ft container",
+        "current": "$5,800 for 40ft high cube",
+        "trajectory": "Rising"
+      },
+      "container_types": [
+        "20ft standard",
+        "40ft standard",
+        "40ft high cube"
+      ],
+      "fcl_vs_lcl": "Even half of 20ft container sometimes cheaper than LCL"
+    },
+
+    "customs_requirements": {
+      "canada_karm": "Required for customs clearance",
+      "best_way_limitation": "Cannot ship DDP (not KARM-registered)",
+      "todd_douae_status": "Properly set up, can handle customs directly"
+    },
+
+    "3pl_landscape": {
+      "triumph_logistics": {
+        "location": "Etobicoke",
+        "services": "Warehousing, fulfillment",
+        "freight_rates": "Competitive (not yet utilized)",
+        "fba_shipping": "UPS as Amazon preferred partner"
+      }
+    }
+  },
+
+  "market_opportunities": {
+    "identified_gaps": [
+      {
+        "category": "Pool replacement parts",
+        "specific": "Sand filter pumps",
+        "evidence": "Supply gap, existing demand",
+        "confidence": "High"
+      },
+      {
+        "category": "Kids trampolines",
+        "specific": "Safety-focused with premium features",
+        "evidence": "Weak big-brand listings, parent willingness to pay for quality",
+        "confidence": "Medium-High"
+      }
+    ],
+
+    "emerging_trends": [
+      {
+        "trend": "Visual presentation prioritization",
+        "description": "Amazon buyers rely more on photos than specs",
+        "implication": "High-quality images showing differentiation critical",
+        "confidence": "High"
+      },
+      {
+        "trend": "Brand Registry importance",
+        "description": "Securing exclusivity to prevent unauthorized sellers",
+        "implication": "Brand protection essential for pricing control",
+        "confidence": "High"
+      },
+      {
+        "trend": "B2B Amazon Business opportunity",
+        "description": "Small retailers ordering via Amazon Business accounts",
+        "implication": "External traffic benefits, maintains retail relationships",
+        "confidence": "Medium"
+      }
+    ]
+  },
+
+  "risk_factors": {
+    "market_risks": [
+      {
+        "risk": "Stockouts kill algorithm recognition",
+        "severity": "Critical",
+        "mitigation": "Maintain continuous inventory even in small quantities",
+        "evidence": "Meeting 2 explicit warning"
+      },
+      {
+        "risk": "Chinese seller pricing pressure",
+        "severity": "High",
+        "mitigation": "Focus on differentiation, FBA advantage, brand exclusivity",
+        "evidence": "50%+ market share, DDP undervaluation tactics"
+      },
+      {
+        "risk": "Multi-channel pricing conflicts",
+        "severity": "Medium-High",
+        "mitigation": "Use coupons to maintain list price while competing on buy box",
+        "evidence": "Walmart 2P price changes affect Amazon"
+      },
+      {
+        "risk": "Insurance costs for certain product types",
+        "severity": "High for specific categories",
+        "affected_products": "Trampolines, children's inflatables",
+        "evidence": "Provider not keen, $5M minimum liability required"
+      }
+    ]
+  },
+
+  "learning_priorities": [
+    "Track actual sales results vs predictions for Product 58498",
+    "Monitor competitor responses to new FBA listings",
+    "Validate honeymoon period traffic boost on new launches",
+    "Measure TACoS reduction timeline (paid to organic transition)",
+    "Assess effectiveness of flat-rate freight allocation",
+    "Track stockout recovery difficulty if occurs"
+  ]
+}

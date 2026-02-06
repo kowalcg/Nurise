@@ -1,0 +1,287 @@
+{
+  "version": "1.1",
+  "last_updated": "2026-01-13",
+  "file_type": "client-preferences",
+  "note": "This file can be renamed to client-preferences.json for new projects",
+
+  "client_profile": {
+    "client_name": "Todd McDaniel",
+    "project_id": "todd-mcdaniel-2026",
+    "company": "Amazon Seller",
+    "primary_suppliers": ["Bestway", "Coleman"],
+    "marketplace": "Amazon.ca",
+    "currency": "CAD"
+  },
+
+  "source": "Extracted from 3 meetings (Jan 5, 7, 9, 2026) and Product 58498 analysis",
+
+  "decision_criteria": {
+    "margin_thresholds": {
+      "preferred": {
+        "value": 16,
+        "unit": "percent",
+        "decision": "STRONG GO",
+        "description": "Preferred margin - excellent viability for established items",
+        "confidence": 0.95,
+        "evidence": "Meeting 2 explicit statement"
+      },
+      "minimum_acceptable": {
+        "value": 15,
+        "unit": "percent",
+        "decision": "GO",
+        "description": "Minimum viable for ongoing business",
+        "confidence": 1.0,
+        "evidence": "Meetings 1 & 2 explicit statements, validated in 15-product analysis"
+      },
+      "special_review": {
+        "min_value": 10,
+        "max_value": 15,
+        "unit": "percent",
+        "decision": "SPECIAL REVIEW",
+        "description": "Requires additional validation - not auto-reject but needs justification",
+        "review_criteria": [
+          "Strong market validation (reviews, competitor revenue)",
+          "Path to 15%+ margin (price increase potential, cost reduction)",
+          "Strategic value (complementary product, brand relationship)",
+          "Volume economics (full container significantly improves margin)"
+        ],
+        "confidence": 0.85,
+        "evidence": "Updated Jan 2026 - Todd accepts review tier for borderline cases"
+      },
+      "rejection_threshold": {
+        "value": 10,
+        "unit": "percent",
+        "operator": "<",
+        "decision": "NO GO",
+        "description": "Below 10% = automatic reject, no viable path to profitability",
+        "confidence": 1.0,
+        "evidence": "Meeting 2 explicit statement, validated in 15-product analysis"
+      },
+      "exception_case": {
+        "condition": "New launch with strong market validation",
+        "acceptable": "Negative margins temporarily",
+        "typical_acos": 60,
+        "typical_tacos": 30,
+        "recovery_timeline": "60-90 days transition to organic",
+        "confidence": 0.85,
+        "evidence": "Meeting 2 discussion of launch strategy"
+      }
+    },
+
+    "price_point_preferences": {
+      "preferred_minimum": {
+        "value": 50,
+        "unit": "CAD",
+        "description": "Better profitability, less competition",
+        "confidence": 0.90,
+        "evidence": "Kickoff & Meeting 2"
+      },
+      "rationale": "Higher price points reduce impact of shipping, picking, packing, storage, and Amazon fees",
+      "flexibility": "Exceptions based on competitive analysis data"
+    },
+
+    "fulfillment_preferences": {
+      "strongly_prefers": "FBA",
+      "over": "FBM",
+      "importance_weight": 60,
+      "rationale": "Critical for buy box win rate, Prime eligibility, algorithm favor",
+      "evidence": "Product 58498 analysis, Meeting 2 discussion",
+      "confidence": 0.95
+    },
+
+    "risk_tolerance": {
+      "general_approach": "Data-driven, cautious but opportunistic",
+      "willing_to_accept": [
+        "Negative margins temporarily for validated aggressive launches",
+        "Medium competition if differentiation exists",
+        "Seasonal products if margins 50%+ and can maintain off-season inventory",
+        "Test batches (24-48 units) on high-ticket items"
+      ],
+      "unwilling_to_accept": [
+        "Rushing decisions to meet factory deadlines without validation",
+        "Products with <15% margin even after optimization",
+        "High insurance risk products (past experience with inflatables)",
+        "Stockout risk (kills algorithm recognition)",
+        "Brand approval blockers without resolution path"
+      ],
+      "past_lessons": {
+        "inflatable_castle_venture": {
+          "outcome": "Unprofitable after 3 years",
+          "lesson": "High-cube, high-ticket, highly seasonal, high-risk products problematic",
+          "insurance_issue": "Liability costs elevated",
+          "impact_on_decisions": "Avoiding similar risk profiles"
+        }
+      }
+    },
+
+    "strategic_priorities": {
+      "ranked_importance": [
+        {
+          "rank": 1,
+          "priority": "Supply chain consistency",
+          "description": "Must maintain reliable replenishment",
+          "rationale": "Investment into listing optimization wasted if stockout",
+          "confidence": 0.95
+        },
+        {
+          "rank": 2,
+          "priority": "Year-round items over pure seasonal",
+          "description": "Deeper inventory safer, maintains algorithm recognition",
+          "rationale": "Lower risk, continuous revenue",
+          "confidence": 0.85
+        },
+        {
+          "rank": 3,
+          "priority": "FBA conversion for FBM listings",
+          "description": "Critical for buy box dominance",
+          "rationale": "60% improvement in success rate",
+          "confidence": 0.90
+        },
+        {
+          "rank": 4,
+          "priority": "Brand exclusivity via Brand Registry",
+          "description": "Protect pricing from unauthorized sellers",
+          "rationale": "Best Way shutting down unauthorized sellers",
+          "confidence": 0.85
+        },
+        {
+          "rank": 5,
+          "priority": "Retail relationship maintenance",
+          "description": "B2B Amazon Business opportunity, obligation to small/medium customers",
+          "rationale": "Long-term partnerships, external traffic benefits",
+          "confidence": 0.80
+        }
+      ]
+    },
+
+    "validation_requirements": {
+      "preferred_evidence": [
+        "Retail sales data (e.g., $5M Coleman annual sales)",
+        "Competitor revenue as indicator of actual buying activity",
+        "Existing reviews on Amazon (market validation)",
+        "Supply gap identification",
+        "DataDive competitive analysis with 10-15 competitors"
+      ],
+      "minimum_before_proceeding": "Comprehensive DataDive analysis + margin validation at full container volume"
+    },
+
+    "inventory_strategy": {
+      "year_round_items": {
+        "approach": "Go deeper on inventory",
+        "rationale": "Safer investment, maintains algorithm recognition",
+        "confidence": 0.90
+      },
+      "seasonal_items": {
+        "approach": "Bring less inventory, test market, minimize investment until validated",
+        "off_season_strategy": "Keep listings active, limited advertising 2-4 weeks before peak to 'spark' algorithm",
+        "critical_timing": "Never allow stockouts - kills keyword ranking",
+        "confidence": 0.85
+      },
+      "test_batch_size": {
+        "typical": "24-48 units",
+        "use_case": "High-ticket items, maintaining listing presence, minimizing risk",
+        "advantage": "Ability to order small quantities keeps items active"
+      }
+    },
+
+    "cost_structure_preferences": {
+      "freight_allocation": {
+        "preferred_method": "Flat rate for mixed small containers",
+        "formula": "Total container cost ÷ number of units = $ per unit",
+        "example": "$3,500 ÷ 700 = $5/unit",
+        "advantage": "Dramatically improves margins on bulky items",
+        "alternative": "Cubic volume (penalizes bulky items)",
+        "decision_rule": "Calculate both, use flat rate if better for product mix",
+        "confidence": 0.90
+      },
+      "volume_requirements": {
+        "never_evaluate_on": "Small batch costs (24 units)",
+        "always_calculate_at": "Full container volume (700 units typical)",
+        "cost_difference": "~50% reduction from small batch to full container",
+        "critical_learning": "Product viability depends entirely on volume",
+        "confidence": 1.0
+      }
+    },
+
+    "timing_preferences": {
+      "launch_timing": {
+        "seasonal_products": "April launch for May-August peak season",
+        "rationale": "Hit seasonal window when category picks up",
+        "confidence": 0.85
+      },
+      "decision_timeline": {
+        "prefers": "Thorough validation over arbitrary factory deadlines",
+        "quote": "Better to launch later with validated products than rush to meet arbitrary deadlines with unvalidated selection",
+        "goal": "Sustainable profitability, not just meeting ship dates",
+        "confidence": 0.95
+      },
+      "break_even_targets": {
+        "break_even": "Halfway through the year",
+        "profitability": "By year-end",
+        "confidence": 0.80
+      }
+    },
+
+    "brand_considerations": {
+      "coleman": {
+        "relationship": "Licensed brand, obligation to supply small/medium retail customers",
+        "market_validation": "$5M annual sales on single SKU",
+        "status": "#1 camping brand in Canada",
+        "blocker": "Brand approval pending from licensor",
+        "importance": "High due to retail relationships",
+        "confidence": "Proceed only if approval obtained"
+      },
+      "best_way": {
+        "partnership": "20-year relationship with factory",
+        "advantages": [
+          "Access to P360 intranet with specs, copy, digital assets",
+          "Bulk data extraction capability",
+          "Content modification flexibility",
+          "Existing global presence (algorithm recognition)"
+        ],
+        "exclusivity_status": "Shutting down unauthorized sellers in US and Canada",
+        "catalog_size": "1,000+ items available"
+      }
+    },
+
+    "competitive_assessment": {
+      "acceptable_competition_levels": [
+        "Medium (with differentiation or FBA advantage)",
+        "Weak (opportunity to dominate)",
+        "Very Weak (clear opportunity)"
+      ],
+      "concerning_competition": "Very Strong competitors dominating (96%+ page 1 coverage)",
+      "opportunity_indicators": [
+        "Weak competitor listings (poor SEO, weak images)",
+        "Big brands with poor Amazon execution (Little Tikes example)",
+        "Supply gaps in market",
+        "FBM listings that can be converted to FBA"
+      ]
+    }
+  },
+
+  "communication_preferences": {
+    "decision_style": "Collaborative, values data and expert recommendations",
+    "information_needs": [
+      "Clear margin calculations at full container volume",
+      "Competitive landscape summary",
+      "Risk assessment",
+      "Investment requirements",
+      "Timeline to profitability",
+      "Action items with priorities"
+    ],
+    "meeting_style": "Deep dives into specific products, detailed discussions",
+    "documentation_preference": "Comprehensive reports with executive summaries"
+  },
+
+  "learning_notes": {
+    "confidence_in_preferences": "High (95%) based on 3 detailed meetings and explicit statements",
+    "gaps_to_fill": [
+      "Reaction to actual Product 58498 recommendation",
+      "Tolerance for multiple products with negative initial margins",
+      "Preference on new listing vs existing listing with reviews",
+      "Acceptable TACoS percentage for mature products"
+    ],
+    "next_calibration": "After Todd's decision on Product 58498 and next 2-3 products"
+  }
+}
