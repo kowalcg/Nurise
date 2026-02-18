@@ -1,6 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        // Password protection — runs immediately to prevent content flash
+        (function() {
+            var CORRECT_PASSWORD = 'Nurise4231';
+            var SESSION_KEY = 'nurise_dashboard_auth';
+
+            // If already authenticated this session, show page normally
+            if (sessionStorage.getItem(SESSION_KEY) === 'authenticated') {
+                return;
+            }
+
+            // Hide entire page until password is entered
+            document.documentElement.style.visibility = 'hidden';
+
+            // Once DOM is ready, show the password overlay
+            document.addEventListener('DOMContentLoaded', function() {
+                var overlay = document.createElement('div');
+                overlay.id = 'auth-overlay';
+                overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#0f0e17 0%,#1a1535 50%,#0d1b2a 100%);display:flex;align-items:center;justify-content:center;z-index:99999;';
+                overlay.innerHTML =
+                    '<div style="background:rgba(255,255,255,0.05);border:1px solid rgba(124,92,255,0.3);border-radius:16px;padding:48px 40px;max-width:400px;width:90%;text-align:center;backdrop-filter:blur(20px);">' +
+                    '<div style="font-size:48px;margin-bottom:16px;">🚀</div>' +
+                    '<h2 style="color:#fff;font-family:sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">Nurise Project Dashboard</h2>' +
+                    '<p style="color:rgba(255,255,255,0.5);font-family:sans-serif;font-size:14px;margin-bottom:32px;">Enter your password to access the project</p>' +
+                    '<input id="auth-password" type="password" placeholder="Password" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.08);border:1px solid rgba(124,92,255,0.3);border-radius:10px;color:#fff;font-size:16px;outline:none;font-family:sans-serif;margin-bottom:12px;box-sizing:border-box;" />' +
+                    '<div id="auth-error" style="color:#ff6b6b;font-family:sans-serif;font-size:13px;min-height:20px;margin-bottom:12px;"></div>' +
+                    '<button id="auth-btn" style="width:100%;padding:13px;background:linear-gradient(135deg,#7c5cff,#06b6d4);border:none;border-radius:10px;color:#fff;font-size:16px;font-weight:600;cursor:pointer;font-family:sans-serif;">Access Dashboard</button>' +
+                    '</div>';
+
+                document.body.appendChild(overlay);
+                document.documentElement.style.visibility = 'visible';
+
+                var input = document.getElementById('auth-password');
+                var btn = document.getElementById('auth-btn');
+                var error = document.getElementById('auth-error');
+
+                function checkPassword() {
+                    if (input.value === CORRECT_PASSWORD) {
+                        sessionStorage.setItem(SESSION_KEY, 'authenticated');
+                        overlay.style.opacity = '0';
+                        overlay.style.transition = 'opacity 0.3s ease';
+                        setTimeout(function() { overlay.remove(); }, 300);
+                    } else {
+                        error.textContent = 'Incorrect password. Please try again.';
+                        input.value = '';
+                        input.focus();
+                    }
+                }
+
+                btn.addEventListener('click', checkPassword);
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') checkPassword();
+                });
+                input.focus();
+            });
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Way Amazon Launch - Project Dashboard</title>
