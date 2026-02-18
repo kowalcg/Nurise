@@ -2685,18 +2685,13 @@
                 return;
             }
 
-            // Construct the absolute path to the SOP file
-            const absolutePath = `/Users/MacBook1/Library/CloudStorage/GoogleDrive-info@geartopdesign.com/Shared drives/Greg/1. Consulting/5. Todd McDaniel/01-Project/06-Training-Sessions/01-SOPs/${sop.path}`;
+            // Use relative path — works both locally (file://) and on GitHub Pages (https://)
+            // SOP .md files → open as .pdf (PDFs are deployed; .md files are not rendered by browsers)
+            const filePath = sop.path.endsWith('.html')
+                ? `../01-SOPs/${sop.path}`
+                : `../01-SOPs/${sop.path.replace(/\.md$/, '.pdf')}`;
 
-            // For HTML files (AI Guide), open directly
-            if (sop.path.endsWith('.html')) {
-                window.open(`file://${absolutePath}`, '_blank');
-            } else {
-                // For markdown files, we'll open them (user's system will handle .md files)
-                window.open(`file://${absolutePath}`, '_blank');
-            }
-
-            // Mark as viewed (could save to localStorage)
+            window.open(filePath, '_blank');
             console.log(`Opened SOP-${sopId}: ${sop.title}`);
         }
 
@@ -2708,17 +2703,12 @@
                 return;
             }
 
-            // Construct the absolute path to the PDF training file
-            const absolutePath = `/Users/MacBook1/Library/CloudStorage/GoogleDrive-info@geartopdesign.com/Shared drives/Greg/1. Consulting/5. Todd McDaniel/01-Project/06-Training-Sessions/${training.pdfPath}`;
-
-            // Open the file
-            window.open(`file://${absolutePath}`, '_blank');
-
-            // Mark as viewed (could save to localStorage)
+            // Use relative path — works both locally (file://) and on GitHub Pages (https://)
+            window.open(`../${training.pdfPath}`, '_blank');
             console.log(`Opened Training PDF: ${training.title}`);
         }
 
-        // Open Training MD - Opens the Markdown version
+        // Open Training MD - Opens the PDF version (MD files not renderable in browser)
         function openTrainingMD(trainingId) {
             const training = trainingDatabase[trainingId];
             if (!training) {
@@ -2726,14 +2716,9 @@
                 return;
             }
 
-            // Construct the absolute path to the MD training file
-            const absolutePath = `/Users/MacBook1/Library/CloudStorage/GoogleDrive-info@geartopdesign.com/Shared drives/Greg/1. Consulting/5. Todd McDaniel/01-Project/06-Training-Sessions/${training.mdPath}`;
-
-            // Open the file
-            window.open(`file://${absolutePath}`, '_blank');
-
-            // Mark as viewed (could save to localStorage)
-            console.log(`Opened Training MD: ${training.title}`);
+            // Use relative path — opens PDF since .md files don't render in browsers
+            window.open(`../${training.pdfPath}`, '_blank');
+            console.log(`Opened Training PDF: ${training.title}`);
         }
 
         // Render SOP Library
