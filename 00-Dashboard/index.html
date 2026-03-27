@@ -1,63 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script>
-        // Password protection — runs immediately to prevent content flash
-        (function() {
-            var CORRECT_PASSWORD = 'Nurise4231';
-            var SESSION_KEY = 'nurise_dashboard_auth';
-
-            // If already authenticated this session, show page normally
-            if (sessionStorage.getItem(SESSION_KEY) === 'authenticated') {
-                return;
-            }
-
-            // Hide entire page until password is entered
-            document.documentElement.style.visibility = 'hidden';
-
-            // Once DOM is ready, show the password overlay
-            document.addEventListener('DOMContentLoaded', function() {
-                var overlay = document.createElement('div');
-                overlay.id = 'auth-overlay';
-                overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,#0f0e17 0%,#1a1535 50%,#0d1b2a 100%);display:flex;align-items:center;justify-content:center;z-index:99999;';
-                overlay.innerHTML =
-                    '<div style="background:rgba(255,255,255,0.05);border:1px solid rgba(124,92,255,0.3);border-radius:16px;padding:48px 40px;max-width:400px;width:90%;text-align:center;backdrop-filter:blur(20px);">' +
-                    '<div style="font-size:48px;margin-bottom:16px;">🚀</div>' +
-                    '<h2 style="color:#fff;font-family:sans-serif;font-size:22px;font-weight:700;margin-bottom:8px;">Nurise Project Dashboard</h2>' +
-                    '<p style="color:rgba(255,255,255,0.5);font-family:sans-serif;font-size:14px;margin-bottom:32px;">Enter your password to access the project</p>' +
-                    '<input id="auth-password" type="password" placeholder="Password" style="width:100%;padding:12px 16px;background:rgba(255,255,255,0.08);border:1px solid rgba(124,92,255,0.3);border-radius:10px;color:#fff;font-size:16px;outline:none;font-family:sans-serif;margin-bottom:12px;box-sizing:border-box;" />' +
-                    '<div id="auth-error" style="color:#ff6b6b;font-family:sans-serif;font-size:13px;min-height:20px;margin-bottom:12px;"></div>' +
-                    '<button id="auth-btn" style="width:100%;padding:13px;background:linear-gradient(135deg,#7c5cff,#06b6d4);border:none;border-radius:10px;color:#fff;font-size:16px;font-weight:600;cursor:pointer;font-family:sans-serif;">Access Dashboard</button>' +
-                    '</div>';
-
-                document.body.appendChild(overlay);
-                document.documentElement.style.visibility = 'visible';
-
-                var input = document.getElementById('auth-password');
-                var btn = document.getElementById('auth-btn');
-                var error = document.getElementById('auth-error');
-
-                function checkPassword() {
-                    if (input.value === CORRECT_PASSWORD) {
-                        sessionStorage.setItem(SESSION_KEY, 'authenticated');
-                        overlay.style.opacity = '0';
-                        overlay.style.transition = 'opacity 0.3s ease';
-                        setTimeout(function() { overlay.remove(); }, 300);
-                    } else {
-                        error.textContent = 'Incorrect password. Please try again.';
-                        input.value = '';
-                        input.focus();
-                    }
-                }
-
-                btn.addEventListener('click', checkPassword);
-                input.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') checkPassword();
-                });
-                input.focus();
-            });
-        })();
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Way Amazon Launch - Project Dashboard</title>
@@ -1579,12 +1522,14 @@
         { name: 'Progress Meeting 4 Minutes (PDF)', file: '../08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Meeting-Minutes-Progress-Meeting-4-Jan29-2026.pdf', status: 'completed' },
         { name: 'Progress Meeting 4 Executive Summary (PDF)', file: '../08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Executive_Summary_Progress_Meeting_4.pdf', status: 'completed' },
         { name: 'Progress Meeting 4 Recording (Video)', file: 'https://drive.google.com/file/d/1ylorW2b1X1yCTCwzDSmdCDQykVvQ5gAh/view?usp=sharing', status: 'completed' },
+        { name: 'Progress Meeting 5 Minutes (PDF)', file: '../08-Meeting-Notes/06-Progress-Meeting-5-19mar2026/Meeting-Minutes-Progress-Meeting-5-Mar19-2026.pdf', status: 'completed' },
     ],
     'email-archive': [
         { name: 'Email to Todd and Douae (PDF)', file: '../08-Meeting-Notes/04-Progress-Meeting-3-Thruday 15jan2026/Email-to-Todd-and-Douae.pdf', status: 'completed' },
         { name: 'EMAIL Progress Meeting 1 Summary (PDF)', file: '../08-Meeting-Notes/02-Progress-Meeting-1/EMAIL_Progress_Meeting_1_Summary.pdf', status: 'completed' },
         { name: 'EMAIL Progress Meeting 2 Summary (PDF)', file: '../08-Meeting-Notes/03-Progress-Meeting-2-Friday 9jan2026/EMAIL_Progress_Meeting_2_Summary.pdf', status: 'completed' },
         { name: 'EMAIL Progress Meeting 4 Summary (PDF)', file: '../08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Email_Progress_Meeting_4_Summary.pdf', status: 'completed' },
+        { name: 'EMAIL Progress Meeting 5 Summary (PDF)', file: '../08-Meeting-Notes/06-Progress-Meeting-5-19mar2026/Email-Progress-Meeting-5-Mar19-2026.pdf', status: 'completed' },
         { name: 'EMAIL Kickoff Meeting Summary (PDF)', file: '../08-Meeting-Notes/01-Kickoff-Meeting/EMAIL_Kickoff_Meeting_Summary.pdf', status: 'completed' },
     ],
     'summary-docs': [
@@ -1740,6 +1685,26 @@
                         name: 'Executive Summary',
                         file: '../08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Executive_Summary_Progress_Meeting_4.pdf',
                         pdfFile: '../08-Meeting-Notes/05-Progress-Meeting-4-Thursday-29jan2026/Executive_Summary_Progress_Meeting_4.pdf',
+                        status: 'completed'
+                    }
+                ]
+            },
+            {
+                id: '06-progress-5',
+                name: '06 - Progress Meeting 5',
+                date: 'March 19, 2026',
+                icon: '🚀',
+                files: [
+                    {
+                        name: 'Meeting Minutes',
+                        file: '../08-Meeting-Notes/06-Progress-Meeting-5-19mar2026/Meeting-Minutes-Progress-Meeting-5-Mar19-2026.pdf',
+                        pdfFile: '../08-Meeting-Notes/06-Progress-Meeting-5-19mar2026/Meeting-Minutes-Progress-Meeting-5-Mar19-2026.pdf',
+                        status: 'completed'
+                    },
+                    {
+                        name: 'Email Summary',
+                        file: '../08-Meeting-Notes/06-Progress-Meeting-5-19mar2026/Email-Progress-Meeting-5-Mar19-2026.pdf',
+                        pdfFile: '../08-Meeting-Notes/06-Progress-Meeting-5-19mar2026/Email-Progress-Meeting-5-Mar19-2026.pdf',
                         status: 'completed'
                     }
                 ]
