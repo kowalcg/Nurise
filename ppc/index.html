@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPC Hub - Nurise Amazon Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --soft-primary: #7c5cff;
+            --soft-primary-light: #a78bfa;
+            --soft-primary-dark: #6344ff;
+            --soft-primary-muted: rgba(124, 92, 255, 0.15);
+            --soft-secondary: #06b6d4;
+            --soft-secondary-muted: rgba(6, 182, 212, 0.15);
+            --soft-success: #34d399;
+            --soft-success-muted: rgba(52, 211, 153, 0.15);
+            --soft-warning: #fbbf24;
+            --soft-warning-muted: rgba(251, 191, 36, 0.15);
+            --soft-error: #f87171;
+            --soft-error-muted: rgba(248, 113, 113, 0.15);
+            --soft-surface-1: #ffffff;
+            --soft-surface-2: #f8fafc;
+            --soft-surface-3: #f1f5f9;
+            --soft-surface-4: #e2e8f0;
+            --soft-text-primary: #1e293b;
+            --soft-text-secondary: #475569;
+            --soft-text-muted: #94a3b8;
+            --soft-gradient: linear-gradient(135deg, #7c5cff 0%, #06b6d4 100%);
+            --soft-shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+            --soft-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            --soft-shadow-lg: 0 8px 32px -8px rgba(0, 0, 0, 0.15), 0 4px 8px -4px rgba(0, 0, 0, 0.08);
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--soft-surface-2);
+            color: var(--soft-text-primary);
+            line-height: 1.6;
+        }
+        #password-overlay {
+            position: fixed; inset: 0; background: var(--soft-surface-2);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            z-index: 1000; gap: 16px;
+        }
+        #password-overlay h2 { color: var(--soft-text-primary); }
+        #password-overlay input {
+            padding: 12px 20px; border-radius: 12px; border: 2px solid var(--soft-surface-4);
+            font-size: 16px; width: 280px; outline: none; background: var(--soft-surface-1);
+        }
+        #password-overlay input:focus { border-color: var(--soft-primary); }
+        #password-overlay .error { color: var(--soft-error); font-size: 14px; height: 20px; }
+        .header {
+            background: var(--soft-gradient); color: white; padding: 32px 40px;
+            box-shadow: var(--soft-shadow-lg);
+        }
+        .header h1 { font-size: 26px; font-weight: 700; }
+        .header p { opacity: 0.9; margin-top: 4px; }
+        .header-meta { display: flex; gap: 28px; margin-top: 14px; font-size: 14px; flex-wrap: wrap; }
+        .header-meta span { opacity: 0.95; }
+        .header a.back { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 14px; }
+        .header a.back:hover { text-decoration: underline; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 64px; }
+        .section-title {
+            font-size: 20px; font-weight: 700; margin: 40px 0 16px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .section-title:first-child { margin-top: 0; }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+        .stat-card {
+            background: var(--soft-surface-1); border-radius: 16px; padding: 20px;
+            box-shadow: var(--soft-shadow-sm); border: 1px solid var(--soft-surface-4);
+        }
+        .stat-card .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--soft-text-muted); font-weight: 600; }
+        .stat-card .value { font-size: 28px; font-weight: 700; margin-top: 6px; }
+        .stat-card .sub { font-size: 13px; color: var(--soft-text-secondary); margin-top: 2px; }
+        .stat-card.warn .value { color: var(--soft-error); }
+        .stat-card.good .value { color: var(--soft-success); }
+        .card {
+            background: var(--soft-surface-1); border-radius: 16px; padding: 24px;
+            box-shadow: var(--soft-shadow-sm); border: 1px solid var(--soft-surface-4); margin-bottom: 16px;
+        }
+        .card h3 { font-size: 16px; margin-bottom: 8px; }
+        .card p { color: var(--soft-text-secondary); font-size: 14.5px; }
+        .banner {
+            border-radius: 16px; padding: 18px 24px; margin-bottom: 24px;
+            background: var(--soft-warning-muted); border: 1px solid var(--soft-warning);
+            font-size: 14.5px;
+        }
+        .steps { list-style: none; }
+        .steps li {
+            display: flex; align-items: flex-start; gap: 14px; padding: 14px 0;
+            border-bottom: 1px solid var(--soft-surface-3); font-size: 14.5px;
+        }
+        .steps li:last-child { border-bottom: none; }
+        .pill {
+            flex-shrink: 0; font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.05em; padding: 4px 10px; border-radius: 999px; margin-top: 2px;
+        }
+        .pill.pending { background: var(--soft-warning-muted); color: #92700c; }
+        .pill.done { background: var(--soft-success-muted); color: #067a55; }
+        table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+        th { text-align: left; padding: 10px 12px; color: var(--soft-text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--soft-surface-4); }
+        th.num, td.num { text-align: right; }
+        td { padding: 9px 12px; border-bottom: 1px solid var(--soft-surface-3); }
+        tr.converting td:first-child { border-left: 3px solid var(--soft-success); }
+        tr.waste td:first-child { border-left: 3px solid var(--soft-error); }
+        .bar-cell { min-width: 120px; }
+        .bar { height: 8px; border-radius: 4px; background: var(--soft-primary-muted); position: relative; overflow: hidden; }
+        .bar > span { position: absolute; inset: 0; border-radius: 4px; background: var(--soft-gradient); }
+        .table-wrap { overflow-x: auto; background: var(--soft-surface-1); border-radius: 16px; padding: 8px 12px 4px; box-shadow: var(--soft-shadow-sm); border: 1px solid var(--soft-surface-4); }
+        .legend { display: flex; gap: 20px; font-size: 13px; color: var(--soft-text-secondary); margin: 10px 4px 0; }
+        .legend span::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; }
+        .legend .conv::before { background: var(--soft-success); }
+        .legend .wst::before { background: var(--soft-error); }
+        .neg-block {
+            background: var(--soft-surface-3); border-radius: 12px; padding: 16px 20px;
+            font-family: 'SF Mono', Menlo, monospace; font-size: 14px; line-height: 1.9; margin-top: 10px;
+        }
+        .footer { margin-top: 48px; font-size: 13px; color: var(--soft-text-muted); text-align: center; }
+        @media (max-width: 640px) { .header { padding: 24px 20px; } .header h1 { font-size: 21px; } }
+    </style>
+</head>
+<body>
+    <div id="password-overlay">
+        <h2>🔒 Protected Dashboard</h2>
+        <input type="password" id="password-input" placeholder="Enter password..." onkeypress="if(event.key==='Enter')checkPassword()">
+        <div class="error" id="password-error"></div>
+    </div>
+    <script>
+        (function() {
+            if (sessionStorage.getItem('dashboard_auth') === 'true') {
+                document.getElementById('password-overlay').style.display = 'none';
+            } else {
+                document.getElementById('password-input').focus();
+            }
+        })();
+        function checkPassword() {
+            if (document.getElementById('password-input').value === 'Nurise4231') {
+                sessionStorage.setItem('dashboard_auth', 'true');
+                document.getElementById('password-overlay').style.display = 'none';
+            } else {
+                document.getElementById('password-error').textContent = 'Incorrect password';
+                document.getElementById('password-input').value = '';
+            }
+        }
+    </script>
+
+    <div class="header">
+        <a class="back" href="../index.html">&larr; Back to Project Dashboard</a>
+        <h1>📊 PPC Performance Hub</h1>
+        <p>Amazon Advertising — NRG Canada · SaluSpa Filter Campaign</p>
+        <div class="header-meta">
+            <div><span>📅</span> <span>Data window: Jul 12 – Aug 10, 2026 (30 days)</span></div>
+            <div><span>💵</span> <span>All figures CAD</span></div>
+            <div><span>🔄</span> <span>Updated weekly by Greg (direct API access)</span></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="section-title">📈 30-Day Snapshot</h2>
+        <div class="stat-grid">
+            <div class="stat-card"><div class="label">Ad Spend</div><div class="value">$260</div><div class="sub">≈ $8.67/day</div></div>
+            <div class="stat-card good"><div class="label">Ad Sales</div><div class="value">$432</div><div class="sub">24 orders</div></div>
+            <div class="stat-card warn"><div class="label">ACOS</div><div class="value">60%</div><div class="sub">Target: 35–40%</div></div>
+            <div class="stat-card good"><div class="label">Conversion</div><div class="value">21%</div><div class="sub">112 clicks → 24 orders</div></div>
+            <div class="stat-card warn"><div class="label">Daily Budget</div><div class="value">$8</div><div class="sub">Hit the cap every day</div></div>
+        </div>
+
+        <h2 class="section-title">🎯 Action Plan <span style="font-size:13px; font-weight:500; color:var(--soft-text-muted);">— sent to Douae Aug 11, 2026</span></h2>
+        <div class="banner">
+            ⏱️ <strong>Season is short — all steps in one day.</strong> These products sell now through late September. No slow testing: implement everything, then push volume while shoppers are still buying.
+        </div>
+        <div class="card">
+            <ul class="steps">
+                <li><span class="pill pending">Pending</span><div><strong>1. Bidding strategy → "Dynamic bids – down only."</strong> Current "up and down" raised our $1.99 bid to an average $2.92/click (peak $3.73). One click in Campaign settings caps this immediately.</div></li>
+                <li><span class="pill pending">Pending</span><div><strong>2. Add negative keywords.</strong> Campaign currently has zero. ~$17/month goes to other-brand searches that never buy. List below, ready to paste.</div></li>
+                <li><span class="pill pending">Pending</span><div><strong>3. Exact-match the two proven winners at $1.40.</strong> "saluspa hot tub filter" (23% conv.) and "saluspa inflatable spa filter" (25% conv.) — buys our best traffic at ~30–35% ACOS.</div></li>
+                <li><span class="pill pending">Pending</span><div><strong>4. Broad bids straight to $1.30.</strong> "saluspa filter" $1.99 → $1.30, "saluspa coronado filters" $1.94 → $1.30. Exact keywords protect the converting traffic, so no stair-stepping needed.</div></li>
+                <li><span class="pill pending">Pending</span><div><strong>5. Budget $8 → $15/day, same day.</strong> The campaign stops mid-day, every day, while shoppers keep searching. Cheaper, cleaner clicks + more budget = more orders now, when it counts.</div></li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">🚫 Negative Keyword List <span style="font-size:13px; font-weight:500; color:var(--soft-text-muted);">— add as Negative Phrase</span></h2>
+        <div class="card">
+            <p>Blocks ~$17/month of zero-sale spend. <strong>Do NOT negate "bestway" or "coleman"</strong> — those searches generated $54 in sales.</p>
+            <div class="neg-block">mspa<br>m spa<br>intex<br>avenli<br>wave spa<br>hose filter<br>filtre</div>
+            <p style="margin-top:12px;">Also: <strong>pause</strong> the Broad keyword <em>"hot tub filter"</em> — $16.70 spent, 14 clicks, 0 sales.</p>
+        </div>
+
+        <h2 class="section-title">🔍 Where the Money Went — Top Search Terms</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Customer Search Term</th><th class="num">Clicks</th><th class="num">Spend</th><th class="num">Sales</th><th class="num">Orders</th><th class="num">Avg CPC</th><th class="bar-cell">Spend Share</th></tr></thead>
+                <tbody>
+                    <tr class="converting"><td>saluspa hot tub filter</td><td class="num">39</td><td class="num">$113.96</td><td class="num">$161.82</td><td class="num">9</td><td class="num">$2.92</td><td class="bar-cell"><div class="bar"><span style="width:100%"></span></div></td></tr>
+                    <tr class="converting"><td>saluspa inflatable spa filter</td><td class="num">8</td><td class="num">$19.34</td><td class="num">$35.96</td><td class="num">2</td><td class="num">$2.42</td><td class="bar-cell"><div class="bar"><span style="width:17%"></span></div></td></tr>
+                    <tr class="waste"><td>bestway saluspa filter</td><td class="num">4</td><td class="num">$10.26</td><td class="num">$0.00</td><td class="num">0</td><td class="num">$2.57</td><td class="bar-cell"><div class="bar"><span style="width:9%"></span></div></td></tr>
+                    <tr class="converting"><td>saluspa coronado hot tub filter</td><td class="num">4</td><td class="num">$9.62</td><td class="num">$17.98</td><td class="num">1</td><td class="num">$2.41</td><td class="bar-cell"><div class="bar"><span style="width:8%"></span></div></td></tr>
+                    <tr class="waste"><td>filtre saluspa</td><td class="num">3</td><td class="num">$8.34</td><td class="num">$0.00</td><td class="num">0</td><td class="num">$2.78</td><td class="bar-cell"><div class="bar"><span style="width:7%"></span></div></td></tr>
+                    <tr class="converting"><td>saluspa filter replacement</td><td class="num">3</td><td class="num">$8.34</td><td class="num">$17.98</td><td class="num">1</td><td class="num">$2.78</td><td class="bar-cell"><div class="bar"><span style="width:7%"></span></div></td></tr>
+                    <tr class="converting"><td>saluspa filters for hot tub</td><td class="num">2</td><td class="num">$5.89</td><td class="num">$17.98</td><td class="num">1</td><td class="num">$2.95</td><td class="bar-cell"><div class="bar"><span style="width:5%"></span></div></td></tr>
+                    <tr class="converting"><td>saluspa filter</td><td class="num">2</td><td class="num">$5.26</td><td class="num">$17.98</td><td class="num">1</td><td class="num">$2.63</td><td class="bar-cell"><div class="bar"><span style="width:5%"></span></div></td></tr>
+                    <tr class="waste"><td>saluspa filters</td><td class="num">2</td><td class="num">$4.80</td><td class="num">$0.00</td><td class="num">0</td><td class="num">$2.40</td><td class="bar-cell"><div class="bar"><span style="width:4%"></span></div></td></tr>
+                    <tr class="waste"><td>saluspa honolulu hot tub filter</td><td class="num">2</td><td class="num">$4.67</td><td class="num">$0.00</td><td class="num">0</td><td class="num">$2.33</td><td class="bar-cell"><div class="bar"><span style="width:4%"></span></div></td></tr>
+                    <tr class="converting"><td>saluspa hot tub filters</td><td class="num">1</td><td class="num">$3.73</td><td class="num">$35.96</td><td class="num">2</td><td class="num">$3.73</td><td class="bar-cell"><div class="bar"><span style="width:3%"></span></div></td></tr>
+                    <tr class="waste"><td>generic "hot tub filter" cluster (13 terms)</td><td class="num">14</td><td class="num">$16.70</td><td class="num">$0.00</td><td class="num">0</td><td class="num">$1.19</td><td class="bar-cell"><div class="bar"><span style="width:15%"></span></div></td></tr>
+                    <tr class="waste"><td>other-brand + French terms (mspa, intex, avenli, filtre…)</td><td class="num">9</td><td class="num">$9.53</td><td class="num">$0.00</td><td class="num">0</td><td class="num">$1.06</td><td class="bar-cell"><div class="bar"><span style="width:8%"></span></div></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="legend"><span class="conv">Converting — protect &amp; buy cheaper</span><span class="wst">Zero sales — negate, pause, or reduce</span></div>
+
+        <h2 class="section-title">🧭 Why This Works</h2>
+        <div class="card">
+            <h3>The traffic is excellent — the price was wrong</h3>
+            <p>Core saluspa searches convert at 21–25%, which is outstanding for Amazon. The campaign wasn't broken; it was overpaying (up-and-down bidding pushed CPC 47% above the set bid) and leaking (~10% of spend to unfilterable broad-match queries). Fix the price and the leaks, keep the traffic, then raise the budget while the season lasts. At the $1.30–1.40 bids, the same clicks land at roughly 30–35% ACOS instead of 60%.</p>
+        </div>
+
+        <div class="footer">
+            Prepared by Greg Kowalczyk · Data pulled directly from Amazon Ads API · Next update: after implementation, then weekly<br>
+            Questions → Google Chat or greg@geartopdesign.com
+        </div>
+    </div>
+</body>
+</html>
