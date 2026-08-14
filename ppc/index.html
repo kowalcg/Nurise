@@ -65,7 +65,8 @@
             display: flex; align-items: center; gap: 10px;
         }
         .section-title:first-child { margin-top: 0; }
-        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+        .section-title .sub { font-size: 13px; font-weight: 500; color: var(--soft-text-muted); }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
         .stat-card {
             background: var(--soft-surface-1); border-radius: 16px; padding: 20px;
             box-shadow: var(--soft-shadow-sm); border: 1px solid var(--soft-surface-4);
@@ -81,11 +82,11 @@
         }
         .card h3 { font-size: 16px; margin-bottom: 8px; }
         .card p { color: var(--soft-text-secondary); font-size: 14.5px; }
-        .banner {
-            border-radius: 16px; padding: 18px 24px; margin-bottom: 24px;
-            background: var(--soft-warning-muted); border: 1px solid var(--soft-warning);
-            font-size: 14.5px;
-        }
+        .callout-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin-top: 16px; }
+        .callout { border-radius: 16px; padding: 18px 22px; font-size: 14.5px; border: 1px solid; }
+        .callout.win { background: var(--soft-success-muted); border-color: var(--soft-success); }
+        .callout.leak { background: var(--soft-error-muted); border-color: var(--soft-error); }
+        .callout strong { display: block; margin-bottom: 4px; }
         .steps { list-style: none; }
         .steps li {
             display: flex; align-items: flex-start; gap: 14px; padding: 14px 0;
@@ -104,18 +105,14 @@
         td { padding: 9px 12px; border-bottom: 1px solid var(--soft-surface-3); }
         tr.converting td:first-child { border-left: 3px solid var(--soft-success); }
         tr.waste td:first-child { border-left: 3px solid var(--soft-error); }
-        .bar-cell { min-width: 120px; }
-        .bar { height: 8px; border-radius: 4px; background: var(--soft-primary-muted); position: relative; overflow: hidden; }
-        .bar > span { position: absolute; inset: 0; border-radius: 4px; background: var(--soft-gradient); }
         .table-wrap { overflow-x: auto; background: var(--soft-surface-1); border-radius: 16px; padding: 8px 12px 4px; box-shadow: var(--soft-shadow-sm); border: 1px solid var(--soft-surface-4); }
         .legend { display: flex; gap: 20px; font-size: 13px; color: var(--soft-text-secondary); margin: 10px 4px 0; }
         .legend span::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; }
         .legend .conv::before { background: var(--soft-success); }
         .legend .wst::before { background: var(--soft-error); }
-        .neg-block {
-            background: var(--soft-surface-3); border-radius: 12px; padding: 16px 20px;
-            font-family: 'SF Mono', Menlo, monospace; font-size: 14px; line-height: 1.9; margin-top: 10px;
-        }
+        .notes-list { list-style: none; }
+        .notes-list li { padding: 8px 0; border-bottom: 1px solid var(--soft-surface-3); font-size: 14.5px; color: var(--soft-text-secondary); }
+        .notes-list li:last-child { border-bottom: none; }
         .footer { margin-top: 48px; font-size: 13px; color: var(--soft-text-muted); text-align: center; }
         @media (max-width: 640px) { .header { padding: 24px 20px; } .header h1 { font-size: 21px; } }
     </style>
@@ -148,85 +145,97 @@
     <div class="header">
         <a class="back" href="../index.html">&larr; Back to Project Dashboard</a>
         <h1>📊 PPC Performance Hub</h1>
-        <p>Amazon Advertising — NRG Canada · SaluSpa Filter Campaign</p>
+        <p>Amazon Advertising — NRG Canada · Whole Account</p>
         <div class="header-meta">
-            <div><span>📅</span> <span>Data window: Jul 12 – Aug 10, 2026 (30 days)</span></div>
+            <div><span>📅</span> <span id="meta-window">Data window: —</span></div>
             <div><span>💵</span> <span>All figures CAD</span></div>
-            <div><span>🔄</span> <span>Updated weekly by Greg (direct API access)</span></div>
+            <div><span>🔄</span> <span id="meta-updated">Updated: —</span></div>
         </div>
     </div>
 
     <div class="container">
-        <h2 class="section-title">📈 30-Day Snapshot</h2>
-        <div class="stat-grid">
-            <div class="stat-card"><div class="label">Ad Spend</div><div class="value">$260</div><div class="sub">≈ $8.67/day</div></div>
-            <div class="stat-card good"><div class="label">Ad Sales</div><div class="value">$432</div><div class="sub">24 orders</div></div>
-            <div class="stat-card warn"><div class="label">ACOS</div><div class="value">60%</div><div class="sub">Target: 35–40%</div></div>
-            <div class="stat-card"><div class="label">TACOS</div><div class="value" style="color: var(--soft-text-muted);">—</div><div class="sub">Needs 30-day total sales (see note)</div></div>
-            <div class="stat-card good"><div class="label">Conversion</div><div class="value">21%</div><div class="sub">112 clicks → 24 orders</div></div>
-            <div class="stat-card warn"><div class="label">Daily Budget</div><div class="value">$8</div><div class="sub">Hit the cap every day</div></div>
+        <h2 class="section-title">📈 This Week — Whole Account</h2>
+        <div class="stat-grid" id="account-stats"></div>
+        <div class="callout-grid">
+            <div class="callout win"><strong>🏆 Best performer</strong><span id="best-performer">—</span></div>
+            <div class="callout leak"><strong>🕳️ Biggest leak</strong><span id="biggest-leak">—</span></div>
         </div>
 
-        <div class="card" style="margin-top: 16px;">
-            <h3>📐 TACOS — the number that tells us if ads are building the business</h3>
-            <p><strong>TACOS = ad spend ÷ total sales</strong> (ads + organic together). ACOS only judges the ad clicks; TACOS shows whether advertising is lifting the whole listing — ad orders improve organic rank, and organic orders are free. A 60% ACOS with a low TACOS (under ~15%) means organic is carrying the product and the ads are affordable fuel; a high TACOS means we depend on paid traffic.
-            <br><br><strong>To fill this in we need one number from Seller Central:</strong> 30-day <em>Ordered Product Sales</em> for the filter ASIN (Reports → Business Reports → Detail Page Sales and Traffic by Child Item). Send it over and TACOS appears here — or authorize API access to sales data once (5 minutes) and it updates automatically every week alongside the rest of this page.</p>
-        </div>
-
-        <h2 class="section-title">🎯 Action Plan <span style="font-size:13px; font-weight:500; color:var(--soft-text-muted);">— sent to Douae Aug 11, 2026</span></h2>
-        <div class="banner">
-            ⏱️ <strong>Season is short — all steps in one day.</strong> These products sell now through late September. No slow testing: implement everything, then push volume while shoppers are still buying.
-        </div>
-        <div class="card">
-            <ul class="steps">
-                <li><span class="pill pending">Pending</span><div><strong>1. Bidding strategy → "Dynamic bids – down only."</strong> Current "up and down" raised our $1.99 bid to an average $2.92/click (peak $3.73). One click in Campaign settings caps this immediately.</div></li>
-                <li><span class="pill pending">Pending</span><div><strong>2. Add negative keywords.</strong> Campaign currently has zero. ~$17/month goes to other-brand searches that never buy. List below, ready to paste.</div></li>
-                <li><span class="pill pending">Pending</span><div><strong>3. Exact-match the two proven winners at $1.40.</strong> "saluspa hot tub filter" (23% conv.) and "saluspa inflatable spa filter" (25% conv.) — buys our best traffic at ~30–35% ACOS.</div></li>
-                <li><span class="pill pending">Pending</span><div><strong>4. Broad bids straight to $1.30.</strong> "saluspa filter" $1.99 → $1.30, "saluspa coronado filters" $1.94 → $1.30. Exact keywords protect the converting traffic, so no stair-stepping needed.</div></li>
-                <li><span class="pill pending">Pending</span><div><strong>5. Budget $8 → $15/day, same day.</strong> The campaign stops mid-day, every day, while shoppers keep searching. Cheaper, cleaner clicks + more budget = more orders now, when it counts.</div></li>
-            </ul>
-        </div>
-
-        <h2 class="section-title">🚫 Negative Keyword List <span style="font-size:13px; font-weight:500; color:var(--soft-text-muted);">— add as Negative Phrase</span></h2>
-        <div class="card">
-            <p>Blocks ~$17/month of zero-sale spend. <strong>Do NOT negate "bestway" or "coleman"</strong> — those searches generated $54 in sales.</p>
-            <div class="neg-block">mspa<br>m spa<br>intex<br>avenli<br>wave spa<br>hose filter<br>filtre</div>
-            <p style="margin-top:12px;">Also: <strong>pause</strong> the Broad keyword <em>"hot tub filter"</em> — $16.70 spent, 14 clicks, 0 sales.</p>
-        </div>
-
-        <h2 class="section-title">🔍 Where the Money Went — Top Search Terms</h2>
+        <h2 class="section-title">🏁 Campaign Leaderboard <span class="sub">— all campaigns with spend this week</span></h2>
         <div class="table-wrap">
             <table>
-                <thead><tr><th>Customer Search Term</th><th class="num">Clicks</th><th class="num">Spend</th><th class="num">Sales</th><th class="num">Orders</th><th class="num">Avg CPC</th><th class="bar-cell">Spend Share</th></tr></thead>
-                <tbody>
-                    <tr class="converting"><td>saluspa hot tub filter</td><td class="num">39</td><td class="num">$113.96</td><td class="num">$161.82</td><td class="num">9</td><td class="num">$2.92</td><td class="bar-cell"><div class="bar"><span style="width:100%"></span></div></td></tr>
-                    <tr class="converting"><td>saluspa inflatable spa filter</td><td class="num">8</td><td class="num">$19.34</td><td class="num">$35.96</td><td class="num">2</td><td class="num">$2.42</td><td class="bar-cell"><div class="bar"><span style="width:17%"></span></div></td></tr>
-                    <tr class="waste"><td>bestway saluspa filter</td><td class="num">4</td><td class="num">$10.26</td><td class="num">$0.00</td><td class="num">0</td><td class="num">$2.57</td><td class="bar-cell"><div class="bar"><span style="width:9%"></span></div></td></tr>
-                    <tr class="converting"><td>saluspa coronado hot tub filter</td><td class="num">4</td><td class="num">$9.62</td><td class="num">$17.98</td><td class="num">1</td><td class="num">$2.41</td><td class="bar-cell"><div class="bar"><span style="width:8%"></span></div></td></tr>
-                    <tr class="waste"><td>filtre saluspa</td><td class="num">3</td><td class="num">$8.34</td><td class="num">$0.00</td><td class="num">0</td><td class="num">$2.78</td><td class="bar-cell"><div class="bar"><span style="width:7%"></span></div></td></tr>
-                    <tr class="converting"><td>saluspa filter replacement</td><td class="num">3</td><td class="num">$8.34</td><td class="num">$17.98</td><td class="num">1</td><td class="num">$2.78</td><td class="bar-cell"><div class="bar"><span style="width:7%"></span></div></td></tr>
-                    <tr class="converting"><td>saluspa filters for hot tub</td><td class="num">2</td><td class="num">$5.89</td><td class="num">$17.98</td><td class="num">1</td><td class="num">$2.95</td><td class="bar-cell"><div class="bar"><span style="width:5%"></span></div></td></tr>
-                    <tr class="converting"><td>saluspa filter</td><td class="num">2</td><td class="num">$5.26</td><td class="num">$17.98</td><td class="num">1</td><td class="num">$2.63</td><td class="bar-cell"><div class="bar"><span style="width:5%"></span></div></td></tr>
-                    <tr class="waste"><td>saluspa filters</td><td class="num">2</td><td class="num">$4.80</td><td class="num">$0.00</td><td class="num">0</td><td class="num">$2.40</td><td class="bar-cell"><div class="bar"><span style="width:4%"></span></div></td></tr>
-                    <tr class="waste"><td>saluspa honolulu hot tub filter</td><td class="num">2</td><td class="num">$4.67</td><td class="num">$0.00</td><td class="num">0</td><td class="num">$2.33</td><td class="bar-cell"><div class="bar"><span style="width:4%"></span></div></td></tr>
-                    <tr class="converting"><td>saluspa hot tub filters</td><td class="num">1</td><td class="num">$3.73</td><td class="num">$35.96</td><td class="num">2</td><td class="num">$3.73</td><td class="bar-cell"><div class="bar"><span style="width:3%"></span></div></td></tr>
-                    <tr class="waste"><td>generic "hot tub filter" cluster (13 terms)</td><td class="num">14</td><td class="num">$16.70</td><td class="num">$0.00</td><td class="num">0</td><td class="num">$1.19</td><td class="bar-cell"><div class="bar"><span style="width:15%"></span></div></td></tr>
-                    <tr class="waste"><td>other-brand + French terms (mspa, intex, avenli, filtre…)</td><td class="num">9</td><td class="num">$9.53</td><td class="num">$0.00</td><td class="num">0</td><td class="num">$1.06</td><td class="bar-cell"><div class="bar"><span style="width:8%"></span></div></td></tr>
-                </tbody>
+                <thead><tr><th>Campaign</th><th class="num">Spend</th><th class="num">Sales</th><th class="num">Orders</th><th class="num">ACOS</th></tr></thead>
+                <tbody id="leaderboard"></tbody>
             </table>
         </div>
-        <div class="legend"><span class="conv">Converting — protect &amp; buy cheaper</span><span class="wst">Zero sales — negate, pause, or reduce</span></div>
+        <div class="legend"><span class="conv">Converting</span><span class="wst">Zero sales — pause candidate if enabled</span></div>
 
-        <h2 class="section-title">🧭 Why This Works</h2>
+        <h2 class="section-title">🛁 SaluSpa Filter Campaign <span class="sub" id="saluspa-meta"></span></h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Date</th><th class="num">Spend</th><th class="num">Sales</th><th class="num">Orders</th><th class="num">Clicks</th><th class="num">ACOS</th></tr></thead>
+                <tbody id="saluspa-daily"></tbody>
+            </table>
+        </div>
+        <div class="card" style="margin-top:16px;">
+            <p>📌 <strong>Reading note:</strong> Amazon credits an ad sale to the day of the <em>click</em>, not the order, and keeps restating the most recent ~2 days. The latest days on this page will tick upward after publication — weekly totals are the reliable read.</p>
+        </div>
+
+        <h2 class="section-title">📉 Week-over-Week Trend</h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Week</th><th class="num">Spend</th><th class="num">Ad Sales</th><th class="num">Orders</th><th class="num">ACOS</th></tr></thead>
+                <tbody id="history"></tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title">🎯 Optimization Status</h2>
+        <div class="card"><ul class="steps" id="actions"></ul></div>
+
+        <h2 class="section-title">📝 This Week's Notes</h2>
+        <div class="card"><ul class="notes-list" id="notes"></ul></div>
+
         <div class="card">
-            <h3>The traffic is excellent — the price was wrong</h3>
-            <p>Core saluspa searches convert at 21–25%, which is outstanding for Amazon. The campaign wasn't broken; it was overpaying (up-and-down bidding pushed CPC 47% above the set bid) and leaking (~10% of spend to unfilterable broad-match queries). Fix the price and the leaks, keep the traffic, then raise the budget while the season lasts. At the $1.30–1.40 bids, the same clicks land at roughly 30–35% ACOS instead of 60%.</p>
+            <h3>📐 TACOS — still pending one authorization</h3>
+            <p><strong>TACOS = ad spend ÷ total sales</strong> (ads + organic together). This page currently shows the advertising account only — ad spend and ad-attributed sales. Once Amazon Selling Partner API access is authorized (5 minutes, one click for Todd), total sales, TACOS, margin, and inventory appear here automatically every week.</p>
         </div>
 
         <div class="footer">
-            Prepared by Greg Kowalczyk · Data pulled directly from Amazon Ads API · Next update: after implementation, then weekly<br>
+            Prepared by Greg Kowalczyk · Data pulled directly from Amazon Ads API · Updated every Monday &amp; Friday<br>
             Questions → Google Chat or greg@geartopdesign.com
         </div>
     </div>
+
+    <script src="data.js"></script>
+    <script>
+        (function render() {
+            const d = window.PPC_DATA;
+            if (!d) return;
+            const $ = id => document.getElementById(id);
+            const money = v => '$' + Number(v).toLocaleString('en-CA', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            $('meta-window').textContent = 'Data window: ' + d.window;
+            $('meta-updated').textContent = 'Updated: ' + d.updated;
+            $('account-stats').innerHTML = [
+                ['Ad Spend', money(d.account.spend), d.account.spendSub || '', ''],
+                ['Ad Sales', money(d.account.sales), d.account.orders + ' orders', 'good'],
+                ['ACOS', d.account.acos, d.account.acosSub || '', d.account.acosClass || ''],
+                ['Clicks', d.account.clicks, d.account.clicksSub || '', ''],
+            ].map(([l, v, s, c]) => `<div class="stat-card ${c}"><div class="label">${l}</div><div class="value">${v}</div><div class="sub">${s}</div></div>`).join('');
+            $('best-performer').textContent = d.bestPerformer;
+            $('biggest-leak').textContent = d.biggestLeak;
+            $('leaderboard').innerHTML = d.campaigns.map(c =>
+                `<tr class="${c.sales > 0 ? 'converting' : 'waste'}"><td>${c.name}</td><td class="num">${money(c.spend)}</td><td class="num">${money(c.sales)}</td><td class="num">${c.orders}</td><td class="num">${c.sales > 0 ? Math.round(c.spend / c.sales * 100) + '%' : 'no sales'}</td></tr>`).join('');
+            $('saluspa-meta').textContent = '— ' + d.saluspa.meta;
+            $('saluspa-daily').innerHTML = d.saluspa.daily.map(r =>
+                `<tr><td>${r.date}</td><td class="num">${money(r.spend)}</td><td class="num">${money(r.sales)}</td><td class="num">${r.orders}</td><td class="num">${r.clicks}</td><td class="num">${r.sales > 0 ? Math.round(r.spend / r.sales * 100) + '%' : '—'}</td></tr>`).join('') +
+                (() => { const t = d.saluspa.daily.reduce((a, r) => ({spend: a.spend + r.spend, sales: a.sales + r.sales, orders: a.orders + r.orders, clicks: a.clicks + r.clicks}), {spend: 0, sales: 0, orders: 0, clicks: 0});
+                    return `<tr style="font-weight:700;"><td>Total</td><td class="num">${money(t.spend)}</td><td class="num">${money(t.sales)}</td><td class="num">${t.orders}</td><td class="num">${t.clicks}</td><td class="num">${t.sales > 0 ? Math.round(t.spend / t.sales * 100) + '%' : '—'}</td></tr>`; })();
+            $('history').innerHTML = d.history.map(h =>
+                `<tr><td>${h.week}</td><td class="num">${money(h.spend)}</td><td class="num">${money(h.sales)}</td><td class="num">${h.orders}</td><td class="num">${h.acos}</td></tr>`).join('');
+            $('actions').innerHTML = d.actions.map(a =>
+                `<li><span class="pill ${a.done ? 'done' : 'pending'}">${a.done ? 'Done' : 'Pending'}</span><div>${a.text}</div></li>`).join('');
+            $('notes').innerHTML = d.notes.map(n => `<li>${n}</li>`).join('');
+        })();
+    </script>
 </body>
 </html>
