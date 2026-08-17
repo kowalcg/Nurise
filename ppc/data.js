@@ -50,7 +50,7 @@ window.PPC_DATA = {
     {done: false, text: "<strong>Pause or fix B0D9YVZFPT SI trio</strong> — 3 new campaigns ($24/day combined budget) barely serving: $1.06 spend, near-zero impressions, no sales since 03-Jul launch. Check targeting or pause."},
     {done: false, text: "<strong>Consider pausing B0D9YSNYBG Auto-Discovery</strong> — still enabled, $1.21 zero-sale this window (it did convert once in the prior window; low priority)."},
     {done: false, text: "<strong>Reactivate the three B0DZ31B3RP campaigns when restocked</strong> — best performers in the account (11% ACOS), paused only for stockout. Restock date needed from Douae."},
-    {done: false, text: "<strong>Todd authorizes SP-API access</strong> (one click, 5 min) — unlocks total sales, TACOS, margin and inventory on this page."}
+    {done: false, text: "<strong>Direct sales-data connection</strong> — our Selling Partner API application is in Amazon's developer review queue (on our side, nothing needed from Nurise). Until it clears, total sales, TACOS and margin come from a periodic Seller Central export."}
   ],
   notes: [
     "🏆 Win of the week: the cleanup held — all 6 zero-sale campaigns are paused and account ACOS improved to 22.2% (from 30% last window). B0DBVZFBFV is carrying the account.",
