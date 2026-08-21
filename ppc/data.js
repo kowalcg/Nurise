@@ -35,22 +35,22 @@ window.PPC_DATA = {
     {week: "Aug 9–13, 2026", spend: 322.27, sales: 1089.80, orders: 15, acos: "30%"}
   ],
   actions: [
-    {done: true, text: "<strong>Bidding strategy → down-only</strong> on SaluSpa — done Aug 13."},
+    {done: true, text: "<strong>SaluSpa filter re-tuned for the rest of the season</strong> — Douae's plan approved Aug 21: $8/day, Down Only, Exact keywords ~$0.90, Broad ~$0.80, phrase negatives + generic “hot tub filter” Broad stay paused. Campaign stays ON at break-even; no further changes until early September."},
     {done: true, text: "<strong>Negative keywords added as Negative Phrase</strong> (mspa, m spa, intex, avenli, wave spa, hose filter, filtre) — done Aug 13, confirmed live Aug 21."},
-    {done: true, text: "<strong>Exact-match winners at $1.40</strong> (“saluspa hot tub filter”, “saluspa inflatable spa filter”) — done Aug 13, confirmed live Aug 21."},
-    {done: true, text: "<strong>Broad bids to $1.30</strong> + generic “hot tub filter” Broad paused — done Aug 13, confirmed still paused Aug 21."},
     {done: true, text: "<strong>6 zero-sale campaigns paused</strong> — confirmed still PAUSED Aug 21, no drift."},
-    {done: true, text: "<strong>B0D9YW9DC1 Auto-Discovery</strong> — pause request withdrawn Aug 17 after it converted; still enabled, watching."},
-    {done: false, text: "<strong>Pause or fix B0D9YVZFPT SI trio</strong> — barely serving: $0.90 spend this window, no sales since 03-Jul launch. Check targeting or pause."},
-    {done: false, text: "<strong>Consider pausing B0D9YSNYBG Auto-Discovery</strong> — still enabled, $7.37 zero-sale spend this window (converted once in an earlier window; low priority)."},
-    {done: false, text: "<strong>Reactivate the three B0DZ31B3RP campaigns when restocked</strong> — best performers in the account historically, paused only for stockout. Restock date needed from Douae."},
+    {done: true, text: "<strong>B0CDXN72C4 + B0D9YW2776 paused</strong> (209 clicks, 1 order in 90 days — listing/price issue, not an ads issue) — done by Douae Aug 20."},
+    {done: true, text: "<strong>B0D9YW9DC1 Auto-Discovery</strong> — pause request withdrawn Aug 17 after it converted; still enabled and converting (26% ACOS this window)."},
+    {done: false, text: "<strong>Pause B0D9YSNYBG Auto-Discovery</strong> — requested Aug 21 ($7.37 zero-sale spend this window). Confirm on next pull."},
+    {done: false, text: "<strong>Pause or fix B0D9YVZFPT SI trio</strong> — barely serving: $0.90 spend this window, no sales since 03-Jul launch. Low priority."},
+    {done: false, text: "<strong>B0DZ31B3RP (SupportRest Plus Twin)</strong> — 14-unit test buy sold out; the three paused campaigns were the account's best performers. Needs a real reorder decision from Todd, then reactivate."},
+    {done: false, text: "<strong>Second-container packing list + SKU Economics export</strong> — requested from Douae Aug 21. These set next season's ad plan and the real break-even per SKU."},
     {done: false, text: "<strong>Direct sales-data connection</strong> — Selling Partner API application still in Amazon's developer review queue. Until it clears, total sales, TACOS and margin come from a periodic Seller Central export."}
   ],
   notes: [
     "🏆 Win of the week: account ACOS improved to 12.5% (from 22.2%) while sales grew 48% and spend fell 16% — B0DBVZFBFV Auto-Discovery is carrying the account at 4% ACOS.",
-    "🔍 Watch item: SaluSpa window ACOS improved to 36% (from 48%) and is now under the 40–45% concern line, but 2 of 5 days were zero-sale and Aug 19–20 will restate upward — recheck Monday.",
-    "⚠️ Still open: the B0D9YVZFPT SI trio (launched 03-Jul) remains barely serving — targeting review or pause still needed.",
-    "⚠️ Still open: B0DZ31B3RP restock ETA still needed from Douae to reactivate the account's historically best-performing campaigns.",
+    "✅ Decision Aug 21: SaluSpa filter campaign runs lean at break-even ($8/day, lower bids) and is left alone until early September. Ads are ~7% of filter volume and stock is ~700 units (8–9 weeks) — no sell-through emergency, no reason to keep tuning it. Filter break-even is ~24.5% ACOS; this window ran 36%, converting days 22–25%.",
+    "📦 The season's constraint is stock, not ads: pumps, pool/spa accessories and SupportRest all sold out (74% sell-through overall), several with zero ad support. Second container in progress — packing list requested.",
+    "⚠️ Still open: B0D9YSNYBG pause (requested Aug 21), B0D9YVZFPT SI trio barely serving, B0DZ31B3RP needs a reorder decision.",
     "⏳ Season note: products sell through late September/early October — sell-through beats ACOS perfection from here on."
   ]
 };
