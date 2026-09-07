@@ -1,35 +1,35 @@
 // PPC Hub data — rewritten by the Monday/Friday automated review (do not hand-edit during the week).
 // Money in CAD. history[] grows one row per review week (newest first).
 window.PPC_DATA = {
-  window: "Aug 30 - Sep 3, 2026 (Amazon data lags ~2 days; last 2 days restate upward)",
-  updated: "Friday, Sep 4, 2026",
+  window: "Sep 2 - Sep 6, 2026 (Amazon data lags ~2 days; last 2 days restate upward)",
+  updated: "Monday, Sep 7, 2026",
   account: {
-    spend: 157.66, sales: 1147.83, orders: 12, clicks: 193,
-    acos: "13.7%", acosClass: "good", acosSub: "improving; down 7.3 pts from 21.0% last review, sales +71% on spend +12%",
-    spendSub: "≈ $31/day · 7 campaigns with spend · avg CPC $0.82", clicksSub: "33 campaigns in account"
+    spend: 135.66, sales: 1129.77, orders: 15, clicks: 167,
+    acos: "12.0%", acosClass: "good", acosSub: "improving; down 1.7 pts from 13.7% last review, orders +25% on spend -14%",
+    spendSub: "≈ $27/day · 6 campaigns with meaningful spend", clicksSub: "33 campaigns in account"
   },
-  bestPerformer: "B0DBVZFBFV — Auto-Discovery spent $29.74 for $699.95 in sales (5 orders, 4% ACOS) — the account's best performer this window by a wide margin. B0DBVZFBFV Manual Exact also fully recovered: $235.97 on $7.86 (2 orders, 3% ACOS), dropping off last review's pause-candidate list entirely.",
-  biggestLeak: "B0D9YW9DC1 - Auto - Discovery spent $31.41 with ZERO sales — RELAPSED. This is the same campaign that was last review's best performer (13% ACOS, $239.98 sales) with its Aug 24 pause request WITHDRAWN on Aug 31. It has now flipped back to a full zero-sale window. Flip-flopping between best performer and biggest leak — needs a real decision from Douae, not a hands-off approach. Also still leaking pennies: B0D9YSNYBG Manual Exact ($0.65, zero sales) and the B0D9YVZFPT SI trio ($0.90, zero sales since 03-Jul launch).",
+  bestPerformer: "B0DBVZFBFV — Auto-Discovery spent $26.08 for $867.93 in sales (7 orders, 3.0% ACOS) — the account's best performer this window by a wide margin.",
+  biggestLeak: "B0DBVZFBFV - Product Targeting spent $35.76 with ZERO sales — NEW pause candidate this window. Also still leaking: B0D9YW9DC1 Auto-Discovery ($34.38, zero sales, unresolved since it relapsed last review) and B0D9YSNYBG Manual Exact ($1.03, zero sales, open pause candidate since Aug 28).",
   campaigns: [
-    {name: "B0DBVZFBFV - Product Targeting", spend: 49.25, sales: 139.99, orders: 1},
-    {name: "SaluSpa Filter (B08R11D8NJ)", spend: 37.85, sales: 71.92, orders: 4},
-    {name: "B0D9YW9DC1 - Auto - Discovery (RELAPSED to zero sales — new pause candidate)", spend: 31.41, sales: 0, orders: 0},
-    {name: "B0DBVZFBFV - Auto - Discovery (best ACOS in account)", spend: 29.74, sales: 699.95, orders: 5},
-    {name: "B0DBVZFBFV - Manual Exact (recovered — off pause list)", spend: 7.86, sales: 235.97, orders: 2},
-    {name: "B0D9YVZFPT - Auto SI (enabled, barely serving, no sales)", spend: 0.90, sales: 0, orders: 0},
-    {name: "B0D9YSNYBG - Manual Exact (enabled, zero sales, sibling campaigns paused)", spend: 0.65, sales: 0, orders: 0}
+    {name: "B0DBVZFBFV - Product Targeting (NEW — zero sales, pause candidate)", spend: 35.76, sales: 0, orders: 0},
+    {name: "B0D9YW9DC1 - Auto - Discovery (still zero sales, unresolved)", spend: 34.38, sales: 0, orders: 0},
+    {name: "SaluSpa Filter (B08R11D8NJ)", spend: 32.38, sales: 125.86, orders: 7},
+    {name: "B0DBVZFBFV - Auto - Discovery (best performer)", spend: 26.08, sales: 867.93, orders: 7},
+    {name: "B0DBVZFBFV - Manual Exact", spend: 5.66, sales: 135.98, orders: 1},
+    {name: "B0D9YSNYBG - Manual Exact (enabled, zero sales, sibling campaigns paused)", spend: 1.03, sales: 0, orders: 0}
   ],
   saluspa: {
-    meta: "ENABLED · $8/day budget · window ACOS 53% (up from 37% last review; last 2 days restate upward) · break-even ~24.5% · Aug 21 decision hold has EXPIRED — re-tune now due",
+    meta: "ENABLED · $8/day budget · window ACOS 25.7% (down sharply from 53% last review; last 2 days restate upward) · break-even ~24.5% · Aug 21 decision hold has EXPIRED — bids now drifted above approved caps",
     daily: [
-      {date: "Aug 30", spend: 13.70, sales: 17.98, orders: 1, clicks: 8},
-      {date: "Aug 31", spend: 5.40, sales: 0, orders: 0, clicks: 3},
-      {date: "Sep 1", spend: 2.53, sales: 0, orders: 0, clicks: 3},
       {date: "Sep 2", spend: 12.62, sales: 17.98, orders: 1, clicks: 8},
-      {date: "Sep 3", spend: 3.60, sales: 35.96, orders: 2, clicks: 2}
+      {date: "Sep 3", spend: 3.60, sales: 35.96, orders: 2, clicks: 2},
+      {date: "Sep 4", spend: 5.42, sales: 35.96, orders: 2, clicks: 3},
+      {date: "Sep 5", spend: 3.06, sales: 17.98, orders: 1, clicks: 2},
+      {date: "Sep 6", spend: 7.68, sales: 17.98, orders: 1, clicks: 4}
     ]
   },
   history: [
+    {week: "Sep 2 - Sep 6, 2026", spend: 135.66, sales: 1129.77, orders: 15, acos: "12.0%"},
     {week: "Aug 30 - Sep 3, 2026", spend: 157.66, sales: 1147.83, orders: 12, acos: "13.7%"},
     {week: "Aug 26–30, 2026", spend: 140.46, sales: 669.85, orders: 8, acos: "21.0%"},
     {week: "Aug 23–27, 2026", spend: 143.85, sales: 621.88, orders: 9, acos: "23.1%"},
@@ -39,24 +39,26 @@ window.PPC_DATA = {
     {week: "Aug 9–13, 2026", spend: 322.27, sales: 1089.80, orders: 15, acos: "30%"}
   ],
   actions: [
-    {done: false, text: "<strong>B0D9YW9DC1 Auto-Discovery — RELAPSED to zero sales</strong> — NEW this week: $31.41 spend, 0 sales, 0 orders. This is the same campaign whose Aug 24 pause request was WITHDRAWN Aug 31 after it converted $239.98 at 13% ACOS. Now back to zero. Flip-flopping between best performer and biggest leak — flagged to Douae for a real decision, not another wait-and-see."},
-    {done: true, text: "<strong>B0DBVZFBFV Manual Exact recovered</strong> — last review's new pause candidate ($4.60, zero sales) is now fully converting: $235.97 on $7.86 (2 orders, 3% ACOS). Off the pause list."},
-    {done: false, text: "<strong>SaluSpa filter re-tune now due</strong> — the Aug 21 decision hold (\"no changes before early September\") has expired. ACOS worsened 37% → 53%, still ~$1.58–1.71 realised CPC vs the approved $0.80–0.90 bids, and the $8 daily budget was breached twice again (Aug 30 $13.70, Sep 2 $12.62). Concrete bid/budget changes proposed to Douae in this week's message."},
-    {done: true, text: "<strong>Negative keywords live as Negative Phrase</strong> (mspa, m spa, intex, avenli, wave spa, hose filter, filtre) — re-confirmed Sep 4: all seven still ENABLED, no drift."},
-    {done: true, text: "<strong>Generic “hot tub filter” Broad still paused</strong> — re-confirmed Sep 4, no drift."},
-    {done: true, text: "<strong>B0D9YSNYBG Auto-Discovery paused</strong> — re-confirmed Sep 4: still PAUSED, no spend. B0DZ31B3RP's three campaigns also re-confirmed still PAUSED."},
-    {done: false, text: "<strong>Pause B0D9YSNYBG Manual Exact</strong> — flagged Aug 28, still ENABLED: $0.65 this window, zero sales, while its sibling Auto-Discovery and Product Targeting campaigns are already paused."},
-    {done: false, text: "<strong>Pause or fix B0D9YVZFPT SI trio</strong> — all three still ENABLED at $8/day; $0.90 spend this window and no sales since the 03-Jul launch."},
-    {done: false, text: "<strong>Negative-exact vs exact conflict on \"saluspa hot tub filter\"</strong> — the ENABLED Negative Exact on this term still conflicts with the ENABLED Exact keyword bidding $0.86 on the same term, likely self-blocking best-intent traffic. Part of the now-due re-tune."},
+    {done: false, text: "<strong>B0DBVZFBFV Product Targeting — NEW zero-sale pause candidate</strong> — $35.76 spent this window, 0 sales, 0 orders, ENABLED. Flagged fresh this review; not previously on the pause list."},
+    {done: false, text: "<strong>B0D9YW9DC1 Auto-Discovery — still zero sales</strong> — $34.38 spend, 0 sales again this window. Same unstable campaign flagged last review; still needs a real decision from Douae rather than autopilot."},
+    {done: true, text: "<strong>SaluSpa ACOS recovering</strong> — down to 25.7% this window from 53% last review (sales +75%, spend -14%). Still a touch above the ~24.5% break-even, but a real improvement."},
+    {done: false, text: "<strong>SaluSpa bids drifted above Aug 21 approved caps</strong> (Exact ~$0.90 / Broad ~$0.80) — \"saluspa inflatable spa filter\" exact is at $1.59, \"saluspa filter\" broad is at $2.06, plus saluspa coronado filters ($0.99), saluspa filters ($1.07), saluspa coleman spa filter cartridge ($0.87), vi filter ($0.82), bestway saluspa filter ($0.82) all over the broad cap. True these back up."},
+    {done: false, text: "<strong>SaluSpa $8 daily budget breached again</strong> — Sep 2 spent $12.62 vs the $8 budget, same pattern flagged last review."},
+    {done: true, text: "<strong>Negative keywords live as Negative Phrase</strong> (mspa, m spa, intex, avenli, wave spa, hose filter, filtre) — re-confirmed Sep 7: all seven still ENABLED, no drift."},
+    {done: true, text: "<strong>Generic “hot tub filter” Broad still paused</strong> — re-confirmed Sep 7, no drift."},
+    {done: true, text: "<strong>B0D9YSNYBG Auto-Discovery paused</strong> — re-confirmed Sep 7: still PAUSED, no spend. B0DZ31B3RP's three campaigns also re-confirmed still PAUSED."},
+    {done: false, text: "<strong>Pause B0D9YSNYBG Manual Exact</strong> — flagged Aug 28, still ENABLED: $1.03 this window, zero sales, while its sibling Auto-Discovery and Product Targeting campaigns are already paused."},
+    {done: false, text: "<strong>Pause or fix B0D9YVZFPT SI trio</strong> — all three still ENABLED at $8/day; ~$0.37 spend this window and no sales since the 03-Jul launch."},
+    {done: false, text: "<strong>Negative-exact vs exact/broad conflict on \"saluspa hot tub filter\"</strong> — the ENABLED Negative Exact on this term still conflicts with the ENABLED Exact ($0.86) and Broad ($0.50) keywords bidding on the same term, likely self-blocking best-intent traffic."},
     {done: false, text: "<strong>B0DZ31B3RP (SupportRest Plus Twin)</strong> — 14-unit test buy SOLD OUT; the three paused campaigns were the account's best performers. Reactivation needs a real reorder decision from Todd on buying more units — not a restock ETA."},
     {done: false, text: "<strong>Second-container packing list + SKU Economics export</strong> — requested from Douae Aug 21, still outstanding. These set next season's ad plan and the real break-even per SKU."},
     {done: false, text: "<strong>Direct sales-data connection</strong> — the Selling Partner API application is awaiting <em>Amazon's</em> developer approval for external clients. Nothing for Todd to action. Until it clears, total sales, TACOS and margin come from a periodic Seller Central export."}
   ],
   notes: [
-    "📈 Win of the week: whole-account ACOS improved 21.0% → 13.7% with ad sales up 71% on only +12% spend. B0DBVZFBFV Auto-Discovery is the standout, $699.95 in sales at 4% ACOS, and its Manual Exact sibling fully recovered too.",
-    "⚠️ Watch: B0D9YW9DC1 Auto-Discovery relapsed to a full zero-sale window right after its pause request was withdrawn for converting well two weeks ago. This campaign is unstable — treat any single good or bad window with caution and revisit with Douae regularly rather than settling on a permanent verdict.",
-    "📉 SaluSpa filter: ACOS worsened to 53% this window (was 37%) — well above the ~24.5% break-even, i.e. loss-making on ad-attributed units. Realised CPC ~$1.58–1.71 vs the approved ~$0.80–0.90 bids, and the $8 budget was breached again on both Aug 30 ($13.70) and Sep 2 ($12.62). The Aug 21 decision hold has now expired — this week's message to Douae proposes concrete numbers.",
-    "🧹 Housekeeping: two tiny zero-sale campaigns remain ENABLED (B0D9YSNYBG Manual Exact, B0D9YVZFPT SI trio) — pennies each, still nothing converted from either; pause list is in the actions.",
+    "📈 Win of the week: whole-account ACOS improved to 12.0% (from 13.7%) with orders up 25% on 14% less spend. B0DBVZFBFV Auto-Discovery is the standout — $867.93 in sales at 3.0% ACOS.",
+    "⚠️ Watch: two ENABLED campaigns burned nearly $70 combined with zero sales this window — B0DBVZFBFV Product Targeting (NEW, $35.76) and B0D9YW9DC1 Auto-Discovery ($34.38, still unresolved). Both are pause candidates for Douae.",
+    "📉 SaluSpa filter: ACOS improved sharply to 25.7% (was 53%) — real recovery, though still just above the ~24.5% break-even. Bids have drifted well above the Aug 21 approved caps and the $8 daily budget was breached again on Sep 2 ($12.62).",
+    "🧹 Housekeeping: B0D9YSNYBG Manual Exact and the B0D9YVZFPT SI trio remain tiny, ENABLED, zero-sale leftovers — pause list is in the actions.",
     "⏳ Season note: products sell through late September/early October — sell-through beats ACOS perfection from here. Ads are ~7% of filter volume and stock is ~700 units (8–9 weeks cover), so no sell-through emergency."
   ]
 };
