@@ -1,31 +1,32 @@
 // PPC Hub data — rewritten by the Monday/Friday automated review (do not hand-edit during the week).
 // Money in CAD. history[] grows one row per review week (newest first).
 window.PPC_DATA = {
-  window: "Oct 7 - Oct 11, 2026 (Amazon data lags ~2 days; last 2 days restate upward)",
-  updated: "Monday, Oct 12, 2026",
+  window: "Oct 11 - Oct 15, 2026 (Amazon data lags ~2 days; last 2 days restate upward)",
+  updated: "Friday, Oct 16, 2026",
   account: {
-    spend: 28.89, sales: 201.91, orders: 5, clicks: 23,
-    acos: "14.3%", acosClass: "good", acosSub: "down from 35.6% last review - but one $129.99 order (B0D9YVZFPT Auto SI) drives it; excluding that order the account ran at 40%",
-    spendSub: "~ $5.78/day · SaluSpa is 86% of spend", clicksSub: "5 of 33 campaigns enabled (SaluSpa + B0D9YVZFPT Auto SI converting + 3 zero-sale pause candidates)"
+    spend: 26.87, sales: 53.94, orders: 3, clicks: 23,
+    acos: "49.8%", acosClass: "bad", acosSub: "up from 14.3% last review (that figure was lifted by one $129.99 Auto SI order; ~40% without it). All 3 orders this window came from SaluSpa",
+    spendSub: "~ $5.37/day · SaluSpa is 84% of spend", clicksSub: "5 of 33 campaigns enabled (SaluSpa + B0D9YVZFPT Auto SI + 3 zero-sale pause candidates)"
   },
-  bestPerformer: "By sales: B0D9YVZFPT Auto SI — $129.99 from just $1.44 of spend (1 order, 1.1% ACOS) on Oct 10, its first sale in the window after being a pause candidate for 4 reviews. Keep it running at its low spend. SaluSpa Filter (B08R11D8NJ) brought $71.92 from $24.73 (4 orders, 34.4% ACOS vs ~24.5% break-even).",
-  biggestLeak: "B0D9YSNYBG Manual Exact — $2.72 spent, 4 clicks, zero sales, still ENABLED, and its spend is climbing ($0.47 -> $0.75 -> $1.50/day). Zero-sale spend $2.72 = 9.4% of the account (was $0.85 = 3.3%). Discovery SI ($0, 61 impressions) and Sales SI (no activity) remain ENABLED.",
+  bestPerformer: "SaluSpa Filter (B08R11D8NJ) — the only converting campaign this window: $53.94 from $22.46 (3 orders, 41.6% ACOS vs ~24.5% break-even, so still loss-making). Settled Oct 11-13 ran at 47.6%; Oct 14 ($3.19 for $17.98, 18%) was the best day.",
+  biggestLeak: "B0D9YSNYBG Manual Exact — $3.15 spent, 5 clicks, zero sales, still ENABLED (6th review asking for the pause). B0D9YVZFPT Auto SI added $1.26 with no sale this window. Zero-sale spend $4.41 = 16.4% of the account (was 9.4%).",
   campaigns: [
-    {name: "SaluSpa Filter (B08R11D8NJ) — enabled, $8/day", spend: 24.73, sales: 71.92, orders: 4},
-    {name: "B0D9YSNYBG - Manual Exact — enabled, zero sales (pause)", spend: 2.72, sales: 0, orders: 0},
-    {name: "B0D9YVZFPT - Auto SI — enabled, $8/day", spend: 1.44, sales: 129.99, orders: 1}
+    {name: "SaluSpa Filter (B08R11D8NJ) — enabled, $8/day", spend: 22.46, sales: 53.94, orders: 3},
+    {name: "B0D9YSNYBG - Manual Exact — enabled, zero sales (pause)", spend: 3.15, sales: 0, orders: 0},
+    {name: "B0D9YVZFPT - Auto SI — enabled, $8/day (no sale this window; $129.99 last week)", spend: 1.26, sales: 0, orders: 0}
   ],
   saluspa: {
-    meta: "ENABLED · $8/day budget · Down Only · window ACOS 34.4% (34.5% last review) · break-even ~24.5% · avg CPC $1.65 vs approved caps ~$0.90 Exact / ~$0.80 Broad · Oct 11 spent $12.69 on an $8 budget",
+    meta: "ENABLED · $8/day budget · Down Only · window ACOS 41.6% (34.4% last review) · break-even ~24.5% · avg CPC $1.60 vs approved caps ~$0.90 Exact / ~$0.80 Broad · bids unchanged",
     daily: [
-      {date: "Oct 7", spend: 3.75, sales: 0, orders: 0, clicks: 2},
-      {date: "Oct 8", spend: 2.12, sales: 35.96, orders: 2, clicks: 2},
-      {date: "Oct 9", spend: 0, sales: 0, orders: 0, clicks: 0},
-      {date: "Oct 10", spend: 6.17, sales: 0, orders: 0, clicks: 4},
-      {date: "Oct 11", spend: 12.69, sales: 35.96, orders: 2, clicks: 7}
+      {date: "Oct 11", spend: 12.69, sales: 35.96, orders: 2, clicks: 7},
+      {date: "Oct 12", spend: 2.55, sales: 0, orders: 0, clicks: 2},
+      {date: "Oct 13", spend: 1.88, sales: 0, orders: 0, clicks: 1},
+      {date: "Oct 14", spend: 3.19, sales: 17.98, orders: 1, clicks: 2},
+      {date: "Oct 15", spend: 2.15, sales: 0, orders: 0, clicks: 2}
     ]
   },
   history: [
+    {week: "Oct 11 - Oct 15, 2026", spend: 26.87, sales: 53.94, orders: 3, acos: "49.8%"},
     {week: "Oct 7 - Oct 11, 2026", spend: 28.89, sales: 201.91, orders: 5, acos: "14.3%"},
     {week: "Oct 4 - Oct 8, 2026", spend: 25.63, sales: 71.92, orders: 4, acos: "35.6%"},
     {week: "Sep 30 - Oct 4, 2026", spend: 38.51, sales: 125.86, orders: 5, acos: "30.6%"},
@@ -46,26 +47,26 @@ window.PPC_DATA = {
     {week: "Aug 9–13, 2026", spend: 322.27, sales: 1089.80, orders: 15, acos: "30%"}
   ],
   actions: [
-    {done: false, text: "<strong>Pause B0D9YSNYBG Manual Exact now</strong> — $2.72 this window, 4 clicks, 0 sales, spend rising daily. Open for a fifth review in a row."},
-    {done: false, text: "<strong>Pause B0D9YVZFPT Discovery SI + Sales SI</strong> — zero sales; Discovery SI $0 on 61 impressions, Sales SI no activity. Low cost, but still enabled with no return."},
-    {done: true, text: "<strong>Keep B0D9YVZFPT Auto SI</strong> — removed from the pause list: $129.99 order on $1.44 of spend (Oct 10). Watch it, no change needed."},
-    {done: false, text: "<strong>Off-season step-down</strong> — SaluSpa still at $8/day (Oct 11 spent $12.69). Recommended: drop to ~$4/day and keep it running for low-cost sell-through rather than switching it off."},
-    {done: false, text: "<strong>SaluSpa bids still above the Aug 21 caps</strong> (Exact ~$0.90 / Broad ~$0.80), unchanged since last review: 'saluspa filter' Broad $2.06, 'saluspa inflatable spa filter' Exact $1.59, 'saluspa filters' $1.07, 'saluspa coronado filters' $0.99, 'spa filter vi' $0.92. Avg CPC rose to $1.65 (from $1.55)."},
+    {done: false, text: "<strong>Pause B0D9YSNYBG Manual Exact now</strong> — $3.15 this window, 5 clicks, 0 sales. Open for a sixth review in a row."},
+    {done: false, text: "<strong>Pause B0D9YVZFPT Discovery SI + Sales SI</strong> — zero sales; Discovery SI $0 on 74 impressions, Sales SI no activity. Low cost, but still enabled with no return."},
+    {done: true, text: "<strong>Keep B0D9YVZFPT Auto SI</strong> — $1.26 with no sale this window, but $129.99 on $1.44 the week before. Net strongly positive; watch, no change."},
+    {done: false, text: "<strong>Off-season step-down</strong> — SaluSpa still at $8/day, window ACOS 41.6% vs ~24.5% break-even. Recommended: drop to ~$4/day and keep it running for low-cost sell-through rather than switching it off."},
+    {done: false, text: "<strong>SaluSpa bids still above the Aug 21 caps</strong> (Exact ~$0.90 / Broad ~$0.80), unchanged: 'saluspa filter' Broad $2.06, 'saluspa inflatable spa filter' Exact $1.59, 'saluspa filters' $1.07, 'saluspa coronado filters' $0.99, 'spa filter vi' $0.92. Avg CPC $1.60."},
     {done: false, text: "<strong>Negative Exact 'saluspa hot tub filter' conflict</strong> — the ENABLED Negative Exact still blocks the same term's Exact ($0.86) and Broad ($0.50) keywords. Unchanged since first flagged."},
-    {done: true, text: "<strong>B0D9YSNYBG Auto-Discovery paused</strong> (requested Aug 21) — confirmed still PAUSED Oct 12."},
-    {done: true, text: "<strong>B0D9YW9DC1 Manual Exact + Auto-Discovery paused</strong> — confirmed PAUSED Oct 12."},
-    {done: true, text: "<strong>B0DBVZFBFV Product Targeting + Auto-Discovery paused</strong> — both confirmed PAUSED Oct 12."},
-    {done: true, text: "<strong>Negative keywords live as Negative Phrase</strong> (mspa, m spa, intex, avenli, wave spa, hose filter, filtre) — confirmed Oct 12: all seven ENABLED, no drift."},
-    {done: true, text: "<strong>Generic 'hot tub filter' Broad paused</strong> — confirmed Oct 12, no drift."},
+    {done: true, text: "<strong>B0D9YSNYBG Auto-Discovery paused</strong> (requested Aug 21) — confirmed still PAUSED Oct 16."},
+    {done: true, text: "<strong>B0D9YW9DC1 Manual Exact + Auto-Discovery paused</strong> — confirmed PAUSED Oct 16."},
+    {done: true, text: "<strong>B0DBVZFBFV Product Targeting + Auto-Discovery paused</strong> — both confirmed PAUSED Oct 16."},
+    {done: true, text: "<strong>Negative keywords live as Negative Phrase</strong> (mspa, m spa, intex, avenli, wave spa, hose filter, filtre) — confirmed Oct 16: all seven ENABLED, no drift."},
+    {done: true, text: "<strong>Generic 'hot tub filter' Broad paused</strong> — confirmed Oct 16, no drift."},
     {done: false, text: "<strong>B0DZ31B3RP (SupportRest Plus Twin)</strong> — 14-unit test buy SOLD OUT; all three campaigns confirmed PAUSED. Reactivation needs a real reorder decision from Todd on buying more units - not a restock ETA."},
     {done: false, text: "<strong>Second-container packing list + SKU Economics export</strong> — requested from Douae Aug 21, still outstanding. These set next season's ad plan and the real break-even per SKU."},
     {done: false, text: "<strong>Direct sales-data connection</strong> — the Selling Partner API application is awaiting <em>Amazon's</em> developer approval for external clients. Nothing for Todd to action. Until it clears, total sales, TACOS and margin come from a periodic Seller Central export."}
   ],
   notes: [
-    "✅ Win of the week: B0D9YVZFPT Auto SI turned $1.44 of spend into a $129.99 order (1.1% ACOS), lifting the account to $201.91 ad sales and 14.3% ACOS.",
-    "⚠️ SaluSpa window ACOS 34.4% (flat vs 34.5%), still above the ~24.5% break-even. Settled Oct 7-9 ran at 16.3% ($5.87 for $35.96); Oct 10-11 ($18.86 spend) will restate upward.",
-    "⚠️ Oct 11 SaluSpa spent $12.69 on an $8 budget (7 clicks at $1.81). Avg CPC up to $1.65; bids still above the Aug 21 caps.",
-    "⚠️ B0D9YSNYBG Manual Exact leak grew to $2.72 (9.4% of spend) - fifth review asking for the pause.",
+    "✅ Win of the week: SaluSpa Oct 14 — 1 order ($17.98) on $3.19 of spend (18% ACOS), and daily SaluSpa spend has settled at $1.88-$3.19 since Oct 12.",
+    "⚠️ SaluSpa window ACOS 41.6% (up from 34.4%), well above the ~24.5% break-even. Settled Oct 11-13: $17.12 for $35.96 (47.6%); Oct 14-15 may restate upward.",
+    "⚠️ Zero-sale spend rose to $4.41 (16.4% of the account): B0D9YSNYBG Manual Exact $3.15 (6th review asking for the pause) + Auto SI $1.26.",
+    "⚠️ Oct 10 ($6.17, 0 sales, flagged Oct 15) is outside this window - restatement can't be checked from this pull.",
     "🍂 Off-season: step SaluSpa to ~$4/day with bids at the caps for low-cost sell-through. Ad-attributed only; TACOS needs SP-API (awaiting Amazon's approval)."
   ]
 };
