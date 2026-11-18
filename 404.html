@@ -1,0 +1,14 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Nurise Project Dashboard</title>
+<script>
+  // Old or deep links land here before the browser has unlocked the dashboard.
+  // Send them to the password page, then on to the page they asked for.
+  (function () {
+    var parts = location.pathname.split("/");
+    var base = "/" + parts[1] + "/";
+    var rest = location.pathname.slice(base.length);
+    location.replace(base + (rest ? "?next=" + encodeURIComponent(decodeURIComponent(rest)) : ""));
+  })();
+</script>
+<p>Redirecting to the dashboard sign-in…</p>
